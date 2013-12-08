@@ -11,7 +11,7 @@ modifier2:
     path:  /Etudiant/modifier/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifier2 }
 Test:
-    path:  /Etudiant/test/{id}
+    path:  /Etudiant/test
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:Test }
 
 

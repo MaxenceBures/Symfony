@@ -173,8 +173,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // Test
-            if (0 === strpos($pathinfo, '/Etudiant/test') && preg_match('#^/Etudiant/test/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'Test')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::TestAction',));
+            if ($pathinfo === '/Etudiant/test') {
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::TestAction',  '_route' => 'Test',);
             }
 
         }

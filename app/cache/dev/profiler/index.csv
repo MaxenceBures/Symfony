@@ -9,3 +9,8 @@ a57325,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test/de,13
 8d0fac,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test/de,1386503584,
 8f3617,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test/1,1386503586,
 e84ab8,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test/1,1386503586,
+37dd63,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503737,
+7d2e00,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503737,
+d69b9b,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503775,
+096ad4,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503775,
+b54e09,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503788,
