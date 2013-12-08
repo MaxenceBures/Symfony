@@ -29,7 +29,7 @@ class EtudiantController extends Controller
     }
      public function TestAction()
     {
-       		return new Response("Test de la mort") ;
+       		return new Response("Test") ;
     	//return $this->render('webStudentEtudiantBundle:Etudiant:modifier.html.twig', array('id' => $id));
     	//return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 
