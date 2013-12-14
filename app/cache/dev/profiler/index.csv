@@ -16,9 +16,21 @@ d69b9b,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,13865
 b54e09,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503788,
 a4f807,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503891,
 647f87,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386503930,
+<<<<<<< HEAD
 17a393,::1,GET,http://localhost:8888/symfony/web/app_dev.php/affichSalut/test,1386507623,
 2d3877,::1,GET,http://localhost:8888/symfony/web/app_dev.php/affichSalut/test,1386507623,
 858103,::1,GET,http://localhost:8888/symfony/web/app_dev.php/affichSalut,1386507644,
 b057cc,::1,GET,http://localhost:8888/Symfony/web/app_dev.php/Etudiant/modifier/Tet,1386837190,
 072309,127.0.0.1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386837197,
 9bdef3,::1,GET,http://localhost:8888/Symfony/web/app_dev.php/Etudiant/ajouterSection,1387015499,
+=======
+51875e,::1,GET,http://localhost/symfony/web/app_dev.php/,1386507470,
+dce23c,::1,GET,http://localhost/symfony/web/app_dev.php/hello/test,1386507497,
+5f43de,::1,GET,http://localhost/symfony/web/app_dev.php/hello/test,1386507497,
+153783,::1,GET,http://localhost/symfony/web/app_dev.php/Test,1386507581,
+b251e4,::1,GET,http://localhost/symfony/web/app_dev.php/Test,1386507581,
+d8e74e,::1,GET,http://localhost/symfony/web/app_dev.php/AffichSalut,1386507861,
+ff34ef,::1,GET,http://localhost/symfony/web/app_dev.php/AffichSalut,1386507861,
+2e40b0,::1,GET,http://localhost/symfony/web/app_dev.php/affichSalut,1386507927,
+feceb8,::1,GET,http://localhost/symfony/web/app_dev.php/affichSalut,1386512285,
+>>>>>>> 65e30452e7e30769df4d4062d69d2a40e7ddfe67
