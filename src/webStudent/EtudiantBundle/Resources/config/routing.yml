@@ -13,5 +13,11 @@ modifier2:
 Test:
     path:  /Etudiant/test
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:Test }
+AjouterEtudiant:
+    path: /Etudiant/ajouter
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouter }
+AjouterSection:
+    path: /Etudiant/ajouterSection
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterSection }
 
 

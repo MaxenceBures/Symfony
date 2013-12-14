@@ -1,0 +1,17 @@
+SalutEverybody:
+    path:  /affichSalut
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:index }
+webStudent_etudiant_homepage:
+    pattern:  /salut/{name}
+    defaults: { _controller: webStudentEtudiantBundle:Default:index }
+consulter2:
+    path:  /Etudiant/consulter
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulter2 }
+modifier2:
+    path:  /Etudiant/modifier/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifier2 }
+Test:
+    path:  /Etudiant/test
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:Test }
+
+

@@ -23,10 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Utilisateur
 {
-    /**
-* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Section") * @ORM\JoinColumn(nullable=false)
-*/
-      private $section;
+    
     /**
      * @var integer
      *
@@ -35,6 +32,17 @@ class Utilisateur
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+
+/**
+* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Section", inversedBy="utilisateurs")
+*  @ORM\JoinColumn(nullable=false)
+*/
+      private $section;
+
+
+    
 
     /**
      * @var string

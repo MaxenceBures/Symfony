@@ -177,6 +177,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::TestAction',  '_route' => 'Test',);
             }
 
+            if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
+                // AjouterEtudiant
+                if ($pathinfo === '/Etudiant/ajouter') {
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterAction',  '_route' => 'AjouterEtudiant',);
+                }
+
+                // AjouterSection
+                if ($pathinfo === '/Etudiant/ajouterSection') {
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterSectionAction',  '_route' => 'AjouterSection',);
+                }
+
+            }
+
         }
 
         // _welcome
