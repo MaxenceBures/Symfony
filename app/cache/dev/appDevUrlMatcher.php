@@ -190,6 +190,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
+                // consulterSectionAction
+                if (0 === strpos($pathinfo, '/Etudiant/consulterSection') && preg_match('#^/Etudiant/consulterSection/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterSectionAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterSectionAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant')) {
+                    // consulterEtudiantAction
+                    if (preg_match('#^/Etudiant/consulterEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEtudiantAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiantAction',));
+                    }
+
+                    // consulterEtudiant2Action
+                    if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant2') && preg_match('#^/Etudiant/consulterEtudiant2/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEtudiant2Action')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiant2Action',));
+                    }
+
+                }
+
+            }
+
         }
 
         // _welcome

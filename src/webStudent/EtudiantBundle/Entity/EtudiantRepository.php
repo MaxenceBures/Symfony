@@ -34,6 +34,15 @@ class EtudiantRepository extends EntityRepository
     ->getRepository('webStageEtudiantBundle:Section');
     $section = $repository->find($id);
 
+}
+
+ public function find2($id)
+{
+    $repository = $this->getDoctrine()
+    ->getManager()
+    ->getRepository('webStageEtudiantBundle:Etudiant');
+    $etudiant = $repository->find2($id);
+
 }    
 
 }

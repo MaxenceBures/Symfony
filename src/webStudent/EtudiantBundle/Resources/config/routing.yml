@@ -19,5 +19,13 @@ AjouterEtudiant:
 AjouterSection:
     path: /Etudiant/ajouterSection
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterSection }
-
+consulterSectionAction:
+    path: /Etudiant/consulterSection/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterSection }
+consulterEtudiantAction:
+    path: /Etudiant/consulterEtudiant/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant}
+consulterEtudiant2Action:
+    path: /Etudiant/consulterEtudiant2/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant2}    
 

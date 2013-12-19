@@ -43,7 +43,7 @@ public function ajouterAction()
 
     $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Section');
     // On récupère l'entité correspondant à l'id $id
-     $section = $repository->findOneByid(5);
+     $section = $repository->findOneByid(1);
      // Ou null si aucune section n'a été trouvé avec l'id $id
     if($section === null){
     throw $this->createNotFoundException('Section[code='.$code.'] inexistant.');
@@ -51,26 +51,16 @@ public function ajouterAction()
 }
 
        
-       var_dump($section);// Etape 0 – creation de l'objet Etudiant
+      // var_dump($section);// Etape 0 – creation de l'objet Etudiant
 
         $etudiant = new Etudiant();
- 
         $etudiant->setSection($section);
-
         $etudiant->setCode("test");
-        
         $etudiant->setNom('Bures');
-
         $etudiant->setPrenom('Maxence');
-
         $etudiant->setTelephone('0233350678');
-
         $etudiant->setAdressemail('test@gmail.com');
-
         $etudiant->setDate('2');
-
-
-
 
     // Etape 1 On récupère l'EntityManager
 
@@ -80,8 +70,7 @@ public function ajouterAction()
 
     // Étape 2 : On « persiste » l'entité
       $em->persist($section);
-
-        $em->persist($etudiant);
+      $em->persist($etudiant);
 
    
 
@@ -110,5 +99,58 @@ $em->persist($section);
 $em->flush();
 return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 }
+
+public function consulterSectionAction($id)
+{
+$repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('webStudentEtudiantBundle:Section');
+// On récupère l'entité correspondant à l'id $id
+$section = $repository->find($id);
+// Ou null si aucune section n'a été trouvé avec l'id $id
+ if($section === null)
+    {
+ throw $this->createNotFoundException('Section[id='.$id.'] inexistant.');
+}
+return $this->render('webStudentEtudiantBundle:Etudiant:consultUtil.html.twig', array(
+        'id' => $section->getNom(), 'nb' => $section->get()
+));}
+
+public function consulterEtudiantAction($id)
+{
+$repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('webStudentEtudiantBundle:Etudiant');
+// On récupère l'entité correspondant à l'id $id
+$etudiant = $repository->find($id);
+// Ou null si aucune section n'a été trouvé avec l'id $id
+ if($etudiant === null)
+    {
+ throw $this->createNotFoundException('Etudiant[id='.$id.'] inexistant.');
+}
+return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
+        'nom' => $etudiant->getId(), 'prenom' => $etudiant->getDate()
+));}
+
+public function consulterEtudiant2Action($id)
+    {
+        $repository = $this->getDoctrine()
+                       ->getManager()
+                       ->getRepository('webStudentEtudiantBundle:Utilisateur');
+
+        // On récupère l'entité correspondant à l'id $id
+        $etudiant = $repository->find($id);
+
+        // Ou null si aucune section n'a été trouvé avec l'id $id
+         if($etudiant === null)
+         {
+         throw $this->createNotFoundException('Etudiant[id='.$id.'] inexistant.');
+        }
+         
+        return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
+             'id' => $etudiant->getNom(),
+             'prenom' => $etudiant->getPrenom()
+            ));
+    }
 
 }
