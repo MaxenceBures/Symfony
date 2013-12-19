@@ -22,3 +22,8 @@ a4f807,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,13865
 b057cc,::1,GET,http://localhost:8888/Symfony/web/app_dev.php/Etudiant/modifier/Tet,1386837190,
 072309,127.0.0.1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1386837197,
 9bdef3,::1,GET,http://localhost:8888/Symfony/web/app_dev.php/Etudiant/ajouterSection,1387015499,
+1f852a,::1,GET,http://localhost:8888/symfony/web/app_dev.php/salut,1387441719,
+22f1cf,::1,GET,http://localhost:8888/symfony/web/app_dev.php/salut,1387441719,
+aeccb3,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test,1387441819,
+106490,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test/1,1387441819,
+23e7ed,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/test/1,1387441819,
