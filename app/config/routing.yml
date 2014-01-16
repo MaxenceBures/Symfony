@@ -1,5 +1,5 @@
 web_student_stage:
-    resource: "@webStudentStageBundle/Resources/config/routing.yml"
+    resource: "@webStudentEtudiantBundle/Resources/config/routing.yml"
     prefix:   /
 
 web_student_etudiant:

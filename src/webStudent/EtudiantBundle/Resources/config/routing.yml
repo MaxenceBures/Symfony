@@ -27,5 +27,25 @@ consulterEtudiantAction:
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant}
 consulterEtudiant2Action:
     path: /Etudiant/consulterEtudiant2/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant2}    
-
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant2}
+listeAction:
+    path: /Etudiant/Liste/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:liste}
+consulterStageAction:
+    path: /Etudiant/consulterStage/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterStage}
+ListeStageAction:
+    path: /Etudiant/consulterListeStage/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
+test2Action:
+    path: /test/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:test2}
+Entreprises_consulter_tous:
+    pattern:  /entreprise/consulterEntreprises/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterLesEntreprises }
+Entreprise_afficher:
+    path: /entreprise/consulterEntreprise/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Stage:consulterEntreprise}
+Entreprise_rechercher:
+    path: /entreprise/rechercherEntreprise/{nom}
+    defaults: { _controller: webStudentEtudiantBundle:Stage:rechercherEntreprise }

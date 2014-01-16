@@ -2868,7 +2868,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Resources/views', 'webStudentEtudiant');
-        $instance->addPath('/Applications/MAMP/htdocs/symfony/src/webStudent/StageBundle/Resources/views', 'webStudentStage');
+        $instance->addPath('/Applications/MAMP/htdocs/symfony/src/webStudent/StageBundle/Resources/views', 'webStudentEtudiant');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/src/Acme/DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
@@ -3320,7 +3320,7 @@ class appDevDebugProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\webStudentEtudiantBundle',
-                'webStudentStageBundle' => 'webStudent\\StageBundle\\webStudentStageBundle',
+                'webStudentEtudiantBundle' => 'webStudent\\StageBundle\\webStudentEtudiantBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',

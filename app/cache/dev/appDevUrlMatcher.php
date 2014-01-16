@@ -211,6 +211,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            // listeAction
+            if (rtrim($pathinfo, '/') === '/Etudiant/Liste') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'listeAction');
+                }
+
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeAction',  '_route' => 'listeAction',);
+            }
+
+            if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
+                // consulterStageAction
+                if (0 === strpos($pathinfo, '/Etudiant/consulterStage') && preg_match('#^/Etudiant/consulterStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterStageAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterStageAction',));
+                }
+
+                // ListeStageAction
+                if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeStage') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'ListeStageAction');
+                    }
+
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStageAction',);
+                }
+
+            }
+
+        }
+
+        // test2Action
+        if (rtrim($pathinfo, '/') === '/test') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'test2Action');
+            }
+
+            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test2Action',  '_route' => 'test2Action',);
+        }
+
+        if (0 === strpos($pathinfo, '/entreprise')) {
+            if (0 === strpos($pathinfo, '/entreprise/consulterEntreprise')) {
+                // Entreprises_consulter_tous
+                if (rtrim($pathinfo, '/') === '/entreprise/consulterEntreprises') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'Entreprises_consulter_tous');
+                    }
+
+                    return array (  '_controller' => 'webStudentEtudiantBundle:Etudiant:consulterLesEntreprises',  '_route' => 'Entreprises_consulter_tous',);
+                }
+
+                // Entreprise_afficher
+                if (preg_match('#^/entreprise/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'Entreprise_afficher')), array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::consulterEntrepriseAction',));
+                }
+
+            }
+
+            // Entreprise_rechercher
+            if (0 === strpos($pathinfo, '/entreprise/rechercherEntreprise') && preg_match('#^/entreprise/rechercherEntreprise/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'Entreprise_rechercher')), array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::rechercherEntrepriseAction',));
+            }
+
         }
 
         // _welcome
