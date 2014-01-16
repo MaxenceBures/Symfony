@@ -4,8 +4,6 @@ namespace webStudent\EtudiantBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use webStudent\EtudiantBundle\Entity\Etudiant;
-use webStudent\EtudiantBundle\Entity\Section;
 
 class EtudiantController extends Controller
 {
@@ -36,8 +34,7 @@ class EtudiantController extends Controller
     	//return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 
     }
-
-public function ajouterAction()
+    public function ajouterAction()
 
     {
 
@@ -113,8 +110,22 @@ $section = $repository->find($id);
  throw $this->createNotFoundException('Section[id='.$id.'] inexistant.');
 }
 return $this->render('webStudentEtudiantBundle:Etudiant:consultUtil.html.twig', array(
-        'id' => $section->getNom(), 'nb' => $section->get()
+        'id' => $section->getNom(),
+        'nb' => $section->getNb()
 ));}
+
+
+
+public function ListeAction()
+    {
+        $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Etudiant');
+        $listeEtudiant=$repository->findAll();
+        foreach ($listeEtudiant as $etudiant) {
+            $etudiant->getNom();
+        }
+        //var_dump($listeEtudiant) ;
+        return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeEtudiant.html.twig', array('listeEtudiant' => $listeEtudiant));
+    }
 
 public function consulterEtudiantAction($id)
 {
@@ -129,7 +140,8 @@ $etudiant = $repository->find($id);
  throw $this->createNotFoundException('Etudiant[id='.$id.'] inexistant.');
 }
 return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
-        'nom' => $etudiant->getId(), 'prenom' => $etudiant->getDate()
+        'nom' => $etudiant->getId(),
+        'prenom' => $etudiant->getDate()
 ));}
 
 public function consulterEtudiant2Action($id)
@@ -149,8 +161,94 @@ public function consulterEtudiant2Action($id)
          
         return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
              'id' => $etudiant->getNom(),
-             'prenom' => $etudiant->getPrenom()
+             'prenom' => $etudiant->getPrenom(),
+             'mail' => $etudiant->getAdressemail(),
+             'telephone' => $etudiant->getTelephone()
+
+
             ));
     }
 
+public function consulterStageAction($id)
+{
+$repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('webStudentEtudiantBundle:Stage');
+// On récupère l'entité correspondant à l'id $id
+$stage = $repository->find($id);
+// Ou null si aucune section n'a été trouvé avec l'id $id
+ if($stage === null)
+    {
+ throw $this->createNotFoundException('Stage[id='.$id.'] inexistant.');
+}
+return $this->render('webStudentEtudiantBundle:Etudiant:consultStage.html.twig', array(
+        'id' => $stage->getIntitule(),
+        'debut' => $stage->getDateDebut(),
+        'fin'=> $stage->getDateFin(),
+        'activite'=> $stage->getActivite(),
+        'entreprise'=> $stage->getEntreprise()
+));}    
+
+public function ListeStageAction()
+    {
+        $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Stage');
+        $listeStage=$repository->findAll();
+        foreach ($listeStage as $stage) {
+            $stage->getIntitule()
+            ;
+        }
+        //var_dump($listeEtudiant) ;
+        return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeStage.html.twig', array('listeStage' => $listeStage));
+    }
+
+public function test2Action()
+    {
+        //return new Response("Salut tout le monde; test") ;
+        return $this->render('webStudentEtudiantBundle:Etudiant:test.html.twig');
+        //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
+    }   
+
+    public function consulterLesEntreprisesAction()
+    {
+        $repository = $this->getDoctrine()
+                       ->getManager()
+                       ->getRepository('webStudentEtudiantBundle:Utilisateur');
+
+        $tabEntreprises = $repository->findAll();
+
+        return $this->render('webStudentEtudiantBundle:Entreprise:consulterLesEntreprises.html.twig', array(
+             'listeEntreprises' => $tabEntreprises));
+        
+    }
+
+    public function consulterEntrepriseAction($id)
+    {
+        $repository = $this->getDoctrine()
+                       ->getManager()
+                       ->getRepository('webStudentEtudiantBundle:Entreprise');
+        // On récupère l'entité correspondant à l'id $id
+        $entreprise = $repository->find($id);
+
+        // Ou null si aucune entreprise n'a été trouvé avec l'id $id
+         if($entreprise === null)
+         {
+         throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistante.');
+         }
+         
+        return $this->render('webStudentEtudiantBundle:Entreprise:consulterEntreprise.html.twig', array(
+             'entreprise' => $entreprise
+            ));
+    }
+
+    public function rechercherEntrepriseAction($nom)
+    {
+        $repository = $this->getDoctrine()
+                       ->getManager()
+                       ->getRepository('webStudentEtudiantBundle:Entreprise');
+
+        $tabEntreprises = $repository->rechercherEntreprise($nom);
+
+        return $this->render('webStudentEtudiantBundle:Entreprise:consulterLesEntreprises.html.twig', array(
+             'listeEntreprises' => $tabEntreprises));
+    } 
 }
