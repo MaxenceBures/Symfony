@@ -26,11 +26,6 @@ class __TwigTemplate_89aaec4e51648f3fe6a70337ffbbf6d8ac44cca1de1445d2da8ed52bbd2
  <p>
  Félicitations, vous avez réussi à créer une première page. Vous avez compris ?!?
  </p>
-
- <h1>Salut  ";
-        // line 13
-        echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "html", null, true);
-        echo " </h1>
  </body>
 </html>";
     }
@@ -40,13 +35,8 @@ class __TwigTemplate_89aaec4e51648f3fe6a70337ffbbf6d8ac44cca1de1445d2da8ed52bbd2
         return "webStudentEtudiantBundle:Etudiant:index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  32 => 13,  19 => 2,);
+        return array (  19 => 2,);
     }
 }

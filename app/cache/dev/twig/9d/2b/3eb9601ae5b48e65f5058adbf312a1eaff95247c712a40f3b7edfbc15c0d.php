@@ -23,10 +23,10 @@ class __TwigTemplate_9d2b3eb9601ae5b48e65f5058adbf312a1eaff95247c712a40f3b7edfbc
  </head>
  <body>
  <h1>Section  </h1>
-  ";
+ <h1> ";
         // line 9
         echo twig_escape_filter($this->env, (((isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")) . " ") . (isset($context["nb"]) ? $context["nb"] : $this->getContext($context, "nb"))), "html", null, true);
-        echo "
+        echo " </h1>
  </body>
 </html>";
     }

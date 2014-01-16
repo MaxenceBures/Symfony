@@ -23,37 +23,10 @@ class __TwigTemplate_df1da1087e0f7aa60e51a2242746b1f313355da910a39a799bcea4a0d4c
  </head>
  <body>
  <h1>Etudiant  </h1>
- <table border=1>
- \t<tr>
- \t\t<td>Nom </td>
- \t\t<td> ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), "html", null, true);
-        echo "</td>
- \t</tr> </h1>
- \t<tr>
- \t\t<td>Prenom </td>
- \t\t<td> ";
-        // line 16
-        echo twig_escape_filter($this->env, (isset($context["prenom"]) ? $context["prenom"] : $this->getContext($context, "prenom")), "html", null, true);
-        echo "</td>
- \t</tr>
- \t<tr>
- \t\t<td>Mail </td>
- \t\t<td> ";
-        // line 20
-        echo twig_escape_filter($this->env, (isset($context["mail"]) ? $context["mail"] : $this->getContext($context, "mail")), "html", null, true);
-        echo "</td>
- \t</tr>
- \t<tr>
- \t\t<td>Telephone </td>
- \t\t<td> ";
-        // line 24
-        echo twig_escape_filter($this->env, (isset($context["telephone"]) ? $context["telephone"] : $this->getContext($context, "telephone")), "html", null, true);
-        echo "</td>
- \t</tr>
- \t
- </table\t
+ <h1> ";
+        // line 9
+        echo twig_escape_filter($this->env, (((isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")) . " ") . (isset($context["prenom"]) ? $context["prenom"] : $this->getContext($context, "prenom"))), "html", null, true);
+        echo " </h1>
  </body>
 </html>";
     }
@@ -70,6 +43,6 @@ class __TwigTemplate_df1da1087e0f7aa60e51a2242746b1f313355da910a39a799bcea4a0d4c
 
     public function getDebugInfo()
     {
-        return array (  52 => 24,  45 => 20,  38 => 16,  31 => 12,  19 => 2,);
+        return array (  28 => 9,  19 => 2,);
     }
 }
