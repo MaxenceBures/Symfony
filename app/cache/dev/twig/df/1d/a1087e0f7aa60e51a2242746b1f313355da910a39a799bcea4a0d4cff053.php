@@ -53,7 +53,7 @@ class __TwigTemplate_df1da1087e0f7aa60e51a2242746b1f313355da910a39a799bcea4a0d4c
         echo "</td>
  \t</tr>
  \t
- </table\t
+ </table>
  </body>
 </html>";
     }

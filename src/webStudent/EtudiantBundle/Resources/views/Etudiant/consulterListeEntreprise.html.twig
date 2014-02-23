@@ -1,0 +1,36 @@
+{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/consulterListeEntreprise.html.twig #}
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+
+	{% block body %}
+	{% block test %} {{ parent() }} {% endblock %}
+	<div align="center">
+		<h1>Afficher les entreprises</h1>
+		<p>
+			Tableau des Entreprises
+		</p>
+		<table border ="2">
+		<tr>
+		<td>Id</td>
+		<td>Code</td>
+		<td>Raison Sociale</td>
+		<td>Rue</td>
+		<td>Ville</td>
+		<td>Code Postal</td>
+		<td></td>
+		</tr>
+		{% for entreprise in listeEntreprise %}
+			<tr><!--.RaisonSociale-->
+			
+				<td>{{ entreprise.id }}</td>
+				<td>{{ entreprise.code }}</td>
+				<td>{{entreprise.raisonsociale}}</td>
+				<td>{{entreprise.rue}}</td>
+				<td>{{entreprise.ville}}</td>
+				<td>{{entreprise.cp}}</td>
+				<td><a href="{{ path('consulterEntrepriseAction', {'id': entreprise.id})}}"> En voir plus</a></td>
+				
+			</tr>
+		{% endfor %}
+		</table>
+		</div>
+	{% endblock %}
