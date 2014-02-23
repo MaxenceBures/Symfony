@@ -235,6 +235,20 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStageAction',);
                 }
 
+                // consulterEntrepriseAction
+                if (0 === strpos($pathinfo, '/Etudiant/consulterEntreprise') && preg_match('#^/Etudiant/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEntrepriseAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEntrepriseAction',));
+                }
+
+                // ListeEntrepriseAction
+                if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeEntreprise') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'ListeEntrepriseAction');
+                    }
+
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEntrepriseAction',  '_route' => 'ListeEntrepriseAction',);
+                }
+
             }
 
         }

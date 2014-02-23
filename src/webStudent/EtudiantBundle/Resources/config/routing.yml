@@ -37,9 +37,16 @@ consulterStageAction:
 ListeStageAction:
     path: /Etudiant/consulterListeStage/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
+consulterEntrepriseAction:
+    path: /Etudiant/consulterEntreprise/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEntreprise}
+ListeEntrepriseAction:
+    path: /Etudiant/consulterListeEntreprise/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEntreprise}
 test2Action:
     path: /test/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:test2}
+
 Entreprises_consulter_tous:
     pattern:  /entreprise/consulterEntreprises/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterLesEntreprises }

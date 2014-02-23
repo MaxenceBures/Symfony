@@ -200,14 +200,42 @@ public function ListeStageAction()
         //var_dump($listeEtudiant) ;
         return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeStage.html.twig', array('listeStage' => $listeStage));
     }
-
+public function ListeEntrepriseAction()
+    {
+        $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Entreprise');
+        $listeStage=$repository->findAll();
+        foreach ($listeStage as $stage) {
+            $stage->getCode()
+            ;
+        }
+        //var_dump($listeEtudiant) ;
+        return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeEntreprise.html.twig', array('listeEntreprise' => $listeStage));
+    }    
+public function consulterEntrepriseAction($id)
+{
+$repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('webStudentEtudiantBundle:Entreprise');
+// On récupère l'entité correspondant à l'id $id
+$stage = $repository->find($id);
+// Ou null si aucune section n'a été trouvé avec l'id $id
+ if($stage === null)
+    {
+ throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistant.');
+}
+return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array(
+        'id' => $stage->getCode(),
+        'raisonsociale' => $stage->getRaisonSociale(),
+        'rue'=> $stage->getRue(),
+        'ville'=> $stage->getVille(),
+        'cp'=> $stage->getCp()
+));}  
 public function test2Action()
     {
         //return new Response("Salut tout le monde; test") ;
         return $this->render('webStudentEtudiantBundle:Etudiant:test.html.twig');
         //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
     }   
-
     public function consulterLesEntreprisesAction()
     {
         $repository = $this->getDoctrine()
@@ -221,24 +249,24 @@ public function test2Action()
         
     }
 
-    public function consulterEntrepriseAction($id)
-    {
-        $repository = $this->getDoctrine()
-                       ->getManager()
-                       ->getRepository('webStudentEtudiantBundle:Entreprise');
-        // On récupère l'entité correspondant à l'id $id
-        $entreprise = $repository->find($id);
+    // public function consulterEntrepriseAction($id)
+    // {
+    //     $repository = $this->getDoctrine()
+    //                    ->getManager()
+    //                    ->getRepository('webStudentEtudiantBundle:Entreprise');
+    //     // On récupère l'entité correspondant à l'id $id
+    //     $entreprise = $repository->find($id);
 
-        // Ou null si aucune entreprise n'a été trouvé avec l'id $id
-         if($entreprise === null)
-         {
-         throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistante.');
-         }
+    //     // Ou null si aucune entreprise n'a été trouvé avec l'id $id
+    //      if($entreprise === null)
+    //      {
+    //      throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistante.');
+    //      }
          
-        return $this->render('webStudentEtudiantBundle:Entreprise:consulterEntreprise.html.twig', array(
-             'entreprise' => $entreprise
-            ));
-    }
+    //     return $this->render('webStudentEtudiantBundle:Entreprise:consulterEntreprise.html.twig', array(
+    //          'entreprise' => $entreprise
+    //         ));
+    // }
 
     public function rechercherEntrepriseAction($nom)
     {

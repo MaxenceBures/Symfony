@@ -1,0 +1,16 @@
+{% extends "::layout.html.twig" %}
+	{% block body %}
+		<h1>Afficher les entreprises</h1>
+		<p>
+			Tableau des Entreprises
+		</p>
+		<table >
+		{% for entreprise in listeEntreprise %}
+			<tr><!--.RaisonSociale-->
+			
+				<td>{{ entreprise.id }}  - {{ entreprise.code }} - {{entreprise.raisonsociale}} - {{entreprise.ville}} - {{entreprise.rue}} - {{entreprise.cp}}</td><td><a href="{{ path('consulterEntrepriseAction', {'id': entreprise.id})}}"> En voir plus</a></td>
+				
+			</tr>
+		{% endfor %}
+		</table>
+	{% endblock %}
