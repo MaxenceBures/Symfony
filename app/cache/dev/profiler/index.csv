@@ -131,3 +131,5 @@ ee294f,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterE
 810a8e,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterEtudiant2/1,1389871670,
 51e63b,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterEtudiant2/1,1389871674,
 4b7178,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/Liste/,1389872086,
+662ed3,::1,GET,http://localhost:8888/symfony/web/app_dev.php/test/,1393196447,
+ee57a1,::1,GET,http://localhost:8888/symfony/web/app_dev.php/test/,1393196448,
