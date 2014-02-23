@@ -46,13 +46,16 @@ ListeEntrepriseAction:
 test2Action:
     path: /test/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:test2}
+test3Action:
+    path: /test3/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:test3}
 
-Entreprises_consulter_tous:
-    pattern:  /entreprise/consulterEntreprises/
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterLesEntreprises }
-Entreprise_afficher:
-    path: /entreprise/consulterEntreprise/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Stage:consulterEntreprise}
-Entreprise_rechercher:
-    path: /entreprise/rechercherEntreprise/{nom}
-    defaults: { _controller: webStudentEtudiantBundle:Stage:rechercherEntreprise }
+# Entreprises_consulter_tous:
+#     pattern:  /entreprise/consulterEntreprises/
+#     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterLesEntreprises }
+# Entreprise_afficher:
+#     path: /entreprise/consulterEntreprise/{id}
+#     defaults: { _controller: webStudentEtudiantBundle:Stage:consulterEntreprise}
+# Entreprise_rechercher:
+#     path: /entreprise/rechercherEntreprise/{nom}
+#     defaults: { _controller: webStudentEtudiantBundle:Stage:rechercherEntreprise }

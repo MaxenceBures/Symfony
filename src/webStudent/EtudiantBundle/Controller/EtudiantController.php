@@ -202,7 +202,9 @@ public function ListeStageAction()
     }
 public function ListeEntrepriseAction()
     {
-        $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Entreprise');
+        $repository=$this->getDoctrine()
+                         ->getManager()
+                         ->getRepository('webStudentEtudiantBundle:Entreprise');
         $listeStage=$repository->findAll();
         foreach ($listeStage as $stage) {
             $stage->getCode()
@@ -235,7 +237,14 @@ public function test2Action()
         //return new Response("Salut tout le monde; test") ;
         return $this->render('webStudentEtudiantBundle:Etudiant:test.html.twig');
         //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
-    }   
+    }
+public function test3Action()
+    {
+            //return new Response("TT") ;
+        return $this->render('webStudentEtudiantBundle:Etudiant:layout.html.twig');
+        //return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
+
+    }       
     public function consulterLesEntreprisesAction()
     {
         $repository = $this->getDoctrine()
