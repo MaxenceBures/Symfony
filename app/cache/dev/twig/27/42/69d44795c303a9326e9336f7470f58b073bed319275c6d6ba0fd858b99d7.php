@@ -35,14 +35,12 @@ class __TwigTemplate_274269d44795c303a9326e9336f7470f58b073bed319275c6d6ba0fd858
         // line 7
         echo $this->env->getExtension('routing')->getPath("listeAction");
         echo "\"> Liste Utilisateur</a></li>
+\t\t\t\t
+\t\t\t
 \t\t\t\t<li><a href=\"";
-        // line 8
+        // line 10
         echo $this->env->getExtension('routing')->getPath("ListeStageAction");
         echo "\"> Liste Stage</a></li>
-\t\t\t\t<li><a href=\"";
-        // line 9
-        echo $this->env->getExtension('routing')->getPath("ListeEntrepriseAction");
-        echo "\"> Liste Entreprise</a></li>
 </ul>\t\t\t\t
         ";
     }
@@ -59,6 +57,6 @@ class __TwigTemplate_274269d44795c303a9326e9336f7470f58b073bed319275c6d6ba0fd858
 
     public function getDebugInfo()
     {
-        return array (  44 => 9,  40 => 8,  36 => 7,  31 => 4,  28 => 3,);
+        return array (  42 => 10,  36 => 7,  31 => 4,  28 => 3,);
     }
 }
