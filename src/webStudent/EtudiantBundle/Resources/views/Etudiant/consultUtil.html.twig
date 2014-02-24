@@ -1,11 +1,7 @@
-{# src/tapadestage/EtudiantBundle/Resources/views/Etudiant/index.html.twig #}
-<!DOCTYPE html>
-<html>
- <head>
- <title>Bienvenue sur votre première page créée avec Symfony !</title>
- </head>
- <body>
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+
+	{% block body %}
+	{% block test %} {{ parent() }} {% endblock %}
  <h1>Section  </h1>
   {{id~" "~nb}}
- </body>
-</html>
+ {% endblock %}
