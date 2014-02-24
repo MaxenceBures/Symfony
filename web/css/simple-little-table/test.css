@@ -1,3 +1,6 @@
+body {
+	font-family: Verdana;
+}
 table a:link {
 	color: #666;
 	font-weight: bold;
@@ -5,16 +8,16 @@ table a:link {
 }
 table a:visited {
 	color: #999999;
-	font-weight:bold;
+	font-weight:bold;#ffda58
 	text-decoration:none;
 }
-table a:active,
+/*table a:active,
 table a:hover {
-	color: black;
+	color: #bd5a35;
 	text-decoration:underline;
-}
+}*/
 table {
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:Verdana,Arial, Helvetica, sans-serif;
 	color:#666;
 	font-size:12px;
 	text-shadow: 1px 1px 0px #fff;
@@ -39,9 +42,7 @@ table th {
 	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
 	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
 }
-table th {
-	background: red;
-}
+
 table th:first-child {
 	text-align: left;
 	padding-left:20px;

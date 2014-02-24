@@ -1,15 +1,14 @@
 {% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
 
 	{% block body %}
-	{% block test %} {{ parent() }} {% endblock %}
 		<h1>Afficher les étudiants</h1>
 		<p>
 			Tableau des étudiants
 		</p>
-		<table border=1>
+		<table cellspacing="0">
 			<tr>
-			<td>Nom</td>
-			<td>Prenom</td>
+			<th>Nom</th>
+			<th>Prenom</th>
 			</tr>
 		{% for etudiant in listeEtudiant %}
 			<tr>
