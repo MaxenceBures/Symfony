@@ -1,24 +1,25 @@
 {% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
 
 	{% block body %}
-	{% block test %} {{ parent() }} {% endblock %}
-	{% block div %} {{ parent() }} 
-	{% endblock %}
+	
 	
 		<h1>Afficher les entreprises</h1>
 		<p>
 			Tableau des Entreprises
 		</p>
-		<table border ="2">
+		<table cellspacing='0'>
+		
 		<tr>
-		<td>Id</td>
-		<td>Code</td>
-		<td>Raison Sociale</td>
-		<td>Rue</td>
-		<td>Ville</td>
-		<td>Code Postal</td>
-		<td></td>
+		<th>Id</th>
+		<th>Code</th>
+		<th>Raison Sociale</th>
+		<th>Rue</th>
+		<th>Ville</th>
+		<th>Code Postal</th>
+		<th></th>
 		</tr>
+		
+	
 		{% for entreprise in listeEntreprise %}
 			<tr><!--.RaisonSociale-->
 			
@@ -32,5 +33,6 @@
 				
 			</tr>
 		{% endfor %}
+		
 		</table>
 	 {% endblock %}

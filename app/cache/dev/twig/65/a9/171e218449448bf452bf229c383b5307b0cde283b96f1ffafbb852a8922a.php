@@ -11,8 +11,8 @@ class __TwigTemplate_65a9171e218449448bf452bf229c383b5307b0cde283b96f1ffafbb852a
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
+            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
-            'test' => array($this, 'block_test'),
         );
     }
 
@@ -26,13 +26,27 @@ class __TwigTemplate_65a9171e218449448bf452bf229c383b5307b0cde283b96f1ffafbb852a
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-  </head>
+";
+        // line 6
+        $this->displayBlock('stylesheets', $context, $blocks);
+        // line 9
+        echo "  </head>
   <body>
+   
+   <a href=\"";
+        // line 12
+        echo $this->env->getExtension('routing')->getPath("test2Action");
+        echo "\"> <img src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("img/Home.png"), "html", null, true);
+        echo "\"  width=60 height=60/></a>
+   <div align=\"center\">
    ";
-        // line 8
+        // line 14
         $this->displayBlock('body', $context, $blocks);
-        // line 18
-        echo "  </div>
+        // line 15
+        echo "    
+
+  </div>
   </body>
 </html>";
     }
@@ -43,30 +57,20 @@ class __TwigTemplate_65a9171e218449448bf452bf229c383b5307b0cde283b96f1ffafbb852a
         echo "WEBSTUDENT";
     }
 
-    // line 8
-    public function block_body($context, array $blocks = array())
+    // line 6
+    public function block_stylesheets($context, array $blocks = array())
     {
-        // line 9
-        echo "    <div align=\"center\">
-    ";
-        // line 10
-        $this->displayBlock('test', $context, $blocks);
-        // line 14
-        echo "
-
-
+        // line 7
+        echo "<link rel=stylesheet type=\"text/css\" href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("css/test.css"), "html", null, true);
+        echo "\" media=\"all\" >
  ";
     }
 
-    // line 10
-    public function block_test($context, array $blocks = array())
+    // line 14
+    public function block_body($context, array $blocks = array())
     {
-        // line 11
-        echo " <a href=\"";
-        echo $this->env->getExtension('routing')->getPath("test2Action");
-        echo "\"> Accueil</a>
-  <div align=\"center\">\t
- ";
+        echo " ";
     }
 
     public function getTemplateName()
@@ -74,8 +78,13 @@ class __TwigTemplate_65a9171e218449448bf452bf229c383b5307b0cde283b96f1ffafbb852a
         return "webStudentEtudiantBundle:Etudiant:layout.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  65 => 11,  62 => 10,  55 => 14,  53 => 10,  50 => 9,  47 => 8,  41 => 5,  35 => 18,  33 => 8,  27 => 5,  22 => 2,);
+        return array (  71 => 14,  61 => 6,  55 => 5,  47 => 15,  45 => 14,  38 => 12,  33 => 9,  27 => 5,  22 => 2,  94 => 36,  84 => 32,  80 => 31,  76 => 30,  72 => 29,  68 => 28,  64 => 7,  60 => 26,  56 => 24,  52 => 23,  31 => 6,  28 => 3,);
     }
 }

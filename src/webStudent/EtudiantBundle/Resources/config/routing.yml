@@ -44,7 +44,7 @@ ListeEntrepriseAction:
     path: /Etudiant/consulterListeEntreprise/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEntreprise}
 test2Action:
-    path: /test/
+    path: /Accueil/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:test2}
 test3Action:
     path: /test3/
