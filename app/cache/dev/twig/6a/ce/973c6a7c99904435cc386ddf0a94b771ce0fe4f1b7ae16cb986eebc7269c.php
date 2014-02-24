@@ -72,7 +72,7 @@ class __TwigTemplate_6ace973c6a7c99904435cc386ddf0a94b771ce0fe4f1b7ae16cb986eebc
  \t</tr>
  \t
  </table>
-";
+ ";
     }
 
     // line 4

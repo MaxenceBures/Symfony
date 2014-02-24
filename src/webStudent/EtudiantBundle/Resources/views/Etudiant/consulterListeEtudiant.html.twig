@@ -1,14 +1,22 @@
-{% extends "::layout.html.twig" %}
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+
 	{% block body %}
+	{% block test %} {{ parent() }} {% endblock %}
 		<h1>Afficher les étudiants</h1>
 		<p>
 			Tableau des étudiants
 		</p>
 		<table border=1>
+			<tr>
+			<td>Nom</td>
+			<td>Prenom</td>
+			</tr>
 		{% for etudiant in listeEtudiant %}
 			<tr>
 			
-				<td>{{ etudiant.nom }} - {{ etudiant.prenom }}</td><td><a href="{{ path('consulterEtudiant2Action', {'id': etudiant.code})}}"> En voir plus</a></td>
+				<td>{{ etudiant.nom }} </td>
+				<td> {{ etudiant.prenom }}</td>
+				<td><a href="{{ path('consulterEtudiant2Action', {'id': etudiant.code})}}"> En voir plus</a></td>
 				
 			</tr>
 		{% endfor %}

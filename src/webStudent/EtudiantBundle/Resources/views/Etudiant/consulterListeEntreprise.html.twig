@@ -1,9 +1,10 @@
-{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/consulterListeEntreprise.html.twig #}
 {% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
 
 	{% block body %}
 	{% block test %} {{ parent() }} {% endblock %}
-	<div align="center">
+	{% block div %} {{ parent() }} 
+	{% endblock %}
+	
 		<h1>Afficher les entreprises</h1>
 		<p>
 			Tableau des Entreprises
@@ -32,5 +33,4 @@
 			</tr>
 		{% endfor %}
 		</table>
-		</div>
-	{% endblock %}
+	 {% endblock %}
