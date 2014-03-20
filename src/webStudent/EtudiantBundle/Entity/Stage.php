@@ -23,6 +23,12 @@ class Stage
     private $id;
 
     /**
+* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Entreprise", inversedBy="utilisateurs")
+*  @ORM\JoinColumn(nullable=false)
+*/
+      private $entreprise;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="intitule", type="string", length=50)
@@ -53,9 +59,9 @@ class Stage
     /**
      * @var string
      *
-     * @ORM\Column(name="entreprise", type="string", length=30)
+     * @ORM\Column(name="entreprise", type="integer", length=11)
      */
-    private $entreprise;
+//    private $entreprise;
 
 
     /**
@@ -165,7 +171,7 @@ class Stage
      *
      * @param string $entreprise
      * @return Stage
-     */
+     *//*
     public function setEntreprise($entreprise)
     {
         $this->entreprise = $entreprise;
@@ -177,6 +183,23 @@ class Stage
      * Get entreprise
      *
      * @return string 
+     */
+   /* public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+*/
+     public function setEntreprise(\webStudent\EtudiantBundle\Entity\Entreprise $entreprise)
+    {
+        $this->entreprise = $entreprise;
+    
+        return $this;
+    }
+
+    /**
+     * Get section
+     *
+     * @return \webStudent\EtudiantBundle\Entity\Section 
      */
     public function getEntreprise()
     {

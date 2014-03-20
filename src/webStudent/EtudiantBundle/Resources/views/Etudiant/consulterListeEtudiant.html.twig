@@ -9,13 +9,15 @@
 			<tr>
 			<th>Nom</th>
 			<th>Prenom</th>
+			<th>Section</th>
 			</tr>
 		{% for etudiant in listeEtudiant %}
 			<tr>
 			
 				<td>{{ etudiant.nom }} </td>
 				<td> {{ etudiant.prenom }}</td>
-				<td><a href="{{ path('consulterEtudiant2Action', {'id': etudiant.code})}}"> En voir plus</a></td>
+				<td> {{ etudiant.section.nom }}</td>
+				
 				
 			</tr>
 		{% endfor %}

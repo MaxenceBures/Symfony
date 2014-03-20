@@ -5,23 +5,23 @@
   <table cellspacing="0">
  	<tr>
  		<th>Nom </th>
- 		<td> {{id}}</td>
+ 		<td> {{stage.id}}</td>
  	</tr> </h1>
  	<tr>
  		<th>Date de debut </th>
- 		<td> {{debut|date("d/m/Y")}}</td>
+ 		<td> {{stage.Datedebut|date("d/m/Y")}}</td>
  	</tr>
  	<tr>
  		<th>Date de fin </th>
- 		<td> {{fin|date("d/m/Y")}}</td>
+ 		<td> {{stage.Datefin|date("d/m/Y")}}</td>
  	</tr>
  	<tr>
  		<th>Activite </th>
- 		<td> {{activite}}</td>
+ 		<td> {{stage.activite}}</td>
  	</tr>
  	<tr>
  		<th>Entreprise </th>
- 		<td> {{entreprise}}</td>
+ 		<td> {{stage.entreprise.RaisonSociale}}</td>
  	</tr>
  	
  </table>

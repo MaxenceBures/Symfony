@@ -52,7 +52,7 @@ class EtudiantController extends Controller
 
         $etudiant = new Etudiant();
         $etudiant->setSection($section);
-        $etudiant->setCode("test");
+        // $etudiant->setCode("test");
         $etudiant->setNom('Bures');
         $etudiant->setPrenom('Maxence');
         $etudiant->setTelephone('0233350678');
@@ -122,6 +122,7 @@ public function ListeAction()
         $listeEtudiant=$repository->findAll();
         foreach ($listeEtudiant as $etudiant) {
             $etudiant->getNom();
+            // $etudiant->getId();
         }
         //var_dump($listeEtudiant) ;
         return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeEtudiant.html.twig', array('listeEtudiant' => $listeEtudiant));
@@ -141,7 +142,8 @@ $etudiant = $repository->find($id);
 }
 return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
         'nom' => $etudiant->getId(),
-        'prenom' => $etudiant->getDate()
+        'prenom' => $etudiant->getDate()//,
+        // 'id' => $etudiant->getId()
 ));}
 
 public function consulterEtudiant2Action($id)
@@ -160,10 +162,12 @@ public function consulterEtudiant2Action($id)
         }
          
         return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
-             'id' => $etudiant->getNom(),
+            'id' => $etudiant->getId(),
+             'nom' => $etudiant->getNom(),
              'prenom' => $etudiant->getPrenom(),
              'mail' => $etudiant->getAdressemail(),
              'telephone' => $etudiant->getTelephone()
+            
 
 
             ));
@@ -181,12 +185,12 @@ $stage = $repository->find($id);
     {
  throw $this->createNotFoundException('Stage[id='.$id.'] inexistant.');
 }
-return $this->render('webStudentEtudiantBundle:Etudiant:consultStage.html.twig', array(
-        'id' => $stage->getIntitule(),
-        'debut' => $stage->getDateDebut(),
-        'fin'=> $stage->getDateFin(),
-        'activite'=> $stage->getActivite(),
-        'entreprise'=> $stage->getEntreprise()
+return $this->render('webStudentEtudiantBundle:Etudiant:consultStage.html.twig', array('stage' =>$stage
+        // 'id' => $stage->getIntitule(),
+        // 'debut' => $stage->getDateDebut(),
+        // 'fin'=> $stage->getDateFin(),
+        // 'activite'=> $stage->getActivite(),
+        // 'entreprise'=> $stage->getEntreprise()
 ));}    
 
 public function ListeStageAction()
@@ -226,7 +230,7 @@ $stage = $repository->find($id);
  throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistant.');
 }
 return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array(
-        'id' => $stage->getCode(),
+        'id' => $stage->getId(),//code
         'raisonsociale' => $stage->getRaisonSociale(),
         'rue'=> $stage->getRue(),
         'ville'=> $stage->getVille(),
