@@ -223,7 +223,32 @@ public function consulterEntrepriseAction($id){
             'cp'=> $stage->getCp()
     ));
 }  
-
+public function ajouterStageAction()
+ {
+   $stage = new Stage();
+      // On crée le FormBuilder grâce à la méthode du contrôleur createFormBuilder
+      // equivaut à dire de créer un formulaire autour de l'objet $stage
+      $formBuilder = $this->createFormBuilder($stage);
+ // On ajoute les champs de l'entité que l'on veut à notre formulaire
+$formBuilder
+           ->add('libelle','text', array('required' => false))
+           ->add('dateDebut', 'date',array(
+                                              'input'  => 'datetime',
+                                              'widget' => 'single_text',
+                                              'format' => 'dd/MM/yyyy'))
+           ->add('dateFin',  'date')
+           ->add('note',  'text');
+                              
+                                 
+                              
+                          
+// À partir du formBuilder, on génère le formulaire
+$form = $formBuilder->getForm();
+// On passe la méthode createView() du formulaire à la vue afin qu'elle puisse afficher leformulaire toute seule
+return $this->render('webStudentEtudiantBundle:Etudiant:ajouterStage.html.twig', array('form' => $form->createView(),
+                                 ));
+// à compléter pour soumettre le formulaire voir ci-dessous.
+}
 public function test2Action()
     {
         //return new Response("Salut tout le monde; test") ;
@@ -250,7 +275,24 @@ public function test3Action()
         
     }
 
-   
+    // public function consulterEntrepriseAction($id)
+    // {
+    //     $repository = $this->getDoctrine()
+    //                    ->getManager()
+    //                    ->getRepository('webStudentEtudiantBundle:Entreprise');
+    //     // On récupère l'entité correspondant à l'id $id
+    //     $entreprise = $repository->find($id);
+
+    //     // Ou null si aucune entreprise n'a été trouvé avec l'id $id
+    //      if($entreprise === null)
+    //      {
+    //      throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistante.');
+    //      }
+         
+    //     return $this->render('webStudentEtudiantBundle:Entreprise:consulterEntreprise.html.twig', array(
+    //          'entreprise' => $entreprise
+    //         ));
+    // }
 
     public function rechercherEntrepriseAction($nom)
     {
@@ -262,33 +304,7 @@ public function test3Action()
 
         return $this->render('webStudentEtudiantBundle:Entreprise:consulterLesEntreprises.html.twig', array(
              'listeEntreprises' => $tabEntreprises));
-    }
-
-    public function ajouterStageAction()
- {
-   $stage = new Stage();
-      // On crée le FormBuilder grâce à la méthode du contrôleur createFormBuilder
-      // equivaut à dire de créer un formulaire autour de l'objet $stage
-      $formBuilder = $this->createFormBuilder($stage);
- // On ajoute les champs de l'entité que l'on veut à notre formulaire
-$formBuilder
-           ->add('libelle','text', array('required' => false))
-           ->add('dateDebut', 'date',array(
-                                              'input'  => 'datetime',
-                                              'widget' => 'single_text',
-                                              'format' => 'dd/MM/yyyy'))
-           ->add('dateFin', 'date')
-           ->add('note', 'text');
-                              
-                                
-                              
-                          
-// À partir du formBuilder, on génère le formulaire
-$form = $formBuilder->getForm();
-// On passe la méthode createView() du formulaire à la vue afin qu'elle puisse afficher leformulaire toute seule
-return $this->render('webStudentEtudiantBundle:Etudiant:ajouterStage.html.twig', array('form' => $form->createView(),         ));
-// à compléter pour soumettre le formulaire voir ci-dessous.
-} 
+    } 
 }
 
 
