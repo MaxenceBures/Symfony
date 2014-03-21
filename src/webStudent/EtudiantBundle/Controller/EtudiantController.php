@@ -275,24 +275,7 @@ public function test3Action()
         
     }
 
-    // public function consulterEntrepriseAction($id)
-    // {
-    //     $repository = $this->getDoctrine()
-    //                    ->getManager()
-    //                    ->getRepository('webStudentEtudiantBundle:Entreprise');
-    //     // On récupère l'entité correspondant à l'id $id
-    //     $entreprise = $repository->find($id);
-
-    //     // Ou null si aucune entreprise n'a été trouvé avec l'id $id
-    //      if($entreprise === null)
-    //      {
-    //      throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistante.');
-    //      }
-         
-    //     return $this->render('webStudentEtudiantBundle:Entreprise:consulterEntreprise.html.twig', array(
-    //          'entreprise' => $entreprise
-    //         ));
-    // }
+   
 
     public function rechercherEntrepriseAction($nom)
     {
