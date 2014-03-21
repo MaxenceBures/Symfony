@@ -17,7 +17,6 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="webStudentEtudiantBundle">webStudent\EtudiantBundle\webStudentEtudiantBundle</parameter>
-      <parameter key="webStudentStageBundle">webStudent\StageBundle\webStudentStageBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -2647,10 +2646,6 @@
       <call method="addPath">
         <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Resources/views</argument>
         <argument>webStudentEtudiant</argument>
-      </call>
-      <call method="addPath">
-        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/StageBundle/Resources/views</argument>
-        <argument>webStudentStage</argument>
       </call>
       <call method="addPath">
         <argument>/Applications/MAMP/htdocs/symfony/src/Acme/DemoBundle/Resources/views</argument>
