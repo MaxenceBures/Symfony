@@ -269,12 +269,13 @@ public function test3Action()
         return $this->render('webStudentEtudiantBundle:Entreprise:consulterLesEntreprises.html.twig', array(
              'listeEntreprises' => $tabEntreprises));
     }
-    public function ajouterStage2Action()
+   /* public function ajouterStage2Action()
  {
    $stage = new Stage();
       // On crée le FormBuilder grâce à la méthode du contrôleur createFormBuilder
       // equivaut à dire de créer un formulaire autour de l'objet $stage
       $formBuilder = $this->createFormBuilder($stage);
+
  // On ajoute les champs de l'entité que l'on veut à notre formulaire
 $formBuilder
            ->add('intitule','text')
@@ -296,7 +297,60 @@ $form = $formBuilder->getForm();
 return $this->render('webStudentEtudiantBundle:Etudiant:ajouterStage.html.twig', array('form' => $form->createView(),
                                  ));
 // à compléter pour soumettre le formulaire voir ci-dessous.
+} */
+/*public function ajouterStage2Action()
+  { 
+    $stage = new Stage ();
+    $form = $this->createForm(new StageType, $stage);
+//$form = $this->createFormBuilder($stage)
+//                 ->add('intitule', 'text')
+//                ->getForm();
+    // On récupère la requête
+    $request = $this->get('request');
+   
+    // On vérifie qu'elle est de type POST
+    if ($request->getMethod() == 'POST') {
+      // On fait le lien Requête <-> Formulaire
+      // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
+      $form->bind($request);
+ 
+      // On vérifie que les valeurs entrées sont correctes
+      if ($form->isValid()) {
+        // On l'enregistre notre objet $article dans la base de données
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($stage);
+        $em->flush();
+ 
+        // On redirige vers la page de visualisation de l'etudiant nouvellement créé
+      return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeStage.html.twig', array('stage' => $stage));
+      }
+    }
+    // À ce stade :
+    // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+    // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+    return $this->render('webStudentEtudiantBundle:Etudiant:test.html.twig', array(
+    'form' => $form->createView(),
+    ));
+}*/
+public function ajouterStage2Action()
+{
+      $stage = new Stage ();
+      $form = $this->createForm(new StageType, $stage);
+/**
+*** INSTRUCTIONS DE SOUMISSION DU FORMULAIRE **/
+      // 1. On récupère la requête HTTP
+      $request = $this->get('request');
+      if ($request->getMethod() == 'POST') {
+        $form->bind($request);
+if ($form->isValid()) {
+        // On enregistre notre objet $etudiant dans la base de données
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($stage);
+        $em->flush();
+        return $this->redirect($this->generateUrl('consulterEtudiant2Action', array('id' => $stage->getId())));
+      }
+}
+  return $this->render('webStudentEtudiantBundle:Etudiant:ajouterStage.html.twig', array('form' => $form->createView(),
+));
 }  
 }
-
-

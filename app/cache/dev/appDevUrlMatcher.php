@@ -272,7 +272,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // Stage_ajouterAction
-        if ($pathinfo === '/Test/ajouterStage') {
+        if (rtrim($pathinfo, '/') === '/Test/ajouterStage') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'Stage_ajouterAction');
+            }
+
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStage2Action',  '_route' => 'Stage_ajouterAction',);
         }
 

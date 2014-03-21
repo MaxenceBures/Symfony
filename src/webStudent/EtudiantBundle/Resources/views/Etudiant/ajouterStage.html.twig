@@ -2,7 +2,7 @@
 <h3>Formulaire de stage</h3>
 <div class="well">
   <form method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {{ form_widget(form.intitule, {'attr': {'placeholder': 'intitule'} }) }}
     <input type="submit" class="btn btn-primary" />
   </form>
 </div>

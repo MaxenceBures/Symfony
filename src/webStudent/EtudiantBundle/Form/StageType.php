@@ -16,9 +16,9 @@ class StageType extends AbstractType
     {
         $builder
             ->add('intitule','text')
-            ->add('dateDebut','date')
+           /* ->add('dateDebut','date')
             ->add('dateFin','date')
-            ->add('activite','text')
+            ->add('activite','text')*/
            /* ->add('entreprise','entity', array(
                                         'class'    => 'webStudentEtudiantBundle:Entreprise',
                                         'property' => 'raisonSociale',
