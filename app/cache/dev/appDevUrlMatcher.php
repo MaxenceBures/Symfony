@@ -244,18 +244,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test2Action',  '_route' => 'test2Action',);
         }
 
-        // test3Action
-        if (rtrim($pathinfo, '/') === '/test3') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'test3Action');
+        if (0 === strpos($pathinfo, '/test')) {
+            // test3Action
+            if (rtrim($pathinfo, '/') === '/test3') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'test3Action');
+                }
+
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test3Action',  '_route' => 'test3Action',);
             }
 
-            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test3Action',  '_route' => 'test3Action',);
-        }
+            // Stage_ajouter
+            if (rtrim($pathinfo, '/') === '/test4') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'Stage_ajouter');
+                }
 
-        // Stage_ajouter
-        if ($pathinfo === '/ajouterStage') {
-            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'Stage_ajouter',);
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'Stage_ajouter',);
+            }
+
         }
 
         // _welcome
