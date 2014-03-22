@@ -376,3 +376,5 @@ d47d46,::1,GET,http://localhost:8888/symfony/web/app_dev.php/test/stage/,1395509
 b5e434,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterListeStage/,1395509327,
 51cb7d,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterStage/3,1395509334,
 a63ed1,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterStage/3,1395509384,
+f68434,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1395509399,
+9d15f2,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterListeStage/,1395509400,
