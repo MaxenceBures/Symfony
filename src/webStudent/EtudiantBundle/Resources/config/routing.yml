@@ -49,3 +49,6 @@ test2Action:
 test3Action:
     path: /test3/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:test3}
+Stage_ajouterAction:
+    path:      /Test/ajouterStage/
+    defaults:  { _controller: webStudentEtudiantBundle:Etudiant:ajouterStage2 }
