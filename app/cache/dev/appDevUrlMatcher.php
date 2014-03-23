@@ -144,53 +144,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/Etudiant')) {
-            // consulter2
-            if ($pathinfo === '/Etudiant/consulter') {
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulter2Action',  '_route' => 'consulter2',);
-            }
-
-            // modifier2
-            if (0 === strpos($pathinfo, '/Etudiant/modifier') && preg_match('#^/Etudiant/modifier/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'modifier2')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifier2Action',));
-            }
-
-            // Test
-            if ($pathinfo === '/Etudiant/test') {
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::TestAction',  '_route' => 'Test',);
-            }
-
-            if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
-                // AjouterEtudiant
-                if ($pathinfo === '/Etudiant/ajouter') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterAction',  '_route' => 'AjouterEtudiant',);
-                }
-
-                // AjouterSection
-                if ($pathinfo === '/Etudiant/ajouterSection') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterSectionAction',  '_route' => 'AjouterSection',);
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
-                // consulterSectionAction
-                if (0 === strpos($pathinfo, '/Etudiant/consulterSection') && preg_match('#^/Etudiant/consulterSection/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterSectionAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterSectionAction',));
-                }
-
-                if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant')) {
-                    // consulterEtudiantAction
-                    if (preg_match('#^/Etudiant/consulterEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEtudiantAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiantAction',));
-                    }
-
-                    // consulterEtudiant2Action
-                    if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant2') && preg_match('#^/Etudiant/consulterEtudiant2/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEtudiant2Action')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiant2Action',));
-                    }
-
-                }
-
+            // consulterEtudiant2Action
+            if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant2') && preg_match('#^/Etudiant/consulterEtudiant2/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEtudiant2Action')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiant2Action',));
             }
 
             // listeAction
@@ -235,13 +191,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // test2Action
+        // accueilAction
         if (rtrim($pathinfo, '/') === '/Accueil') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'test2Action');
+                return $this->redirect($pathinfo.'/', 'accueilAction');
             }
 
-            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test2Action',  '_route' => 'test2Action',);
+            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::accueilAction',  '_route' => 'accueilAction',);
         }
 
         // test3Action
@@ -256,7 +212,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
             // AjouterStage
             if ($pathinfo === '/Etudiant/ajouterStage') {
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStage3Action',  '_route' => 'AjouterStage',);
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'AjouterStage',);
             }
 
             if (0 === strpos($pathinfo, '/Etudiant/ajouterE')) {
@@ -267,7 +223,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
                 // AjouterEtudiant2
                 if ($pathinfo === '/Etudiant/ajouterEtudiant') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEtudiant2Action',  '_route' => 'AjouterEtudiant2',);
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEtudiantAction',  '_route' => 'AjouterEtudiant2',);
                 }
 
             }
