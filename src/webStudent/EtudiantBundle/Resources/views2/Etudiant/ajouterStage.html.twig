@@ -1,0 +1,51 @@
+{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/ajouterStage.html.twig #}
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+	
+	{% block body %}
+
+	
+	<div class="span6">
+		<h2>Ajouter un Stage</h2>
+		
+		<form class="form-inline" method="post" {{ form_enctype(form) }}>
+		<!-- {{ form_errors(form) }} -->
+			<table class="table table-striped">
+				<tr>
+					<th>Intitule</th>
+					{{ form_errors(form.intitule) }}
+					<td>{{ form_widget(form.intitule, {'attr': {'placeholder': 'intitule'} }) }} </td>
+				</tr>
+				<tr>
+					<th>Date Debut</th>
+					{{ form_errors(form.dateDebut) }}
+					<td>{{ form_widget(form.dateDebut, {'attr': {'placeholder': 'dateDebut'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Date Fin</th>
+					{{ form_errors(form.dateFin) }}
+					<td>{{ form_widget(form.dateFin, {'attr': {'placeholder': 'dateFin'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Activite</th>
+					{{ form_errors(form.activite) }}
+					<td>{{ form_widget(form.activite, {'attr': {'placeholder': 'activite'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Entreprise</th>
+					{{ form_errors(form.entreprise) }}
+					<td>{{ form_widget(form.entreprise, {'attr': {'placeholder': 'entreprise'} }) }}</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" style="text-align:center;"><input type="submit" class="btn btn-success" value="Valider"/>
+					<input type="reset" class="btn btn-warning" value="Annuler"/></td>
+				</tr>
+			</table>
+			{{ form_rest(form) }}			 
+		</form>
+		<p> * Champs obligatoires </p>
+	</div>
+
+	
+
+	{% endblock %}

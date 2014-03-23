@@ -15,11 +15,11 @@ class EntrepriseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code')
-            ->add('raisonSociale')
-            ->add('rue')
-            ->add('ville')
-            ->add('cp')
+            ->add('code','text')
+            ->add('raisonSociale','text')
+            ->add('rue','text')
+            ->add('ville','text')
+            ->add('cp','text')
         ;
     }
     

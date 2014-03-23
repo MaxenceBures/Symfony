@@ -2,6 +2,7 @@
 
 namespace webStudent\EtudiantBundle\Controller;
 
+use webStudent\EtudiantBundle\Form\EntrepriseType;
 use webStudent\EtudiantBundle\Form\EtudiantType;
 use webStudent\EtudiantBundle\Form\StageType;
 use webStudent\EtudiantBundle\Entity\Etudiant;
@@ -17,29 +18,29 @@ use Symfony\Component\HttpFoundation\Request;
 class EtudiantController extends Controller
 {
     public function indexAction(){
-		//return new Response("Salut tout le monde; test") ;
+    //return new Response("Salut tout le monde; test") ;
         return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
         //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
     }
 public function consulter2Action()
 {
-       		//return new Response("TT") ;
-    	return $this->render('webStudentEtudiantBundle:Etudiant:consulter.html.twig');
-    	//return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
+          //return new Response("TT") ;
+      return $this->render('webStudentEtudiantBundle:Etudiant:consulter.html.twig');
+      //return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 
 }
      public function modifier2Action($id)
     {
-       		//return new Response("TT") ;
-    	return $this->render('webStudentEtudiantBundle:Etudiant:modifier.html.twig', array('id' => $id));
-    	//return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
+          //return new Response("TT") ;
+      return $this->render('webStudentEtudiantBundle:Etudiant:modifier.html.twig', array('id' => $id));
+      //return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 
     }
      public function TestAction()
     {
-       		return new Response("Test") ;
-    	//return $this->render('webStudentEtudiantBundle:Etudiant:modifier.html.twig', array('id' => $id));
-    	//return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
+          return new Response("Test") ;
+      //return $this->render('webStudentEtudiantBundle:Etudiant:modifier.html.twig', array('id' => $id));
+      //return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 
     }
     public function ajouterAction()
@@ -129,7 +130,7 @@ public function ListeAction(){
         //var_dump($listeEtudiant) ;
         return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeEtudiant.html.twig', array('listeEtudiant' => $listeEtudiant));
 }
-public function consulterEtudiantAction($id){
+/*public function consulterEtudiantAction($id){
     $repository = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('webStudentEtudiantBundle:Etudiant');
@@ -146,7 +147,7 @@ public function consulterEtudiantAction($id){
             //,
             // 'id' => $etudiant->getId()
     ));
-}
+}*/
 public function consulterEtudiant2Action($id){
         $repository = $this->getDoctrine()
                        ->getManager()
@@ -161,12 +162,12 @@ public function consulterEtudiant2Action($id){
          throw $this->createNotFoundException('Etudiant[id='.$id.'] inexistant.');
         }
          
-        return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array(
-            'id' => $etudiant->getId(),
+        return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array('etudiant' =>$etudiant
+           /* 'id' => $etudiant->getId(),
              'nom' => $etudiant->getNom(),
              'prenom' => $etudiant->getPrenom(),
              'mail' => $etudiant->getAdressemail(),
-             'telephone' => $etudiant->getTelephone()
+             'telephone' => $etudiant->getTelephone()*/
             
 
 
@@ -218,18 +219,18 @@ public function consulterEntrepriseAction($id){
                 ->getManager()
                 ->getRepository('webStudentEtudiantBundle:Entreprise');
     // On récupère l'entité correspondant à l'id $id
-    $stage = $repository->find($id);
+    $entreprise = $repository->find($id);
     // Ou null si aucune section n'a été trouvé avec l'id $id
-     if($stage === null)
+     if($entreprise === null)
         {
      throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistant.');
     }
-    return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array(
-            'id' => $stage->getId(),//code
+    return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array('entreprise' =>$entreprise
+            /*'id' => $stage->getId(),//code
             'raisonsociale' => $stage->getRaisonSociale(),
             'rue'=> $stage->getRue(),
             'ville'=> $stage->getVille(),
-            'cp'=> $stage->getCp()
+            'cp'=> $stage->getCp()*/
     ));
 }  
 
@@ -246,7 +247,7 @@ public function test3Action()
         //return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
 
     }       
-    public function consulterLesEntreprisesAction()
+  /*  public function consulterLesEntreprisesAction()
     {
         $repository = $this->getDoctrine()
                        ->getManager()
@@ -270,7 +271,7 @@ public function test3Action()
 
         return $this->render('webStudentEtudiantBundle:Entreprise:consulterLesEntreprises.html.twig', array(
              'listeEntreprises' => $tabEntreprises));
-    }
+    }*/
    public function ajouterStage3Action()
   {
 
@@ -305,6 +306,82 @@ public function test3Action()
       // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
       // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
       return $this->render('webStudentEtudiantBundle:Etudiant:ajouterStage.html.twig', array(
+      'form' => $form->createView(),
+      ));
+    
+  }
+   public function ajouterEntrepriseAction()
+  {
+
+    // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
+      
+
+    //var_dump($section);
+      $entreprise = new Entreprise();
+      $form = $this->createForm(new EntrepriseType, $entreprise);
+    
+      // On récupère la requête
+      $request = $this->get('request');
+     
+      // On vérifie qu'elle est de type POST
+      if ($request->getMethod() == 'POST') {
+        // On fait le lien Requête <-> Formulaire
+        // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
+        $form->bind($request);
+   
+        // On vérifie que les valeurs entrées sont correctes
+        if ($form->isValid()) {
+          // On l'enregistre notre objet $etudiant dans la base de données
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($entreprise);
+          $em->flush();
+   
+          // On redirige vers la page de visualisation de l'etudiant nouvellement créé
+        return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array('entreprise' =>$entreprise));
+        }
+      }
+      // À ce stade :
+      // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+      // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+      return $this->render('webStudentEtudiantBundle:Etudiant:ajouterEntreprise.html.twig', array(
+      'form' => $form->createView(),
+      ));
+    
+  }
+   public function ajouterEtudiant2Action()
+  {
+
+    // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
+      
+
+    //var_dump($section);
+      $etudiant = new Etudiant();
+      $form = $this->createForm(new EtudiantType, $etudiant);
+    
+      // On récupère la requête
+      $request = $this->get('request');
+     
+      // On vérifie qu'elle est de type POST
+      if ($request->getMethod() == 'POST') {
+        // On fait le lien Requête <-> Formulaire
+        // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
+        $form->bind($request);
+   
+        // On vérifie que les valeurs entrées sont correctes
+        if ($form->isValid()) {
+          // On l'enregistre notre objet $etudiant dans la base de données
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($etudiant);
+          $em->flush();
+   
+          // On redirige vers la page de visualisation de l'etudiant nouvellement créé
+        return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array('etudiant' =>$etudiant));
+        }
+      }
+      // À ce stade :
+      // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+      // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+      return $this->render('webStudentEtudiantBundle:Etudiant:ajouterEtudiant.html.twig', array(
       'form' => $form->createView(),
       ));
     

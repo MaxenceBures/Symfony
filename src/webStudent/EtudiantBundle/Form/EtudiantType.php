@@ -15,13 +15,17 @@ class EtudiantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code')
-            ->add('nom')
-            ->add('prenom')
-            ->add('adressemail')
-            ->add('telephone')
-            ->add('date')
-            ->add('section')
+            ->add('code','text')
+            ->add('nom','text')
+            ->add('prenom','text')
+            ->add('adressemail','text')
+            ->add('telephone','text')
+            ->add('date','date')
+            ->add('section','entity', array(
+                                        'class'    => 'webStudentEtudiantBundle:Section',
+                                        'property' => 'nom',
+                                        'multiple' => false,
+                                        'expanded' => false))
         ;
     }
     

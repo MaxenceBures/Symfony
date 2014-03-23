@@ -262,23 +262,32 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test2Action',  '_route' => 'test2Action',);
         }
 
-        if (0 === strpos($pathinfo, '/test')) {
-            // test3Action
-            if (rtrim($pathinfo, '/') === '/test3') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'test3Action');
-                }
-
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test3Action',  '_route' => 'test3Action',);
+        // test3Action
+        if (rtrim($pathinfo, '/') === '/test3') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'test3Action');
             }
 
+            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test3Action',  '_route' => 'test3Action',);
+        }
+
+        if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
             // AjouterStage
-            if (rtrim($pathinfo, '/') === '/test/stage') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'AjouterStage');
+            if ($pathinfo === '/Etudiant/ajouterStage') {
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStage3Action',  '_route' => 'AjouterStage',);
+            }
+
+            if (0 === strpos($pathinfo, '/Etudiant/ajouterE')) {
+                // AjouterEntreprise
+                if ($pathinfo === '/Etudiant/ajouterEntreprise') {
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEntrepriseAction',  '_route' => 'AjouterEntreprise',);
                 }
 
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStage3Action',  '_route' => 'AjouterStage',);
+                // AjouterEtudiant2
+                if ($pathinfo === '/Etudiant/ajouterEtudiant') {
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEtudiant2Action',  '_route' => 'AjouterEtudiant2',);
+                }
+
             }
 
         }

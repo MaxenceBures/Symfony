@@ -50,5 +50,11 @@ test3Action:
     path: /test3/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:test3}
 AjouterStage:
-    path: /test/stage/
+    path: /Etudiant/ajouterStage
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterStage3}
+AjouterEntreprise:
+    path: /Etudiant/ajouterEntreprise
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:AjouterEntreprise}
+AjouterEtudiant2:
+    path: /Etudiant/ajouterEtudiant
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:AjouterEtudiant2}
