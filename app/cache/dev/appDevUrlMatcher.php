@@ -133,24 +133,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/Stage')) {
-            // Salut
-            if ($pathinfo === '/Stage/saluta') {
-                return array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::indexAction',  '_route' => 'Salut',);
-            }
-
-            // Consulter
-            if ($pathinfo === '/Stage/Consulter') {
-                return array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::ConsulterAction',  '_route' => 'Consulter',);
-            }
-
-            // Modifier
-            if ($pathinfo === '/Stage/Modifier') {
-                return array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::ModifierAction',  '_route' => 'Modifier',);
-            }
-
-        }
-
         // SalutEverybody
         if ($pathinfo === '/affichSalut') {
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::indexAction',  '_route' => 'SalutEverybody',);
