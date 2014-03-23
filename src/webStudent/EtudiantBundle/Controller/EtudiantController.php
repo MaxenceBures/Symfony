@@ -3,6 +3,7 @@
 namespace webStudent\EtudiantBundle\Controller;
 
 use webStudent\EtudiantBundle\Form\EntrepriseType;
+use webStudent\EtudiantBundle\Form\EntrepriseModifType;
 use webStudent\EtudiantBundle\Form\EtudiantType;
 use webStudent\EtudiantBundle\Form\StageType;
 use webStudent\EtudiantBundle\Entity\Etudiant;
@@ -235,4 +236,41 @@ public function test3Action()
       ));
     
   }
+   public function modifierEntrepriseAction($id)
+    {
+
+        
+
+        $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Entreprise');
+        $entreprise = $repository->find($id);
+        $form = $this->createForm(new EntrepriseModifType, $entreprise);
+    
+        // On récupère la requête
+        $request = $this->get('request');
+   
+        // On vérifie qu'elle est de type POST
+        if ($request->getMethod() == 'POST') {
+            // On fait le lien Requête <-> Formulaire
+            // À partir de maintenant, la variable $organisation contient les valeurs entrées dans le formulaire par le visiteur
+            $form->bind($request);
+ 
+            // On vérifie que les valeurs entrées sont correctes
+            if ($form->isValid()) {
+                // On l'enregistre notre objet $organisation dans la base de données
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($entreprise);
+                $em->flush();
+ 
+                // On redirige vers la page de visualisation de l'organisation modifié
+            return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array('entreprise' => $entreprise));
+            }
+        }
+        // À ce stade :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+        return $this->render('webStudentEtudiantBundle:Etudiant:modifierEntreprise.html.twig', array(
+        'form' => $form->createView(),
+        ));
+    }
+
 }

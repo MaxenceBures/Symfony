@@ -209,23 +209,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test3Action',  '_route' => 'test3Action',);
         }
 
-        if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
-            // AjouterStage
-            if ($pathinfo === '/Etudiant/ajouterStage') {
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'AjouterStage',);
+        if (0 === strpos($pathinfo, '/Etudiant')) {
+            if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
+                // AjouterStage
+                if ($pathinfo === '/Etudiant/ajouterStage') {
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'AjouterStage',);
+                }
+
+                if (0 === strpos($pathinfo, '/Etudiant/ajouterE')) {
+                    // AjouterEntreprise
+                    if ($pathinfo === '/Etudiant/ajouterEntreprise') {
+                        return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEntrepriseAction',  '_route' => 'AjouterEntreprise',);
+                    }
+
+                    // AjouterEtudiant2
+                    if ($pathinfo === '/Etudiant/ajouterEtudiant') {
+                        return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEtudiantAction',  '_route' => 'AjouterEtudiant2',);
+                    }
+
+                }
+
             }
 
-            if (0 === strpos($pathinfo, '/Etudiant/ajouterE')) {
-                // AjouterEntreprise
-                if ($pathinfo === '/Etudiant/ajouterEntreprise') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEntrepriseAction',  '_route' => 'AjouterEntreprise',);
-                }
-
-                // AjouterEtudiant2
-                if ($pathinfo === '/Etudiant/ajouterEtudiant') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEtudiantAction',  '_route' => 'AjouterEtudiant2',);
-                }
-
+            // ModifierEntreprise
+            if (0 === strpos($pathinfo, '/Etudiant/modifEntreprise') && preg_match('#^/Etudiant/modifEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEntrepriseAction',));
             }
 
         }

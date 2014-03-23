@@ -38,6 +38,6 @@ class EntrepriseType extends AbstractType
      */
     public function getName()
     {
-        return 'webstudent_etudiantbundle_entreprise';
+        return 'webstudent_etudiantbundle_entrepriseModif';
     }
 }

@@ -1,0 +1,43 @@
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+	{% block body %}
+
+	
+
+	<div class="span6">
+		<h2>Modifier une organisation</h2>
+		
+		<form class="form-inline" method="post" {{ form_enctype(form) }}>
+		{{ form_errors(form) }}
+			<table class="table table-striped">
+				<tr>
+					<th>Raison Sociale*</th>
+					<td>{{ form_widget(form.raisonSociale, {'attr': {'placeholder': 'Raison Sociale'} }) }}</td>
+				</tr>	
+				<tr>
+					<th>Nom Directeur*</th>
+					<td>{{ form_widget(form.rue, {'attr': {'placeholder': 'Nom directeur'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Rue*</th>
+					<td>{{ form_widget(form.ville, {'attr': {'placeholder': 'Rue'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Code Postal*</th>
+					<td>{{ form_widget(form.cp, {'attr': {'placeholder': 'Ex : 55555'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Ville*</th>
+					<td>{{ form_widget(form.code, {'attr': {'placeholder': 'Ville'} }) }}</td>
+				</tr>
+				<tr>
+					<td><input type="submit" class="btn btn-success" value="Valider"/></td>
+					<td><input type="reset" class="btn btn-warning" value="Annuler"/></td>
+				</tr>
+			</table>
+			{{ form_rest(form) }}			 
+		</form>
+		<p> * Champs obligatoires </p>
+	</div>
+
+	
+	{% endblock %}
