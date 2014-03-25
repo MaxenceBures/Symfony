@@ -4,12 +4,12 @@
 	{% block body %}
 
 	
-	<div class="span6">
+	
 		<h2>Ajouter un Stage</h2>
 		
-		<form class="form-inline" method="post" {{ form_enctype(form) }}>
+		<form  method="post" {{ form_enctype(form) }}>
 		<!-- {{ form_errors(form) }} -->
-			<table class="table table-striped">
+			<table >
 				<tr>
 					<th>Intitule</th>
 					{{ form_errors(form.intitule) }}
@@ -18,12 +18,12 @@
 				<tr>
 					<th>Date Debut</th>
 					{{ form_errors(form.dateDebut) }}
-					<td>{{ form_widget(form.dateDebut, {'attr': {'placeholder': 'dateDebut'} }) }}</td>
+					<td>{{ form_widget(form.dateDebut) }}</td>
 				</tr>
 				<tr>
 					<th>Date Fin</th>
 					{{ form_errors(form.dateFin) }}
-					<td>{{ form_widget(form.dateFin, {'attr': {'placeholder': 'dateFin'} }) }}</td>
+					<td>{{ form_widget(form.dateFin) }}</td>
 				</tr>
 				<tr>
 					<th>Activite</th>
@@ -37,13 +37,13 @@
 				</tr>
 				
 				<tr>
-					<td colspan="2" style="text-align:center;"><input type="submit" class="btn btn-success" value="Valider"/>
-					<input type="reset" class="btn btn-warning" value="Annuler"/></td>
+					<td colspan="2" style="text-align:center;"><input type="submit" value="Valider"/>
+					<input type="reset"  value="Annuler"/></td>
 				</tr>
 			</table>
 			{{ form_rest(form) }}			 
 		</form>
-	</div>
+
 
 	
 
