@@ -1,2 +1,4 @@
 
 app/cache/dev/appDevUrlGenerator.php
+app/cache/
+app/logs/
