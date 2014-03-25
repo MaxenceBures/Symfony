@@ -86,7 +86,7 @@ public function ListeEntrepriseAction(){
                          ->getRepository('webStudentEtudiantBundle:Entreprise');
         $listeStage=$repository->findAll();
         foreach ($listeStage as $stage) {
-            $stage->getCode()
+            $stage->getId()
             ;
         }
         //var_dump($listeEtudiant) ;
