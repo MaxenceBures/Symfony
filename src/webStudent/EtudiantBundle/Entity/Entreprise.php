@@ -21,12 +21,7 @@ class Entreprise
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="code", type="string", length=8)
-     */
-    private $code;
+  
 
     /**
      * @var string
@@ -67,28 +62,7 @@ class Entreprise
         return $this->id;
     }
 
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Entreprise
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
     
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * Set raisonSociale

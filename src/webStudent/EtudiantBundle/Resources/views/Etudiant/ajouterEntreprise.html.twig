@@ -10,11 +10,7 @@
 		<form class="form-inline" method="post" {{ form_enctype(form) }}>
 		<!-- {{ form_errors(form) }} -->
 			<table class="table table-striped">
-				<tr>
-					<th>Intitule</th>
-					{{ form_errors(form.code) }}
-					<td>{{ form_widget(form.code, {'attr': {'placeholder': 'Code'} }) }} </td>
-				</tr>
+				
 				<tr>
 					<th>Raison Sociale</th>
 					{{ form_errors(form.raisonSociale) }}
