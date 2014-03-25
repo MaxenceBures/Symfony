@@ -1,2 +1,4 @@
-
+app/cache/
+app/cache2/
+app/cache3/
 app/cache/dev/appDevUrlGenerator.php
