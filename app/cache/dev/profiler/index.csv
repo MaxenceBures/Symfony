@@ -623,3 +623,6 @@ ea4fc9,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterL
 b0d3c4,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterListeEntreprise/,1395768679,
 3ca24e,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEntreprise,1395768681,
 500a85,::1,POST,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEntreprise,1395768698,
+982c21,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1395768905,
+1332af,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/Liste/,1395768908,
+1105c0,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/Liste/,1395768908,
