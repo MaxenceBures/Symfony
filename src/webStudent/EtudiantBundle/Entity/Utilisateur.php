@@ -5,6 +5,12 @@ namespace webStudent\EtudiantBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 
+/**
+ * Utilisateur
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="webStudent\EtudiantBundle\Entity\UtilisateurRepository")
+ */
 
 /**
 * @ORM\Entity
@@ -12,13 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
 * @ORM\discriminatorColumn(name="discr", type="string")
 * @ORM\discriminatorMap({"enseignant" = "Enseignant", "etudiant" = "Etudiant"}) 
 */
-
-/**
- * Utilisateur
- *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="webStudent\EtudiantBundle\Entity\UtilisateurRepository")
- */
 
 
 class Utilisateur

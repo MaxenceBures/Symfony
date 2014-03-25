@@ -25,14 +25,22 @@ class Etudiant extends Utilisateur
     private $id;
 
     /**
-     * @var datetime
+     * @var string
      *
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
 
-    
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    /*public function getId()
+    {
+        return $this->id;
+    }*/
 
     /**
      * Set date

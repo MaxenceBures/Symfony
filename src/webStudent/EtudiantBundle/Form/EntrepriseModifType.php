@@ -19,7 +19,7 @@ class EntrepriseModifType extends EntrepriseType
 		parent::buildForm($builder, $options);
 		//$etudiant = $options['data'];
 
-       
+        $builder->add('code', 'text', array('read_only' => false));
 		$builder->add('raisonSociale', 'text', array('read_only' => true));
         $builder->add('rue', 'text', array('read_only' => false));
         $builder->add('ville', 'text', array('read_only' => false));

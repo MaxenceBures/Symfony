@@ -9,7 +9,10 @@
 		<form class="form-inline" method="post" {{ form_enctype(form) }}>
 		{{ form_errors(form) }}
 			<table class="table table-striped">
-			
+			<tr>
+					<th>Code</th>
+					<td>{{ form_widget(form.code, {'attr': {'placeholder': 'Code'} }) }}</td>
+				</tr>
 				<tr>
 					<th>Raison Sociale</th>
 					<td>{{ form_widget(form.raisonSociale, {'attr': {'placeholder': 'Raison Sociale'} }) }}</td>
