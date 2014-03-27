@@ -209,7 +209,7 @@ class appProdProjectContainer extends Container
     protected function getAssetic_AssetManagerService()
     {
         $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/Applications/MAMP/htdocs/Symfony/app/cache/prod/assetic/config'), false)));
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', '/Applications/MAMP/htdocs/Symfony/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', '/Users/Maxence/.Trash/Symfony 11.34.42/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
         return $instance;
     }
     protected function getAssetic_Filter_CssrewriteService()
@@ -228,7 +228,7 @@ class appProdProjectContainer extends Container
     {
         $a = $this->get('kernel');
         $b = $this->get('templating.filename_parser');
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, '/Applications/MAMP/htdocs/Symfony/app/Resources');
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, '/Users/Maxence/.Trash/Symfony 11.34.42/app/Resources');
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
     protected function getDebug_EmergencyLoggerListenerService()
@@ -250,13 +250,13 @@ class appProdProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
         $a = new \Doctrine\Common\Cache\ArrayCache();
-        $a->setNamespace('sf2orm_default_9158b62a9f9380f42d1e4a17c5db7f4e');
+        $a->setNamespace('sf2orm_default_1765b7b58e67dedcf55ca0f15409491b');
         $b = new \Doctrine\Common\Cache\ArrayCache();
-        $b->setNamespace('sf2orm_default_9158b62a9f9380f42d1e4a17c5db7f4e');
+        $b->setNamespace('sf2orm_default_1765b7b58e67dedcf55ca0f15409491b');
         $c = new \Doctrine\Common\Cache\ArrayCache();
-        $c->setNamespace('sf2orm_default_9158b62a9f9380f42d1e4a17c5db7f4e');
+        $c->setNamespace('sf2orm_default_1765b7b58e67dedcf55ca0f15409491b');
         $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
-        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Entity')), 'webStudent\\EtudiantBundle\\Entity');
+        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/Users/Maxence/.Trash/Symfony 11.34.42/src/webStudent/EtudiantBundle/Entity')), 'webStudent\\EtudiantBundle\\Entity');
         $e = new \Doctrine\ORM\Configuration();
         $e->setEntityNamespaces(array('webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\Entity'));
         $e->setMetadataCacheImpl($a);
@@ -307,7 +307,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), '/Applications/MAMP/htdocs/Symfony/app/Resources');
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), '/Users/Maxence/.Trash/Symfony 11.34.42/app/Resources');
     }
     protected function getFilesystemService()
     {
@@ -531,7 +531,7 @@ class appProdProjectContainer extends Container
     }
     protected function getMonolog_Handler_NestedService()
     {
-        return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler('/Applications/MAMP/htdocs/Symfony/app/logs/prod.log', 100, true);
+        return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler('/Users/Maxence/.Trash/Symfony 11.34.42/app/logs/prod.log', 100, true);
     }
     protected function getMonolog_Logger_DoctrineService()
     {
@@ -580,7 +580,7 @@ class appProdProjectContainer extends Container
     }
     protected function getRouterService()
     {
-        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, '/Applications/MAMP/htdocs/Symfony/app/config/routing.yml', array('cache_dir' => '/Applications/MAMP/htdocs/Symfony/app/cache/prod', 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appProdUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appProdUrlMatcher', 'strict_requirements' => NULL), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, '/Users/Maxence/.Trash/Symfony 11.34.42/app/config/routing.yml', array('cache_dir' => '/Applications/MAMP/htdocs/Symfony/app/cache/prod', 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appProdUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appProdUrlMatcher', 'strict_requirements' => NULL), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
     protected function getRouterListenerService()
     {
@@ -779,7 +779,7 @@ class appProdProjectContainer extends Container
     }
     protected function getTemplating_Helper_CodeService()
     {
-        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, '/Applications/MAMP/htdocs/Symfony/app', 'UTF-8');
+        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, '/Users/Maxence/.Trash/Symfony 11.34.42/app', 'UTF-8');
     }
     protected function getTemplating_Helper_FormService()
     {
@@ -960,7 +960,7 @@ class appProdProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, '/Applications/MAMP/htdocs/Symfony/app', 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, '/Users/Maxence/.Trash/Symfony 11.34.42/app', 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
@@ -981,14 +981,15 @@ class appProdProjectContainer extends Container
     protected function getTwig_LoaderService()
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', 'Framework');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', 'Security');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views', 'webStudentEtudiant');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/app/Resources/views');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', 'Framework');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/src/webStudent/EtudiantBundle/Resources/views', 'webStudentEtudiant');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/src/webStudent/StageBundle/Resources/views', 'webStudentStage');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/app/Resources/views');
+        $instance->addPath('/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
         return $instance;
     }
     protected function getTwig_Translation_ExtractorService()
@@ -1017,7 +1018,7 @@ class appProdProjectContainer extends Container
     }
     protected function getAssetic_AssetFactoryService()
     {
-        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/Applications/MAMP/htdocs/Symfony/app/../web', false);
+        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/Users/Maxence/.Trash/Symfony 11.34.42/app/../web', false);
     }
     protected function getControllerNameConverterService()
     {
@@ -1062,7 +1063,7 @@ class appProdProjectContainer extends Container
     }
     protected function getValidator_Mapping_ClassMetadataFactoryService()
     {
-        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => '/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
+        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => '/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
     }
     public function getParameter($name)
     {
@@ -1091,12 +1092,12 @@ class appProdProjectContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'kernel.root_dir' => '/Applications/MAMP/htdocs/Symfony/app',
+            'kernel.root_dir' => '/Users/Maxence/.Trash/Symfony 11.34.42/app',
             'kernel.environment' => 'prod',
             'kernel.debug' => false,
             'kernel.name' => 'ap_',
             'kernel.cache_dir' => '/Applications/MAMP/htdocs/Symfony/app/cache/prod',
-            'kernel.logs_dir' => '/Applications/MAMP/htdocs/Symfony/app/logs',
+            'kernel.logs_dir' => '/Users/Maxence/.Trash/Symfony 11.34.42/app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -1107,6 +1108,7 @@ class appProdProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\webStudentEtudiantBundle',
+                'webStudentStageBundle' => 'webStudent\\StageBundle\\webStudentStageBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appProdProjectContainer',
@@ -1237,7 +1239,7 @@ class appProdProjectContainer extends Container
             'validator.mapping.loader.yaml_files_loader.class' => 'Symfony\\Component\\Validator\\Mapping\\Loader\\YamlFilesLoader',
             'validator.validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\ConstraintValidatorFactory',
             'validator.mapping.loader.xml_files_loader.mapping_files' => array(
-                0 => '/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml',
+                0 => '/Users/Maxence/.Trash/Symfony 11.34.42/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml',
             ),
             'validator.mapping.loader.yaml_files_loader.mapping_files' => array(
             ),
@@ -1265,7 +1267,7 @@ class appProdProjectContainer extends Container
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
-            'router.resource' => '/Applications/MAMP/htdocs/Symfony/app/config/routing.yml',
+            'router.resource' => '/Users/Maxence/.Trash/Symfony 11.34.42/app/config/routing.yml',
             'router.cache_class_prefix' => 'appProd',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
@@ -1463,8 +1465,8 @@ class appProdProjectContainer extends Container
             'assetic.debug' => false,
             'assetic.use_controller' => false,
             'assetic.enable_profiler' => false,
-            'assetic.read_from' => '/Applications/MAMP/htdocs/Symfony/app/../web',
-            'assetic.write_to' => '/Applications/MAMP/htdocs/Symfony/app/../web',
+            'assetic.read_from' => '/Users/Maxence/.Trash/Symfony 11.34.42/app/../web',
+            'assetic.write_to' => '/Users/Maxence/.Trash/Symfony 11.34.42/app/../web',
             'assetic.variables' => array(
             ),
             'assetic.java.bin' => '/usr/bin/java',

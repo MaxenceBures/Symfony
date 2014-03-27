@@ -51,6 +51,18 @@ class Entreprise extends \webStudent\EtudiantBundle\Entity\Entreprise implements
         return parent::getId();
     }
 
+    public function setCode($code)
+    {
+        $this->__load();
+        return parent::setCode($code);
+    }
+
+    public function getCode()
+    {
+        $this->__load();
+        return parent::getCode();
+    }
+
     public function setRaisonSociale($raisonSociale)
     {
         $this->__load();
@@ -102,7 +114,7 @@ class Entreprise extends \webStudent\EtudiantBundle\Entity\Entreprise implements
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'raisonSociale', 'rue', 'ville', 'cp');
+        return array('__isInitialized__', 'id', 'code', 'raisonSociale', 'rue', 'ville', 'cp');
     }
 
     public function __clone()
