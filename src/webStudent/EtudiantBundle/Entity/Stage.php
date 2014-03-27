@@ -29,12 +29,7 @@ class Stage
 */
       private $entreprise;
 
-     /**
-* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Etudiant", inversedBy="utilisateurs")
-*  @ORM\JoinColumn(nullable=false)
-*/
-      private $etudiant; 
-
+   
     /**
      * @var string
      *
@@ -218,43 +213,5 @@ class Stage
     {
         return $this->entreprise;
     }
-     /**
-     * Set etudiant
-     *
-     * @param string $etudiant
-     * @return Etudiant
-     *//*
-    public function setEtudiant($etudiant)
-    {
-        $this->etudiant = $etudiant;
     
-        return $this;
-    }
-
-    /**
-     * Get etudiant
-     *
-     * @return string 
-     */
-   /* public function getEtudiant()
-    {
-        return $this->etudiant;
-    }
-*/
-     public function setEtudiant(\webStudent\EtudiantBundle\Entity\Etudiant $etudiant)
-    {
-        $this->etudiant = $etudiant;
-    
-        return $this;
-    }
-
-    /**
-     * Get etudiant
-     *
-     * @return \webStudent\EtudiantBundle\Entity\Etudiant 
-     */
-    public function getEtudiant()
-    {
-        return $this->etudiant;
-    }
 }

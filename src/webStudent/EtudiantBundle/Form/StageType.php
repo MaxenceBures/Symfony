@@ -24,11 +24,7 @@ class StageType extends AbstractType
                                         'property' => 'raisonSociale',
                                         'multiple' => false,
                                         'expanded' => false))
-            ->add('etudiant','entity', array(
-                                        'class'    => 'webStudentEtudiantBundle:Etudiant',
-                                        'property' => 'nom',
-                                        'multiple' => false,
-                                        'expanded' => false))
+           
         ;
     }
     
