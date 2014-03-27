@@ -1,5 +1,4 @@
 <?php
-
 namespace webStudent\EtudiantBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
