@@ -51,18 +51,6 @@ class Utilisateur extends \webStudent\EtudiantBundle\Entity\Utilisateur implemen
         return parent::getId();
     }
 
-    public function setCode($code)
-    {
-        $this->__load();
-        return parent::setCode($code);
-    }
-
-    public function getCode()
-    {
-        $this->__load();
-        return parent::getCode();
-    }
-
     public function setNom($nom)
     {
         $this->__load();
@@ -126,7 +114,7 @@ class Utilisateur extends \webStudent\EtudiantBundle\Entity\Utilisateur implemen
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'code', 'nom', 'prenom', 'adressemail', 'telephone', 'section');
+        return array('__isInitialized__', 'id', 'nom', 'prenom', 'adressemail', 'telephone', 'section');
     }
 
     public function __clone()

@@ -42,15 +42,6 @@ class Etudiant extends \webStudent\EtudiantBundle\Entity\Etudiant implements \Do
     }
 
     
-    public function getId()
-    {
-        if ($this->__isInitialized__ === false) {
-            return (int) $this->_identifier["id"];
-        }
-        $this->__load();
-        return parent::getId();
-    }
-
     public function setDate($date)
     {
         $this->__load();
@@ -63,16 +54,13 @@ class Etudiant extends \webStudent\EtudiantBundle\Entity\Etudiant implements \Do
         return parent::getDate();
     }
 
-    public function setCode($code)
+    public function getId()
     {
+        if ($this->__isInitialized__ === false) {
+            return (int) $this->_identifier["id"];
+        }
         $this->__load();
-        return parent::setCode($code);
-    }
-
-    public function getCode()
-    {
-        $this->__load();
-        return parent::getCode();
+        return parent::getId();
     }
 
     public function setNom($nom)
@@ -138,7 +126,7 @@ class Etudiant extends \webStudent\EtudiantBundle\Entity\Etudiant implements \Do
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'code', 'nom', 'prenom', 'adressemail', 'telephone', 'section', 'date');
+        return array('__isInitialized__', 'id', 'nom', 'prenom', 'adressemail', 'telephone', 'section', 'date');
     }
 
     public function __clone()

@@ -99,7 +99,7 @@ class Stage extends \webStudent\EtudiantBundle\Entity\Stage implements \Doctrine
         return parent::getActivite();
     }
 
-    public function setEntreprise($entreprise)
+    public function setEntreprise(\webStudent\EtudiantBundle\Entity\Entreprise $entreprise)
     {
         $this->__load();
         return parent::setEntreprise($entreprise);

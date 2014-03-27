@@ -954,7 +954,7 @@ class appProdProjectContainer extends Container
     }
     protected function getTwigService()
     {
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => '/Applications/MAMP/htdocs/Symfony/app/cache/prod/twig', 'charset' => 'UTF-8', 'paths' => array()));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('cache' => false, 'debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'charset' => 'UTF-8', 'paths' => array()));
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension($this->get('templating.helper.logout_url')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\SecurityExtension($this->get('security.context', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator')));
@@ -987,7 +987,6 @@ class appProdProjectContainer extends Container
         $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views', 'webStudentEtudiant');
-        $instance->addPath('/Applications/MAMP/htdocs/Symfony/src/webStudent/StageBundle/Resources/views', 'webStudentStage');
         $instance->addPath('/Applications/MAMP/htdocs/Symfony/app/Resources/views');
         $instance->addPath('/Applications/MAMP/htdocs/Symfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
         return $instance;
@@ -1095,7 +1094,7 @@ class appProdProjectContainer extends Container
             'kernel.root_dir' => '/Applications/MAMP/htdocs/Symfony/app',
             'kernel.environment' => 'prod',
             'kernel.debug' => false,
-            'kernel.name' => 'app',
+            'kernel.name' => 'ap_',
             'kernel.cache_dir' => '/Applications/MAMP/htdocs/Symfony/app/cache/prod',
             'kernel.logs_dir' => '/Applications/MAMP/htdocs/Symfony/app/logs',
             'kernel.bundles' => array(
@@ -1108,7 +1107,6 @@ class appProdProjectContainer extends Container
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\webStudentEtudiantBundle',
-                'webStudentStageBundle' => 'webStudent\\StageBundle\\webStudentStageBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appProdProjectContainer',
@@ -1373,12 +1371,12 @@ class appProdProjectContainer extends Container
                 0 => 'form_div_layout.html.twig',
             ),
             'twig.options' => array(
+                'cache' => false,
                 'debug' => false,
                 'strict_variables' => false,
                 'exception_controller' => 'twig.controller.exception:showAction',
                 'autoescape_service' => NULL,
                 'autoescape_service_method' => NULL,
-                'cache' => '/Applications/MAMP/htdocs/Symfony/app/cache/prod/twig',
                 'charset' => 'UTF-8',
                 'paths' => array(
                 ),
