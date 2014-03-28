@@ -231,22 +231,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            if (0 === strpos($pathinfo, '/Etudiant/modif')) {
-                // ModifierEntreprise
-                if (0 === strpos($pathinfo, '/Etudiant/modifEntreprise') && preg_match('#^/Etudiant/modifEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEntrepriseAction',));
-                }
-
-                // ModifierStage
-                if (0 === strpos($pathinfo, '/Etudiant/modifStage') && preg_match('#^/Etudiant/modifStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierStageAction',));
-                }
-
-                // ModifierEtudiant
-                if (0 === strpos($pathinfo, '/Etudiant/modifEtudiant') && preg_match('#^/Etudiant/modifEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEtudiant')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEtudiantAction',));
-                }
-
+            // ModifierEntreprise
+            if (0 === strpos($pathinfo, '/Etudiant/modifEntreprise') && preg_match('#^/Etudiant/modifEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEntrepriseAction',));
             }
 
         }

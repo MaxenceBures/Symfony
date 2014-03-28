@@ -40,9 +40,3 @@ AjouterEtudiant2:
 ModifierEntreprise:
     path: /Etudiant/modifEntreprise/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEntreprise}
-ModifierStage:
-    path: /Etudiant/modifStage/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierStage}
-ModifierEtudiant:
-    path: /Etudiant/modifEtudiant/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEtudiant}
