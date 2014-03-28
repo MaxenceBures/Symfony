@@ -27,7 +27,10 @@ class Stage
 *  @ORM\JoinColumn(nullable=false)
 */
       private $entreprise;
-
+/**
+* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Etudiant") * @ORM\JoinColumn(nullable=false)
+*/
+      private $etudiant;
     /**
      * @var string
      *
@@ -204,5 +207,28 @@ class Stage
     public function getEntreprise()
     {
         return $this->entreprise;
+    }
+
+    /**
+     * Set etudiant
+     *
+     * @param \webStudent\EtudiantBundle\Entity\Etudiant $etudiant
+     * @return Stage
+     */
+    public function setEtudiant(\webStudent\EtudiantBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiant = $etudiant;
+    
+        return $this;
+    }
+
+    /**
+     * Get etudiant
+     *
+     * @return \webStudent\EtudiantBundle\Entity\Etudiant 
+     */
+    public function getEtudiant()
+    {
+        return $this->etudiant;
     }
 }

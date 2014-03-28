@@ -33,7 +33,12 @@
 				<tr>
 					<th>Entreprise</th>
 					{{ form_errors(form.entreprise) }}
-					<td>{{ form_widget(form.entreprise, {'attr': {'placeholder': 'entreprise'} }) }}</td>
+					<td>{{ form_widget(form.entreprise) }}</td>
+				</tr>
+				<tr>
+					<th>Etudiant</th>
+					{{ form_errors(form.etudiant) }}
+					<td>{{ form_widget(form.etudiant) }}</td>
 				</tr>
 				
 				<tr>

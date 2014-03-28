@@ -28,6 +28,10 @@
  		<td> {{stage.entreprise.RaisonSociale}}</td>
  	</tr>
  	<tr>
+ 		<th>Etudiant </th>
+ 		<td> {{stage.etudiant.Nom}} {{stage.etudiant.Prenom}}</td>
+ 	</tr>
+ 	<tr>
  		<th>Modification</th>
  		<td><a href="{{ path('ModifierStage', {'id': stage.id}) }}">Modification</a></td>
  	</tr>
