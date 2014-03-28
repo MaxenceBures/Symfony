@@ -33,12 +33,12 @@
 				<tr>
 					<th>Entreprise</th>
 					{{ form_errors(form.entreprise) }}
-					<td>{{ form_widget(form.entreprise}}</td>
+					<td>{{ form_widget(form.entreprise, {'attr': {'placeholder': 'entreprise'} }) }}</td>
 				</tr>
 				
 				<tr>
 					<td colspan="2" style="text-align:center;"><input type="submit" value="Valider"/>
-					<input type="reset"  value="Annuler"/></td>
+					<input type="reset"  value="Effacer"/></td>
 				</tr>
 			</table>
 			{{ form_rest(form) }}			 

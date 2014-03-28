@@ -4,12 +4,12 @@
 	{% block body %}
 
 	
-
+	<div class="span6">
 		<h2>Ajouter une Entreprise</h2>
 		
-		<form  method="post" {{ form_enctype(form) }}>
+		<form class="form-inline" method="post" {{ form_enctype(form) }}>
 		<!-- {{ form_errors(form) }} -->
-			<table >
+			<table class="table table-striped">
 				
 				<tr>
 					<th>Raison Sociale</th>
@@ -33,13 +33,13 @@
 				</tr>
 				
 				<tr>
-					<td colspan="2" ><input type="submit" value="Valider"/>
-					<input type="reset"  value="Annuler"/></td>
+					<td colspan="2" style="text-align:center;"><input type="submit" class="btn btn-success" value="Valider"/>
+					<input type="reset" class="btn btn-warning" value="Effacer"/></td>
 				</tr>
 			</table>
 			{{ form_rest(form) }}			 
 		</form>
-
+	</div>
 
 	
 

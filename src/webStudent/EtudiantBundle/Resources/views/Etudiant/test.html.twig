@@ -1,11 +1,10 @@
-{# src/webStudent/EtudiantBundle/Resources/views/layout.html.twig #}
-{% extends "::layout.html.twig" %}
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
  {% block body %}
- <h1>Accueil </h1>
-<ul>
-			
-				<li><a href="{{ path('listeAction')}}"> Liste Utilisateur</a></li>
-				<li><a href="{{ path('ListeStageAction')}}"> Liste Stage</a></li>
-				<li><a href="{{ path('ListeEntrepriseAction')}}"> Liste Entreprise</a></li>
-</ul>				
-        {% endblock %}
+	 <h1>Bienvenue sur Gestion WebStudent </h1>
+	<table border = "0">
+				
+		<td><h3><a href="{{ path('listeAction')}}"> Liste Utilisateur</a><h3></td>
+		<td><h3><a href="{{ path('ListeStageAction')}}"> Liste Stage</a><h3></td>
+		<td><h3><a href="{{ path('ListeEntrepriseAction')}}"> Liste Entreprise</a><h3></td>
+	</table>				
+{% endblock %}

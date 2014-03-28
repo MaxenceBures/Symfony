@@ -3,7 +3,6 @@
 namespace webStudent\EtudiantBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Stage
@@ -29,7 +28,6 @@ class Stage
 */
       private $entreprise;
 
-   
     /**
      * @var string
      *
@@ -62,12 +60,6 @@ class Stage
      * @var string
      *
      * @ORM\Column(name="entreprise", type="integer", length=11)
-     */
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etudiand", type="integer", length=11)
      */
 //    private $entreprise;
 
@@ -213,5 +205,4 @@ class Stage
     {
         return $this->entreprise;
     }
-    
 }

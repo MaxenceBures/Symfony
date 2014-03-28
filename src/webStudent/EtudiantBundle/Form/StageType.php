@@ -24,7 +24,6 @@ class StageType extends AbstractType
                                         'property' => 'raisonSociale',
                                         'multiple' => false,
                                         'expanded' => false))
-           
         ;
     }
     

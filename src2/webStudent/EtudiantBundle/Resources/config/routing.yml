@@ -1,0 +1,42 @@
+SalutEverybody:
+    path:  /affichSalut
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:index }
+webStudent_etudiant_homepage:
+    pattern:  /salut/{name}
+    defaults: { _controller: webStudentEtudiantBundle:Default:index }
+consulterEtudiant2Action:
+    path: /Etudiant/consulterEtudiant2/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant2}
+listeAction:
+    path: /Etudiant/Liste/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:liste}
+consulterStageAction:
+    path: /Etudiant/consulterStage/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterStage}
+ListeStageAction:
+    path: /Etudiant/consulterListeStage/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
+consulterEntrepriseAction:
+    path: /Etudiant/consulterEntreprise/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEntreprise}
+ListeEntrepriseAction:
+    path: /Etudiant/consulterListeEntreprise/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEntreprise}
+accueilAction:
+    path: /Accueil/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:accueil}
+test3Action:
+    path: /test3/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:test3}
+AjouterStage:
+    path: /Etudiant/ajouterStage
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterStage}
+AjouterEntreprise:
+    path: /Etudiant/ajouterEntreprise
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:AjouterEntreprise}
+AjouterEtudiant2:
+    path: /Etudiant/ajouterEtudiant
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:AjouterEtudiant}
+ModifierEntreprise:
+    path: /Etudiant/modifEntreprise/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEntreprise}

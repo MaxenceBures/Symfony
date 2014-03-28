@@ -1,0 +1,46 @@
+{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/ajouterEntreprise.html.twig #}
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+	
+	{% block body %}
+
+	
+
+		<h2>Ajouter une Entreprise</h2>
+		
+		<form  method="post" {{ form_enctype(form) }}>
+		<!-- {{ form_errors(form) }} -->
+			<table >
+				
+				<tr>
+					<th>Raison Sociale</th>
+					{{ form_errors(form.raisonSociale) }}
+					<td>{{ form_widget(form.raisonSociale, {'attr': {'placeholder': 'Raison Sociale'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Rue</th>
+					{{ form_errors(form.rue) }}
+					<td>{{ form_widget(form.rue, {'attr': {'placeholder': 'Rue'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Ville</th>
+					{{ form_errors(form.ville) }}
+					<td>{{ form_widget(form.ville, {'attr': {'placeholder': 'Ville'} }) }}</td>
+				</tr>
+				<tr>
+					<th>Code Postal</th>
+					{{ form_errors(form.cp) }}
+					<td>{{ form_widget(form.cp, {'attr': {'placeholder': 'Code Postal'} }) }}</td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" ><input type="submit" value="Valider"/>
+					<input type="reset"  value="Annuler"/></td>
+				</tr>
+			</table>
+			{{ form_rest(form) }}			 
+		</form>
+
+
+	
+
+	{% endblock %}

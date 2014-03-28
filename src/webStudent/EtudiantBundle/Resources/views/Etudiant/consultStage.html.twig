@@ -27,6 +27,10 @@
  		<th>Entreprise </th>
  		<td> {{stage.entreprise.RaisonSociale}}</td>
  	</tr>
+ 	<tr>
+ 		<th>Modification</th>
+ 		<td><a href="{{ path('ModifierStage', {'id': stage.id}) }}">Modification</a></td>
+ 	</tr>
  	
  </table>
  {% endblock %}

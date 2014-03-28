@@ -1,0 +1,39 @@
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+	{% block body %}
+
+
+<h2>Modifier un Stage</h2>
+
+<form class="form-inline" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }}
+	<table class="table table-striped">
+	
+		<tr>
+			<th>Intitulé</th>
+			<td>{{ form_widget(form.intitule, {'attr': {'placeholder': 'Intitulé'} }) }}</td>
+		</tr>	
+		<tr>
+			<th>Date début de stage</th>
+			<td>{{ form_widget(form.dateDebut, {'attr': {'placeholder': 'Date début de stage'} }) }}</td>
+		</tr>
+		<tr>
+			<th>Date fin de stage</th>
+			<td>{{ form_widget(form.dateFin, {'attr': {'placeholder': 'Date fin de stage'} }) }}</td>
+		</tr>
+		<tr>
+			<th>Activité</th>
+			<td>{{ form_widget(form.activite, {'attr': {'placeholder': 'Activité'} }) }}</td>
+		</tr>
+
+		<tr>
+			<th>Entreprise</th>
+			<td>{{ form_widget(form.entreprise) }}</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" style="text-align:center;"><input type="submit"  value="Valider"/></td>
+		</tr>
+	</table>
+	{{ form_rest(form) }}			 
+</form>
+{% endblock %}
