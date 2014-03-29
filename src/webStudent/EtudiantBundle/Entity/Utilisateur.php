@@ -271,7 +271,11 @@ class Utilisateur
     {
         return $this->mdp;
     }
-
+    
+    public function isEqualTo(UserInterface $user)
+    {
+    return $this->login === $user->getLogin();
+    }
     /**
      * Set section
      *
