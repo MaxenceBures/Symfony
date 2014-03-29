@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\Role\RoleInterface;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
+
 class AnonymousToken extends AbstractToken
 {
     private $key;

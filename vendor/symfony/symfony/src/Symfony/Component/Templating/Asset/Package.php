@@ -27,7 +27,7 @@ class Package implements PackageInterface
      * @param string $version The package version
      * @param string $format  The format used to apply the version
      */
-    public function __construct($version = null, $format = '')
+    public function __construct($version = null, $format = null)
     {
         $this->version = $version;
         $this->format = $format ?: '%s?%s';

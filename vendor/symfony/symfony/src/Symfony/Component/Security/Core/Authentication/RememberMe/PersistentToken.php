@@ -58,7 +58,9 @@ final class PersistentToken implements PersistentTokenInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the class of the user
+     *
+     * @return string
      */
     public function getClass()
     {
@@ -66,7 +68,9 @@ final class PersistentToken implements PersistentTokenInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the username
+     *
+     * @return string
      */
     public function getUsername()
     {
@@ -74,7 +78,9 @@ final class PersistentToken implements PersistentTokenInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the series
+     *
+     * @return string
      */
     public function getSeries()
     {
@@ -82,7 +88,9 @@ final class PersistentToken implements PersistentTokenInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the token value
+     *
+     * @return string
      */
     public function getTokenValue()
     {
@@ -90,7 +98,9 @@ final class PersistentToken implements PersistentTokenInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the time the token was last used
+     *
+     * @return \DateTime
      */
     public function getLastUsed()
     {

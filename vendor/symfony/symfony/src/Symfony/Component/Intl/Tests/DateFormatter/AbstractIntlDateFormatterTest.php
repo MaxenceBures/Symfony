@@ -22,12 +22,6 @@ use Symfony\Component\Intl\Intl;
  */
 abstract class AbstractIntlDateFormatterTest extends \PHPUnit_Framework_TestCase
 {
-
-    protected function setUp()
-    {
-        \Locale::setDefault('en');
-    }
-
     /**
      * When a time zone is not specified, it uses the system default however it returns null in the getter method
      * @covers Symfony\Component\Intl\DateFormatter\IntlDateFormatter::getTimeZoneId
@@ -382,7 +376,7 @@ abstract class AbstractIntlDateFormatterTest extends \PHPUnit_Framework_TestCase
         $formatter->setPattern('yyyy-MM-dd HH:mm:ss');
 
         $this->assertEquals(
-            $this->getDateTime(0, 'UTC')->format('Y-m-d H:i:s'),
+            $this->getDateTime(0)->format('Y-m-d H:i:s'),
             $formatter->format(0)
         );
     }
@@ -400,7 +394,7 @@ abstract class AbstractIntlDateFormatterTest extends \PHPUnit_Framework_TestCase
         $formatter->setPattern('yyyy-MM-dd HH:mm:ss');
 
         $this->assertEquals(
-            $this->getDateTime(0, 'Europe/London')->format('Y-m-d H:i:s'),
+            $this->getDateTime(0)->format('Y-m-d H:i:s'),
             $formatter->format(0)
         );
 
@@ -423,7 +417,7 @@ abstract class AbstractIntlDateFormatterTest extends \PHPUnit_Framework_TestCase
         $formatter->setPattern('yyyy-MM-dd HH:mm:ss');
 
         $this->assertEquals(
-            $this->getDateTime(0, 'Europe/London')->format('Y-m-d H:i:s'),
+            $this->getDateTime(0)->format('Y-m-d H:i:s'),
             $formatter->format(0)
         );
 
@@ -871,8 +865,14 @@ abstract class AbstractIntlDateFormatterTest extends \PHPUnit_Framework_TestCase
         return $this->getDateFormatter('en', IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT, 'UTC', IntlDateFormatter::GREGORIAN, $pattern);
     }
 
-    protected function getDateTime($timestamp, $timeZone)
+    protected function getDateTime($timestamp = null)
     {
+        if (version_compare(PHP_VERSION, '5.5.0-dev', '>=')) {
+            $timeZone = date_default_timezone_get();
+        } else {
+            $timeZone = getenv('TZ') ?: 'UTC';
+        }
+
         $dateTime = new \DateTime();
         $dateTime->setTimestamp(null === $timestamp ? time() : $timestamp);
         $dateTime->setTimeZone(new \DateTimeZone($timeZone));

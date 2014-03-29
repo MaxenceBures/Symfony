@@ -29,7 +29,7 @@ abstract class AbstractComparison extends Constraint
      */
     public function __construct($options = null)
     {
-        if (is_array($options) && !isset($options['value'])) {
+        if (!isset($options['value'])) {
             throw new ConstraintDefinitionException(sprintf(
                 'The %s constraint requires the "value" option to be set.',
                 get_class($this)

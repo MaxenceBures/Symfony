@@ -12,7 +12,7 @@
 namespace Symfony\Component\DomCrawler;
 
 /**
- * Link represents an HTML link (an HTML a or area tag).
+ * Link represents an HTML link (an HTML a tag).
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -112,7 +112,7 @@ class Link
         if ('?' === $uri[0]) {
             $baseUri = $this->currentUri;
 
-            // remove the query string from the current URI
+            // remove the query string from the current uri
             if (false !== $pos = strpos($baseUri, '?')) {
                 $baseUri = substr($baseUri, 0, $pos);
             }
@@ -140,7 +140,7 @@ class Link
     }
 
     /**
-     * Returns raw URI data.
+     * Returns raw uri data.
      *
      * @return string
      */
@@ -188,7 +188,7 @@ class Link
      */
     protected function setNode(\DOMNode $node)
     {
-        if ('a' != $node->nodeName && 'area' != $node->nodeName) {
+        if ('a' != $node->nodeName) {
             throw new \LogicException(sprintf('Unable to click on a "%s" tag.', $node->nodeName));
         }
 

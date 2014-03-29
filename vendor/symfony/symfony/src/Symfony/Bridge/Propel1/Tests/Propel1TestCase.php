@@ -13,10 +13,10 @@ namespace Symfony\Bridge\Propel1\Tests;
 
 abstract class Propel1TestCase extends \PHPUnit_Framework_TestCase
 {
-    public static function setUpBeforeClass()
+    protected function setUp()
     {
         if (!class_exists('\Propel')) {
-            self::markTestSkipped('Propel is not available.');
+            $this->markTestSkipped('Propel is not available.');
         }
     }
 }
