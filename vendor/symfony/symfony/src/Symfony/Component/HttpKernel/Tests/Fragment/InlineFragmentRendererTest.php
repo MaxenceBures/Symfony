@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\HttpKernel\Tests\Fragment;
+namespace Symfony\Component\HttpKernel\Fragment\Tests\FragmentRenderer;
 
 use Symfony\Component\HttpKernel\Controller\ControllerReference;
 use Symfony\Component\HttpKernel\HttpKernel;
@@ -55,7 +55,14 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
         $subRequest->headers->set('x-forwarded-for', array('127.0.0.1'));
         $subRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.1');
 
-        $strategy = new InlineFragmentRenderer($this->getKernelExpectingRequest($subRequest));
+        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel
+            ->expects($this->any())
+            ->method('handle')
+            ->with($subRequest)
+        ;
+
+        $strategy = new InlineFragmentRenderer($kernel);
 
         $strategy->render(new ControllerReference('main_controller', array('object' => $object), array()), Request::create('/'));
     }
@@ -66,7 +73,15 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
 
         Request::setTrustedHeaderName(Request::HEADER_CLIENT_IP, '');
 
-        $strategy = new InlineFragmentRenderer($this->getKernelExpectingRequest(Request::create('/')));
+        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel
+            ->expects($this->any())
+            ->method('handle')
+            ->with(Request::create('/'))
+        ;
+
+        $strategy = new InlineFragmentRenderer($kernel);
+
         $strategy->render('/', Request::create('/'));
 
         Request::setTrustedHeaderName(Request::HEADER_CLIENT_IP, $trustedHeaderName);
@@ -117,22 +132,6 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
         return $kernel;
     }
 
-    /**
-     * Creates a Kernel expecting a request equals to $request
-     * Allows delta in comparison in case REQUEST_TIME changed by 1 second
-     */
-    private function getKernelExpectingRequest(Request $request)
-    {
-        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
-        $kernel
-            ->expects($this->any())
-            ->method('handle')
-            ->with($this->equalTo($request, 1))
-        ;
-
-        return $kernel;
-    }
-
     public function testExceptionInSubRequestsDoesNotMangleOutputBuffers()
     {
         $resolver = $this->getMock('Symfony\\Component\\HttpKernel\\Controller\\ControllerResolverInterface');
@@ -174,7 +173,14 @@ class InlineFragmentRendererTest extends \PHPUnit_Framework_TestCase
             $expectedSubRequest->server->set('HTTP_X_FORWARDED_FOR', '127.0.0.1');
         }
 
-        $strategy = new InlineFragmentRenderer($this->getKernelExpectingRequest($expectedSubRequest));
+        $kernel = $this->getMock('Symfony\Component\HttpKernel\HttpKernelInterface');
+        $kernel
+            ->expects($this->any())
+            ->method('handle')
+            ->with($expectedSubRequest)
+        ;
+
+        $strategy = new InlineFragmentRenderer($kernel);
 
         $request = Request::create('/');
         $request->headers->set('Surrogate-Capability', 'abc="ESI/1.0"');

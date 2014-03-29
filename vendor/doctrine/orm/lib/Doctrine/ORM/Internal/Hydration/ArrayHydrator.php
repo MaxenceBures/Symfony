@@ -118,7 +118,6 @@ class ArrayHydrator extends AbstractHydrator
                     $baseElement =& $this->_resultPointers[$parent];
                 } else {
                     unset($this->_resultPointers[$dqlAlias]); // Ticket #1228
-
                     continue;
                 }
 
@@ -140,7 +139,6 @@ class ArrayHydrator extends AbstractHydrator
 
                         if ( ! $indexExists || ! $indexIsValid) {
                             $element = $data;
-
                             if (isset($this->_rsm->indexByMap[$dqlAlias])) {
                                 $baseElement[$relationAlias][$row[$this->_rsm->indexByMap[$dqlAlias]]] = $element;
                             } else {
@@ -157,10 +155,7 @@ class ArrayHydrator extends AbstractHydrator
                 } else {
                     $oneToOne = true;
 
-                    if (
-                        ( ! isset($nonemptyComponents[$dqlAlias])) &&
-                        ( ! isset($baseElement[$relationAlias]))
-                    ) {
+                    if ( ! isset($nonemptyComponents[$dqlAlias]) && ! isset($baseElement[$relationAlias])) {
                         $baseElement[$relationAlias] = null;
                     } else if ( ! isset($baseElement[$relationAlias])) {
                         $baseElement[$relationAlias] = $data;
@@ -169,9 +164,10 @@ class ArrayHydrator extends AbstractHydrator
 
                 $coll =& $baseElement[$relationAlias];
 
-                if (is_array($coll)) {
+                if ($coll !== null) {
                     $this->updateResultPointer($coll, $index, $dqlAlias, $oneToOne);
                 }
+
             } else {
                 // It's a root result element
 
@@ -180,21 +176,22 @@ class ArrayHydrator extends AbstractHydrator
 
                 // if this row has a NULL value for the root result id then make it a null result.
                 if ( ! isset($nonemptyComponents[$dqlAlias]) ) {
-                    $result[] = $this->_rsm->isMixed
-                        ? array($entityKey => null)
-                        : null;
-
+                    if ($this->_rsm->isMixed) {
+                        $result[] = array($entityKey => null);
+                    } else {
+                        $result[] = null;
+                    }
                     $resultKey = $this->_resultCounter;
                     ++$this->_resultCounter;
-
                     continue;
                 }
 
                 // Check for an existing element
                 if ($this->_isSimpleQuery || ! isset($this->_identifierMap[$dqlAlias][$id[$dqlAlias]])) {
-                    $element = $this->_rsm->isMixed
-                        ? array($entityKey => $rowData[$dqlAlias])
-                        : $rowData[$dqlAlias];
+                    $element = $rowData[$dqlAlias];
+                    if ($this->_rsm->isMixed) {
+                        $element = array($entityKey => $element);
+                    }
 
                     if (isset($this->_rsm->indexByMap[$dqlAlias])) {
                         $resultKey = $row[$this->_rsm->indexByMap[$dqlAlias]];
@@ -202,7 +199,6 @@ class ArrayHydrator extends AbstractHydrator
                     } else {
                         $resultKey = $this->_resultCounter;
                         $result[] = $element;
-
                         ++$this->_resultCounter;
                     }
 
@@ -210,13 +206,11 @@ class ArrayHydrator extends AbstractHydrator
                 } else {
                     $index = $this->_identifierMap[$dqlAlias][$id[$dqlAlias]];
                     $resultKey = $index;
-
                     /*if ($this->_rsm->isMixed) {
                         $result[] =& $result[$index];
                         ++$this->_resultCounter;
                     }*/
                 }
-
                 $this->updateResultPointer($result, $index, $dqlAlias, false);
             }
         }
@@ -225,9 +219,11 @@ class ArrayHydrator extends AbstractHydrator
         if (isset($scalars)) {
             if ( ! isset($resultKey) ) {
                 // this only ever happens when no object is fetched (scalar result only)
-                $resultKey = isset($this->_rsm->indexByMap['scalars'])
-                    ? $row[$this->_rsm->indexByMap['scalars']]
-                    : $this->_resultCounter - 1;
+                if (isset($this->_rsm->indexByMap['scalars'])) {
+                    $resultKey = $row[$this->_rsm->indexByMap['scalars']];
+                } else {
+                    $resultKey = $this->_resultCounter - 1;
+                }
             }
 
             foreach ($scalars as $name => $value) {
@@ -253,12 +249,6 @@ class ArrayHydrator extends AbstractHydrator
             return;
         }
 
-        if ($oneToOne) {
-            $this->_resultPointers[$dqlAlias] =& $coll;
-
-            return;
-        }
-
         if ($index !== false) {
             $this->_resultPointers[$dqlAlias] =& $coll[$index];
 
@@ -266,6 +256,12 @@ class ArrayHydrator extends AbstractHydrator
         }
 
         if ( ! $coll) {
+            return;
+        }
+
+        if ($oneToOne) {
+            $this->_resultPointers[$dqlAlias] =& $coll;
+
             return;
         }
 

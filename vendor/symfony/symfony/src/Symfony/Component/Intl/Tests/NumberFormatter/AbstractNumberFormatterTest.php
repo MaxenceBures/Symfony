@@ -58,8 +58,6 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function testFormatCurrencyWithCurrencyStyle($value, $currency, $expected)
     {
-        IntlTestHelper::requireFullIntl($this);
-
         $formatter = $this->getNumberFormatter('en', NumberFormatter::CURRENCY);
         $this->assertEquals($expected, $formatter->formatCurrency($value, $currency));
     }
@@ -86,8 +84,6 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function testFormatCurrencyWithCurrencyStyleCostaRicanColonsRounding($value, $currency, $symbol, $expected)
     {
-        IntlTestHelper::requireFullIntl($this);
-
         $formatter = $this->getNumberFormatter('en', NumberFormatter::CURRENCY);
         $this->assertEquals(sprintf($expected, $symbol), $formatter->formatCurrency($value, $currency));
     }
@@ -106,8 +102,6 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function testFormatCurrencyWithCurrencyStyleBrazilianRealRounding($value, $currency, $symbol, $expected)
     {
-        IntlTestHelper::requireFullIntl($this);
-
         $formatter = $this->getNumberFormatter('en', NumberFormatter::CURRENCY);
         $this->assertEquals(sprintf($expected, $symbol), $formatter->formatCurrency($value, $currency));
     }
@@ -135,8 +129,6 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function testFormatCurrencyWithCurrencyStyleSwissRounding($value, $currency, $symbol, $expected)
     {
-        IntlTestHelper::requireFullIntl($this);
-
         $formatter = $this->getNumberFormatter('en', NumberFormatter::CURRENCY);
         $this->assertEquals(sprintf($expected, $symbol), $formatter->formatCurrency($value, $currency));
     }
@@ -347,7 +339,6 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $formatter = $this->getNumberFormatter('en', NumberFormatter::DECIMAL);
 
-        $attributeRet = null;
         if (null !== $fractionDigits) {
             $attributeRet = $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, $fractionDigits);
         }
@@ -356,7 +347,7 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $formattedValue);
         $this->assertSame($expectedFractionDigits, $formatter->getAttribute(NumberFormatter::FRACTION_DIGITS));
 
-        if (null !== $attributeRet) {
+        if (isset($attributeRet)) {
             $this->assertTrue($attributeRet);
         }
     }
@@ -380,7 +371,6 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $formatter = $this->getNumberFormatter('en', NumberFormatter::DECIMAL);
 
-        $attributeRet = null;
         if (null !== $groupingUsed) {
             $attributeRet = $formatter->setAttribute(NumberFormatter::GROUPING_USED, $groupingUsed);
         }
@@ -389,7 +379,7 @@ abstract class AbstractNumberFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($expected, $formattedValue);
         $this->assertSame($expectedGroupingUsed, $formatter->getAttribute(NumberFormatter::GROUPING_USED));
 
-        if (null !== $attributeRet) {
+        if (isset($attributeRet)) {
             $this->assertTrue($attributeRet);
         }
     }

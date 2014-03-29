@@ -398,7 +398,7 @@ class FormValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $context = $this->getMockExecutionContext();
         $object = $this->getMock('\stdClass');
-        $options = array('validation_groups' => function (FormInterface $form) {
+        $options = array('validation_groups' => function(FormInterface $form){
             return array('group1', 'group2');
         });
         $form = $this->getBuilder('name', '\stdClass', $options)
@@ -430,11 +430,11 @@ class FormValidatorTest extends \PHPUnit_Framework_TestCase
         ));
 
         $parent->add($form);
-        $parent->add($this->getSubmitButton('submit', array(
+        $parent->add($this->getClickedSubmitButton('submit', array(
             'validation_groups' => 'button_group',
         )));
 
-        $parent->submit(array('name' => $object, 'submit' => ''));
+        $form->setData($object);
 
         $context->expects($this->once())
             ->method('validate')
@@ -533,7 +533,7 @@ class FormValidatorTest extends \PHPUnit_Framework_TestCase
         $object = $this->getMock('\stdClass');
 
         $parentOptions = array(
-            'validation_groups' => function (FormInterface $form) {
+            'validation_groups' => function(FormInterface $form){
                 return array('group1', 'group2');
             },
             'cascade_validation' => true,
@@ -731,6 +731,11 @@ class FormValidatorTest extends \PHPUnit_Framework_TestCase
         $builder = new SubmitButtonBuilder($name, $options);
 
         return $builder->getForm();
+    }
+
+    private function getClickedSubmitButton($name = 'name', array $options = array())
+    {
+        return $this->getSubmitButton($name, $options)->submit('');
     }
 
     /**

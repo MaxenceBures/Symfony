@@ -22,7 +22,7 @@ class Etudiant extends Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string

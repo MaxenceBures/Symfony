@@ -41,19 +41,11 @@ class PreAuthenticatedToken extends AbstractToken
         }
     }
 
-    /**
-     * Returns the provider key.
-     *
-     * @return string The provider key
-     */
     public function getProviderKey()
     {
         return $this->providerKey;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getCredentials()
     {
         return $this->credentials;
@@ -69,17 +61,11 @@ class PreAuthenticatedToken extends AbstractToken
         $this->credentials = null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function serialize()
     {
         return serialize(array($this->credentials, $this->providerKey, parent::serialize()));
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function unserialize($str)
     {
         list($this->credentials, $this->providerKey, $parentStr) = unserialize($str);

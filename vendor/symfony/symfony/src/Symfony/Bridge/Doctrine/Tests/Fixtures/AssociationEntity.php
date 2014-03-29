@@ -11,7 +11,7 @@
 
 namespace Symfony\Bridge\Doctrine\Tests\Fixtures;
 
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping AS ORM;
 
 /**
  * @ORM\Entity

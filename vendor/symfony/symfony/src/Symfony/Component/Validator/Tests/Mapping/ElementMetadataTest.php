@@ -21,7 +21,7 @@ class ElementMetadataTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->metadata = new TestElementMetadata();
+        $this->metadata = new TestElementMetadata('Symfony\Component\Validator\Tests\Fixtures\Entity');
     }
 
     protected function tearDown()

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Bundle\SecurityBundle\Tests\Functional\app;
+namespace Symfony\Bundle\SecurityBundle\Tests\Functional;
 
 // get the autoload file
 $dir = __DIR__;

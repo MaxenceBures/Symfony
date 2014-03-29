@@ -163,9 +163,7 @@ class StopwatchEvent
      */
     public function getEndTime()
     {
-        $count = count($this->periods);
-
-        return $count ? $this->periods[$count - 1]->getEndTime() : 0;
+        return ($count = count($this->periods)) ? $this->periods[$count - 1]->getEndTime() : 0;
     }
 
     /**
