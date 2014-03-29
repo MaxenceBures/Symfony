@@ -25,7 +25,7 @@ class EtudiantController extends Controller
         return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
         //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
     }
-public function ListeAction(){
+public function listeAction(){
         $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Etudiant');
         $listeEtudiant=$repository->findAll();
         foreach ($listeEtudiant as $etudiant) {
@@ -36,7 +36,7 @@ public function ListeAction(){
         return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeEtudiant.html.twig', array('listeEtudiant' => $listeEtudiant));
 }
 
-public function consulterEtudiant2Action($id){
+public function consulterEtudiantAction($id){
         $repository = $this->getDoctrine()
                        ->getManager()
                        ->getRepository('webStudentEtudiantBundle:Utilisateur');

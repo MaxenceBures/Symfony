@@ -17,11 +17,11 @@
 				<td>{{ etudiant.nom }} </td>
 				<td>{{ etudiant.prenom }}</td>
 				<td>{{ etudiant.section.nom }}</td>
-				<td><a href="{{ path('consulterEtudiant2Action', {'id': etudiant.id})}}"> En voir plus</a></td>
+				<td><a href="{{ path('ConsulterEtudiantAction', {'id': etudiant.id})}}"> En voir plus</a></td>
 				
 				
 			</tr>
 		{% endfor %}
 		</table>
-		<a href="{{ path('AjouterEtudiant2')}}"> Ajouter Etudiant</a>
+		<a href="{{ path('AjouterEtudiant')}}"> Ajouter Etudiant</a>
 	{% endblock %}
