@@ -1,4 +1,0 @@
-0a9bec,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/listeEtudiant/,1396103001,
-0ee062,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterEtudiant/1,1396103003,
-66892f,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEtudiant,1396103006,
-6887bf,::1,POST,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEtudiant,1396103037,

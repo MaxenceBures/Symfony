@@ -96,32 +96,6 @@ class Utilisateur
      */
     private $telephone;
 
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=60)
-     * @Assert\Length(
-     *      min = "5",
-     *      max = "60",
-     *      minMessage = "Votre login doit faire au moins {{ limit }} caractères",
-     *      maxMessage = "Votre login ne peut pas être plus long que {{ limit }} caractères"
-     * )
-     */
-    private $login;
-
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="mdp", type="string", length=60)
-     * @Assert\Length(
-     *      min = "5",
-     *      max = "60",
-     *      minMessage = "Votre mot de passe doit faire au moins {{ limit }} caractères",
-     *      maxMessage = "Votre mot de passe ne peut pas être plus long que {{ limit }} caractères"
-     * )
-     */
-    private $mdp;
-
 
     /**
      * Get id
@@ -227,55 +201,6 @@ class Utilisateur
         return $this->telephone;
     }
 
-    /**
-     * Set login
-     *
-     * @param string $telephone
-     * @return Utilisateur
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-    
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string 
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-    /**
-     * Set mdp
-     *
-     * @param string $mdp
-     * @return Utilisateur
-     */
-    public function setMdp($mdp)
-    {
-        $this->mdp = $mdp;
-    
-        return $this;
-    }
-
-    /**
-     * Get mdp
-     *
-     * @return string 
-     */
-    public function getMdp()
-    {
-        return $this->mdp;
-    }
-    
-    public function isEqualTo(UserInterface $user)
-    {
-    return $this->login === $user->getLogin();
-    }
     /**
      * Set section
      *

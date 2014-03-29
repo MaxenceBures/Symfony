@@ -20,8 +20,6 @@ class EtudiantType extends AbstractType
             ->add('adressemail','text')
             ->add('telephone','text')
             ->add('date','date')
-            ->add('login','text')
-            ->add('mdp','text')
             ->add('section','entity', array(
                                         'class'    => 'webStudentEtudiantBundle:Section',
                                         'property' => 'nom',
