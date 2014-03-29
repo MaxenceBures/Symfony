@@ -113,7 +113,7 @@ public function consulterEntrepriseAction($id){
 public function accueilAction()
     {
         //return new Response("Salut tout le monde; test") ;
-        return $this->render('webStudentEtudiantBundle:Etudiant:test.html.twig');
+        return $this->render('webStudentEtudiantBundle:Etudiant:accueil.html.twig');
         //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
     }
 public function test3Action()
