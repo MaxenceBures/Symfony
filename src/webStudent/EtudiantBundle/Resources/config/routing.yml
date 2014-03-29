@@ -8,7 +8,7 @@ accueilAction:
     path: /Accueil/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:accueil}
 layoutAction:
-    path: /test3/
+    path: /layout/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:layout}
 
 #Stage

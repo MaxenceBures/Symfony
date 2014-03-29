@@ -153,7 +153,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // layoutAction
-        if (rtrim($pathinfo, '/') === '/test3') {
+        if (rtrim($pathinfo, '/') === '/layout') {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', 'layoutAction');
             }
