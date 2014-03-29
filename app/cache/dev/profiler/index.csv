@@ -27,3 +27,7 @@ cde219,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEtu
 e0657e,::1,POST,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterStage,1396050235,
 304c4f,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/modifStage/5,1396050239,
 1409a7,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/modifStage/5,1396050270,
+1b3161,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1396087991,
+71253e,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterListeStage/,1396088174,
+2784e4,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/consulterStage/1,1396088176,
+49c073,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/modifStage/1,1396088179,
