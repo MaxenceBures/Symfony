@@ -22,7 +22,7 @@ class CompilerDebugDumpPass implements CompilerPassInterface
     {
         $filesystem = new Filesystem();
         $filesystem->dumpFile(
-            self::getCompilerLogFilename($container),
+            $this->getCompilerLogFilename($container),
             implode("\n", $container->getCompiler()->getLog()),
             0666 & ~umask()
         );

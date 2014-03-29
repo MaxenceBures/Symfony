@@ -92,8 +92,7 @@ class EntityUserProvider implements UserProviderInterface
                 );
             }
 
-            $refreshedUser = $this->repository->find($id);
-            if (null === $refreshedUser) {
+            if (null === $refreshedUser = $this->repository->find($id)) {
                 throw new UsernameNotFoundException(sprintf('User with id %s not found', json_encode($id)));
             }
         }

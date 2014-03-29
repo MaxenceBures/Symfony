@@ -34,14 +34,14 @@ interface SecurityContextInterface
     /**
      * Sets the authentication token.
      *
-     * @param TokenInterface $token A TokenInterface token, or null if no further authentication information should be stored
+     * @param TokenInterface $token
      */
     public function setToken(TokenInterface $token = null);
 
     /**
      * Checks if the attributes are granted against the current authentication token and optionally supplied object.
      *
-     * @param mixed $attributes
+     * @param array $attributes
      * @param mixed $object
      *
      * @return Boolean

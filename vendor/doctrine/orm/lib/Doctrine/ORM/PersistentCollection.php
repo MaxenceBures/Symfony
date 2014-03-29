@@ -717,8 +717,6 @@ final class PersistentCollection implements Collection, Selectable
 
     public function key()
     {
-        $this->initialize();
-
         return $this->coll->key();
     }
 
@@ -727,8 +725,6 @@ final class PersistentCollection implements Collection, Selectable
      */
     public function current()
     {
-        $this->initialize();
-
         return $this->coll->current();
     }
 
@@ -737,8 +733,6 @@ final class PersistentCollection implements Collection, Selectable
      */
     public function next()
     {
-        $this->initialize();
-        
         return $this->coll->next();
     }
 

@@ -35,7 +35,7 @@ class CurrencyBundle extends AbstractBundle implements CurrencyBundleInterface
             $locale = \Locale::getDefault();
         }
 
-        return $this->readEntry($locale, array('Currencies', $currency, static::INDEX_SYMBOL), true);
+        return $this->readEntry($locale, array('Currencies', $currency, static::INDEX_SYMBOL));
     }
 
     /**
@@ -47,7 +47,7 @@ class CurrencyBundle extends AbstractBundle implements CurrencyBundleInterface
             $locale = \Locale::getDefault();
         }
 
-        return $this->readEntry($locale, array('Currencies', $currency, static::INDEX_NAME), true);
+        return $this->readEntry($locale, array('Currencies', $currency, static::INDEX_NAME));
     }
 
     /**
@@ -59,7 +59,7 @@ class CurrencyBundle extends AbstractBundle implements CurrencyBundleInterface
             $locale = \Locale::getDefault();
         }
 
-        if (null === ($currencies = $this->readEntry($locale, array('Currencies'), true))) {
+        if (null === ($currencies = $this->readEntry($locale, array('Currencies')))) {
             return array();
         }
 
@@ -81,7 +81,7 @@ class CurrencyBundle extends AbstractBundle implements CurrencyBundleInterface
      */
     public function getFractionDigits($currency)
     {
-        return $this->readEntry('en', array('Currencies', $currency, static::INDEX_FRACTION_DIGITS), true);
+        return $this->readEntry('en', array('Currencies', $currency, static::INDEX_FRACTION_DIGITS));
     }
 
     /**
@@ -89,6 +89,6 @@ class CurrencyBundle extends AbstractBundle implements CurrencyBundleInterface
      */
     public function getRoundingIncrement($currency)
     {
-        return $this->readEntry('en', array('Currencies', $currency, static::INDEX_ROUNDING_INCREMENT), true);
+        return $this->readEntry('en', array('Currencies', $currency, static::INDEX_ROUNDING_INCREMENT));
     }
 }

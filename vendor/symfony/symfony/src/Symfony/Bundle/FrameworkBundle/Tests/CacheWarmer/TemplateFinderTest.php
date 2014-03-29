@@ -37,7 +37,7 @@ class TemplateFinderTest extends TestCase
             ->will($this->returnValue(array('BaseBundle' => new BaseBundle())))
         ;
 
-        $parser = new TemplateFilenameParser();
+        $parser = new TemplateFilenameParser($kernel);
 
         $finder = new TemplateFinder($kernel, $parser, __DIR__.'/../Fixtures/Resources');
 

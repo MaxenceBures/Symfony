@@ -165,17 +165,8 @@ class AclProvider implements AclProviderInterface
 
             // Is it time to load the current batch?
             if ((self::MAX_BATCH_SIZE === count($currentBatch) || ($i + 1) === $c) && count($currentBatch) > 0) {
-                try {
-                    $loadedBatch = $this->lookupObjectIdentities($currentBatch, $sids, $oidLookup);
-                } catch (AclNotFoundException $aclNotFoundexception) {
-                    if ($result->count()) {
-                        $partialResultException = new NotAllAclsFoundException('The provider could not find ACLs for all object identities.');
-                        $partialResultException->setPartialResult($result);
-                        throw $partialResultException;
-                    } else {
-                        throw $aclNotFoundexception;
-                    }
-                }
+                $loadedBatch = $this->lookupObjectIdentities($currentBatch, $sids, $oidLookup);
+
                 foreach ($loadedBatch as $loadedOid) {
                     $loadedAcl = $loadedBatch->offsetGet($loadedOid);
 
