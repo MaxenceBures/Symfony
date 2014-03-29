@@ -18,17 +18,17 @@ AjouterStage:
 ModifierStage:
     path: /Etudiant/modifStage/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierStage}
-consulterStageAction:
+ConsulterStage:
     path: /Etudiant/consulterStage/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterStage}
-ListeStageAction:
+ListeStage:
     path: /Etudiant/consulterListeStage/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
 #Etudiant
-ListeEtudiantAction:
+ListeEtudiant:
     path: /Etudiant/listeEtudiant/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEtudiant}
-ConsulterEtudiantAction:
+ConsulterEtudiant:
     path: /Etudiant/consulterEtudiant/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant}
 ModifierEtudiant:
@@ -38,10 +38,10 @@ AjouterEtudiant:
     path: /Etudiant/ajouterEtudiant
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEtudiant}
 #Entreprise
-ListeEntrepriseAction:
+ListeEntreprise:
     path: /Etudiant/consulterListeEntreprise/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEntreprise}
-ConsulterEntrepriseAction:
+ConsulterEntreprise:
     path: /Etudiant/consulterEntreprise/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEntreprise}
 AjouterEntreprise:

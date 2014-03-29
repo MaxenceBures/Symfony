@@ -24,7 +24,7 @@
 				<td>{{ entreprise.id }}</td>
 				<td>{{entreprise.raisonsociale}}</td>
 				<td>{{entreprise.ville}}</td>
-				<td><a href="{{ path('ConsulterEntrepriseAction', {'id': entreprise.id})}}"> En voir plus</a></td>
+				<td><a href="{{ path('ConsulterEntreprise', {'id': entreprise.id})}}"> En voir plus</a></td>
 				
 			</tr>
 		{% endfor %}

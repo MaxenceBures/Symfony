@@ -173,34 +173,34 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
-                // consulterStageAction
+                // ConsulterStage
                 if (0 === strpos($pathinfo, '/Etudiant/consulterStage') && preg_match('#^/Etudiant/consulterStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterStageAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterStageAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterStageAction',));
                 }
 
-                // ListeStageAction
+                // ListeStage
                 if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeStage') {
                     if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'ListeStageAction');
+                        return $this->redirect($pathinfo.'/', 'ListeStage');
                     }
 
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStageAction',);
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStage',);
                 }
 
             }
 
-            // ListeEtudiantAction
+            // ListeEtudiant
             if (rtrim($pathinfo, '/') === '/Etudiant/listeEtudiant') {
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'ListeEtudiantAction');
+                    return $this->redirect($pathinfo.'/', 'ListeEtudiant');
                 }
 
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEtudiantAction',  '_route' => 'ListeEtudiantAction',);
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEtudiantAction',  '_route' => 'ListeEtudiant',);
             }
 
-            // ConsulterEtudiantAction
+            // ConsulterEtudiant
             if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant') && preg_match('#^/Etudiant/consulterEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEtudiantAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiantAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEtudiant')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiantAction',));
             }
 
             // ModifierEtudiant
@@ -214,18 +214,18 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
-                // ListeEntrepriseAction
+                // ListeEntreprise
                 if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeEntreprise') {
                     if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'ListeEntrepriseAction');
+                        return $this->redirect($pathinfo.'/', 'ListeEntreprise');
                     }
 
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEntrepriseAction',  '_route' => 'ListeEntrepriseAction',);
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEntrepriseAction',  '_route' => 'ListeEntreprise',);
                 }
 
-                // ConsulterEntrepriseAction
+                // ConsulterEntreprise
                 if (0 === strpos($pathinfo, '/Etudiant/consulterEntreprise') && preg_match('#^/Etudiant/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEntrepriseAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEntrepriseAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEntrepriseAction',));
                 }
 
             }

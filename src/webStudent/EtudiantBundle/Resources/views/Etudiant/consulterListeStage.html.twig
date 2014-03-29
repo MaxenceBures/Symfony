@@ -21,7 +21,7 @@
 				<td>{{ stage.activite }}</td> 
 				<td>{{stage.dateDebut|date("d/m/Y")}}</td>
 				<td>{{stage.dateFin|date("d/m/Y")}}</td>
-				<td><a href="{{ path('consulterStageAction', {'id': stage.id})}}"> En voir plus</a></td>
+				<td><a href="{{ path('ConsulterStage', {'id': stage.id})}}"> En voir plus</a></td>
 				
 			</tr>
 		{% endfor %}
