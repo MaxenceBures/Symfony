@@ -33,3 +33,5 @@ e23d38,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1396097345
 0d544d,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEtudiant,1396097348,
 04158a,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterEntreprise,1396097351,
 79d81e,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/ajouterStage,1396097353,
+9bc2a9,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1396097400,
+6ed89a,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1396097448,
