@@ -2,6 +2,7 @@
 
 namespace webStudent\EtudiantBundle\Entity;
 
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -21,7 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 */
 
 
-class Utilisateur
+class Utilisateur extends BaseUser
 {
     
     /**
@@ -31,7 +32,7 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
 
 
@@ -39,7 +40,7 @@ class Utilisateur
 * @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Section", inversedBy="utilisateurs")
 *  @ORM\JoinColumn(nullable=false)
 */
-      private $section;
+      protected $section;
 
 
     
@@ -57,7 +58,7 @@ class Utilisateur
      *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
@@ -70,7 +71,7 @@ class Utilisateur
      *      maxMessage = "Votre prenom ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @var string
@@ -81,7 +82,7 @@ class Utilisateur
      *     checkMX = true
      * )
      */
-    private $adressemail;
+    protected $adressemail;
 
     /**
      * @var string
@@ -94,9 +95,9 @@ class Utilisateur
      *      maxMessage = "Votre numero de telephone ne peut pas être plus long que {{ limit }} caractères"
      * )
      */
-    private $telephone;
+    protected $telephone;
 
-
+ 
     /**
      * Get id
      *
