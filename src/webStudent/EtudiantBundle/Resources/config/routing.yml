@@ -7,9 +7,9 @@ webStudent_etudiant_homepage:
 accueilAction:
     path: /Accueil/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:accueil}
-test3Action:
+layoutAction:
     path: /test3/
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:test3}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:layout}
 
 #Stage
 AjouterStage:
@@ -25,9 +25,9 @@ ListeStageAction:
     path: /Etudiant/consulterListeStage/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
 #Etudiant
-listeAction:
-    path: /Etudiant/Liste/
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:liste}
+ListeEtudiantAction:
+    path: /Etudiant/listeEtudiant/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEtudiant}
 ConsulterEtudiantAction:
     path: /Etudiant/consulterEtudiant/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEtudiant}
@@ -36,7 +36,7 @@ ModifierEtudiant:
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEtudiant}
 AjouterEtudiant:
     path: /Etudiant/ajouterEtudiant
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:AjouterEtudiant}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEtudiant}
 #Entreprise
 ListeEntrepriseAction:
     path: /Etudiant/consulterListeEntreprise/
@@ -46,7 +46,7 @@ ConsulterEntrepriseAction:
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEntreprise}
 AjouterEntreprise:
     path: /Etudiant/ajouterEntreprise
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:AjouterEntreprise}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEntreprise}
 ModifierEntreprise:
     path: /Etudiant/modifEntreprise/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEntreprise}
