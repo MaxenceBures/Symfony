@@ -143,54 +143,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'webStudent_etudiant_homepage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        if (0 === strpos($pathinfo, '/Etudiant')) {
-            // consulterEtudiant2Action
-            if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant2') && preg_match('#^/Etudiant/consulterEtudiant2/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEtudiant2Action')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiant2Action',));
-            }
-
-            // listeAction
-            if (rtrim($pathinfo, '/') === '/Etudiant/Liste') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'listeAction');
-                }
-
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeAction',  '_route' => 'listeAction',);
-            }
-
-            if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
-                // consulterStageAction
-                if (0 === strpos($pathinfo, '/Etudiant/consulterStage') && preg_match('#^/Etudiant/consulterStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterStageAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterStageAction',));
-                }
-
-                // ListeStageAction
-                if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeStage') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'ListeStageAction');
-                    }
-
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStageAction',);
-                }
-
-                // consulterEntrepriseAction
-                if (0 === strpos($pathinfo, '/Etudiant/consulterEntreprise') && preg_match('#^/Etudiant/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'consulterEntrepriseAction')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEntrepriseAction',));
-                }
-
-                // ListeEntrepriseAction
-                if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeEntreprise') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'ListeEntrepriseAction');
-                    }
-
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEntrepriseAction',  '_route' => 'ListeEntrepriseAction',);
-                }
-
-            }
-
-        }
-
         // accueilAction
         if (rtrim($pathinfo, '/') === '/Accueil') {
             if (substr($pathinfo, -1) !== '/') {
@@ -200,74 +152,92 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::accueilAction',  '_route' => 'accueilAction',);
         }
 
-        // test3Action
-        if (rtrim($pathinfo, '/') === '/test3') {
+        // layoutAction
+        if (rtrim($pathinfo, '/') === '/layout') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'test3Action');
+                return $this->redirect($pathinfo.'/', 'layoutAction');
             }
 
-            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::test3Action',  '_route' => 'test3Action',);
+            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::layoutAction',  '_route' => 'layoutAction',);
         }
 
         if (0 === strpos($pathinfo, '/Etudiant')) {
-            if (0 === strpos($pathinfo, '/Etudiant/ajouter')) {
-                // AjouterStage
-                if ($pathinfo === '/Etudiant/ajouterStage') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'AjouterStage',);
+            // AjouterStage
+            if ($pathinfo === '/Etudiant/ajouterStage') {
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'AjouterStage',);
+            }
+
+            // ModifierStage
+            if (0 === strpos($pathinfo, '/Etudiant/modifStage') && preg_match('#^/Etudiant/modifStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierStageAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
+                // ConsulterStage
+                if (0 === strpos($pathinfo, '/Etudiant/consulterStage') && preg_match('#^/Etudiant/consulterStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterStageAction',));
                 }
 
-                if (0 === strpos($pathinfo, '/Etudiant/ajouterE')) {
-                    // AjouterEntreprise
-                    if ($pathinfo === '/Etudiant/ajouterEntreprise') {
-                        return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEntrepriseAction',  '_route' => 'AjouterEntreprise',);
+                // ListeStage
+                if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeStage') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'ListeStage');
                     }
 
-                    // AjouterEtudiant2
-                    if ($pathinfo === '/Etudiant/ajouterEtudiant') {
-                        return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::AjouterEtudiantAction',  '_route' => 'AjouterEtudiant2',);
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStage',);
+                }
+
+            }
+
+            // ListeEtudiant
+            if (rtrim($pathinfo, '/') === '/Etudiant/listeEtudiant') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ListeEtudiant');
+                }
+
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEtudiantAction',  '_route' => 'ListeEtudiant',);
+            }
+
+            // ConsulterEtudiant
+            if (0 === strpos($pathinfo, '/Etudiant/consulterEtudiant') && preg_match('#^/Etudiant/consulterEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEtudiant')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEtudiantAction',));
+            }
+
+            // ModifierEtudiant
+            if (0 === strpos($pathinfo, '/Etudiant/modifEtudiant') && preg_match('#^/Etudiant/modifEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEtudiant')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEtudiantAction',));
+            }
+
+            // AjouterEtudiant
+            if ($pathinfo === '/Etudiant/ajouterEtudiant') {
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterEtudiantAction',  '_route' => 'AjouterEtudiant',);
+            }
+
+            if (0 === strpos($pathinfo, '/Etudiant/consulter')) {
+                // ListeEntreprise
+                if (rtrim($pathinfo, '/') === '/Etudiant/consulterListeEntreprise') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'ListeEntreprise');
                     }
 
+                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeEntrepriseAction',  '_route' => 'ListeEntreprise',);
+                }
+
+                // ConsulterEntreprise
+                if (0 === strpos($pathinfo, '/Etudiant/consulterEntreprise') && preg_match('#^/Etudiant/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterEntrepriseAction',));
                 }
 
             }
 
-            if (0 === strpos($pathinfo, '/Etudiant/modif')) {
-                // ModifierEntreprise
-                if (0 === strpos($pathinfo, '/Etudiant/modifEntreprise') && preg_match('#^/Etudiant/modifEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEntrepriseAction',));
-                }
-
-                // ModifierStage
-                if (0 === strpos($pathinfo, '/Etudiant/modifStage') && preg_match('#^/Etudiant/modifStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierStageAction',));
-                }
-
-                // ModifierEtudiant
-                if (0 === strpos($pathinfo, '/Etudiant/modifEtudiant') && preg_match('#^/Etudiant/modifEtudiant/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEtudiant')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEtudiantAction',));
-                }
-
+            // AjouterEntreprise
+            if ($pathinfo === '/Etudiant/ajouterEntreprise') {
+                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterEntrepriseAction',  '_route' => 'AjouterEntreprise',);
             }
 
-        }
-
-        if (0 === strpos($pathinfo, '/log')) {
-            if (0 === strpos($pathinfo, '/login')) {
-                // login
-                if ($pathinfo === '/login') {
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::loginAction',  '_route' => 'login',);
-                }
-
-                // login_check
-                if ($pathinfo === '/login_check') {
-                    return array('_route' => 'login_check');
-                }
-
-            }
-
-            // logout
-            if ($pathinfo === '/logout') {
-                return array('_route' => 'logout');
+            // ModifierEntreprise
+            if (0 === strpos($pathinfo, '/Etudiant/modifEntreprise') && preg_match('#^/Etudiant/modifEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEntreprise')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierEntrepriseAction',));
             }
 
         }
