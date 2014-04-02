@@ -171,6 +171,12 @@ class EtudiantController extends Controller
       //Entreprise
   public function listeEntrepriseAction()
     {
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
           $repository=$this->getDoctrine()
                            ->getManager()
                            ->getRepository('webStudentEtudiantBundle:Entreprise');
@@ -184,6 +190,12 @@ class EtudiantController extends Controller
     }    
   public function consulterEntrepriseAction($id)
     {
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
       $repository = $this->getDoctrine()
                   ->getManager()
                   ->getRepository('webStudentEtudiantBundle:Entreprise');
@@ -200,6 +212,12 @@ class EtudiantController extends Controller
     }    
   public function ajouterEntrepriseAction()
     {
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
 
       // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
         
@@ -240,6 +258,11 @@ class EtudiantController extends Controller
     {
 
           
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
 
           $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Entreprise');
           $entreprise = $repository->find($id);
@@ -277,6 +300,12 @@ class EtudiantController extends Controller
   public function ajouterEtudiantAction()
     {
 
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
       //var_dump($section);
         $etudiant = new Etudiant();
         $form = $this->createForm(new EtudiantType, $etudiant);
@@ -312,6 +341,11 @@ class EtudiantController extends Controller
   public function modifierEtudiantAction($id)
     {
 
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
         $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Etudiant');
         $etudiant = $repository->find($id);
         $form = $this->createForm(new EtudiantModifType, $etudiant);
@@ -344,6 +378,12 @@ class EtudiantController extends Controller
     }
   public function listeEtudiantAction()
     {
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
           $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Etudiant');
           $listeEtudiant=$repository->findAll();
           foreach ($listeEtudiant as $etudiant) {
@@ -355,6 +395,12 @@ class EtudiantController extends Controller
     }
   public function consulterEtudiantAction($id)
     {
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
           $repository = $this->getDoctrine()
                          ->getManager()
                          ->getRepository('webStudentEtudiantBundle:Utilisateur');
@@ -377,6 +423,7 @@ class EtudiantController extends Controller
     }
     public function loginAction()
   {
+    
     // Si le visiteur est déjà identifié, on le redirige vers l'accueil
     if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
       //return $this->redirect($this->generateUrl('accueilAction'));
