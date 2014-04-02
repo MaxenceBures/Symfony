@@ -90,6 +90,7 @@
   'webStudentEtudiantBundle:Etudiant:consultStage.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/consultStage.html.twig',
   'webStudentEtudiantBundle:Etudiant:footer.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/footer.html.twig',
   'webStudentEtudiantBundle:Etudiant:layout.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/layout.html.twig',
+  'webStudentEtudiantBundle:Etudiant:layoutlogin.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/layoutlogin.html.twig',
   'webStudentEtudiantBundle:Etudiant:login.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/login.html.twig',
   'webStudentEtudiantBundle:Etudiant:modifierEntreprise.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/modifierEntreprise.html.twig',
   'webStudentEtudiantBundle:Etudiant:modifierEtudiant.html.twig' => '/Applications/MAMP/htdocs/Symfony/src/webStudent/EtudiantBundle/Resources/views/Etudiant/modifierEtudiant.html.twig',
