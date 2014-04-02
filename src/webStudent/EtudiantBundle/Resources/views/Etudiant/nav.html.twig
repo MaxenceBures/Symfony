@@ -1,0 +1,42 @@
+<html>
+	<nav class="top-bar" data-topbar>
+	  	<ul class="title-area">
+		    <li class="name">
+		      	<h1><a href="{{ path('accueilAction')}}">Gestion des stages</a></h1>
+		    </li>
+		    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+	  	</ul>
+
+	  	<section class="top-bar-section">
+	    	<ul class="right">
+				<li><a href="#">Déconnexion</a></li>
+		    	<li class="active"><a href="#">Mon compte</a></li>
+		    </ul>
+
+		    <!-- Left Nav Section -->
+		    <ul class="left">
+		        <li class="has-dropdown">
+				    <a href="#">Etudiants</a>
+				    <ul class="dropdown">
+				    	<li><a href="{{ path('ListeEtudiant')}}">Consulter les étudiants</a></li>
+				    	<li><a href="{{ path('AjouterEtudiant')}}">Ajouter un étudiant</a></li>
+				    </ul>
+				</li>
+				<li class="has-dropdown">
+				    <a href="#">Entreprises</a>
+				    <ul class="dropdown">
+				    	<li><a href="{{ path('ListeEntreprise')}}">Consulter les entreprises</a></li>
+				    	<li><a href="{{ path('AjouterEntreprise')}}">Ajouter une entreprise</a></li>
+				    </ul>
+				</li>
+				<li class="has-dropdown">
+				    <a href="#">Stages</a>
+				    <ul class="dropdown">
+				    	<li><a href="{{ path('ListeStage')}}">Consulter les stages</a></li>
+				    	<li><a href="{{ path('AjouterStage')}}">Ajouter un stage</a></li>
+				    </ul>
+			    </li>
+		    </ul>
+		</section>
+	</nav>
+</html>

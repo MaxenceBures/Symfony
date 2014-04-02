@@ -1,30 +1,28 @@
 {% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
 
-	{% block body %}
-	
-		<h1>Afficher les stages</h1>
-		<p>
-			Tableau des Stage
-		</p>
-		<table cellspacing="0">
+{% block body %}
+
+	<h1>Stages</h1>
+
+	<table cellspacing="0">
+		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Activite</th>
-				<th>Date Debut</th>
-				<th>Date Fin</th>
-				<th></th>
+				<th width="200">Activité</th>
+				<th width="200">Date de début</th>
+				<th width="200">Date de fin</th>
+				<th width="200">Plus de détails</th>
 			</tr>
+		</thead>
 		{% for stage in listeStage %}
+		<tbody>
 			<tr><!--.RaisonSociale-->
-			
-				<td>{{ stage.id }} </td>
 				<td>{{ stage.activite }}</td> 
 				<td>{{stage.dateDebut|date("d/m/Y")}}</td>
 				<td>{{stage.dateFin|date("d/m/Y")}}</td>
 				<td><a href="{{ path('ConsulterStage', {'id': stage.id})}}"> En voir plus</a></td>
-				
 			</tr>
-		{% endfor %}
-		</table>
-	<a href="{{ path('AjouterStage')}}"> Ajouter Stage</a>	
-	{% endblock %}
+		</tbody>
+	{% endfor %}
+	</table>
+<button onclick="self.location.href='{{ path('AjouterStage')}}'">Ajouter Stage</button>	
+{% endblock %}

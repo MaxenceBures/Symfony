@@ -1,27 +1,28 @@
 {% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
 
-	{% block body %}
-		<h1>Afficher les étudiants</h1>
-		<p>
-			Tableau des étudiants
-		</p>
-		<table >
+{% block body %}
+	<h1>Etudiants</h1>
+	<table >
+		<thead>
 			<tr>
-			<th>Nom</th>
-			<th>Prenom</th>
-			<th>Section</th>
+				<th width="200">Nom</th>
+				<th width="200">Prenom</th>
+				<th width="200">Section</th>
+				<th width="200">Plus de détails</th>
 			</tr>
+		</thead>
 		{% for etudiant in listeEtudiant %}
+		<tbody>
 			<tr>
 			
 				<td>{{ etudiant.nom }} </td>
 				<td>{{ etudiant.prenom }}</td>
 				<td>{{ etudiant.section.nom }}</td>
 				<td><a href="{{ path('ConsulterEtudiant', {'id': etudiant.id})}}"> En voir plus</a></td>
-				
-				
 			</tr>
-		{% endfor %}
-		</table>
-		<a href="{{ path('AjouterEtudiant')}}"> Ajouter Etudiant</a>
-	{% endblock %}
+		</tbody>
+	{% endfor %}
+	</table>
+	<button onclick="self.location.href='{{ path('AjouterEtudiant')}}'">Ajouter Etudiant</button>
+	
+{% endblock %}

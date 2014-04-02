@@ -58,7 +58,7 @@ class EtudiantController extends Controller
               
       ));
     }    
-  public function ListeStageAction()
+  public function listeStageAction()
     {
           $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Stage');
           $listeStage=$repository->findAll();
@@ -143,7 +143,7 @@ class EtudiantController extends Controller
           ));
     }    
       //Entreprise
-  public function ListeEntrepriseAction()
+  public function listeEntrepriseAction()
     {
           $repository=$this->getDoctrine()
                            ->getManager()

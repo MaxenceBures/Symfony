@@ -4,9 +4,9 @@
 
 <h2>Modifier un Etudiant</h2>
 
-<form method="post" {{ form_enctype(form) }}>
+<form class="form-inline" method="post" {{ form_enctype(form) }}>
 {{ form_errors(form) }}
-	<table>
+	<table class="table table-striped">
 	
 		<tr>
 			<th>Nom</th>
@@ -42,3 +42,4 @@
 	{{ form_rest(form) }}			 
 </form>
 {% endblock %}
+
