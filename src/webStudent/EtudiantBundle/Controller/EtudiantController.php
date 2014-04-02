@@ -17,6 +17,8 @@ use webStudent\EtudiantBundle\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContext;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class EtudiantController extends Controller
 {
@@ -24,19 +26,25 @@ class EtudiantController extends Controller
     {
       //return new Response("Salut tout le monde; test") ;
           return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
-          //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
+          
     }
   public function accueilAction()
     {
+      // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
+      if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
           //return new Response("Salut tout le monde; test") ;
           return $this->render('webStudentEtudiantBundle:Etudiant:accueil.html.twig');
-          //return $this->render('tapa2stageEtudiantBundle:Default:index.html.twig', array('name' => $name));
+          
     }
   public function layoutAction()
     {
               //return new Response("TT") ;
           return $this->render('webStudentEtudiantBundle:Etudiant:layout.html.twig');
-          //return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
+          
 
     }       
     
@@ -349,4 +357,28 @@ class EtudiantController extends Controller
 
               ));
     }
+    public function loginAction()
+  {
+    // Si le visiteur est déjà identifié, on le redirige vers l'accueil
+    if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+      //return $this->redirect($this->generateUrl('accueilAction'));
+    }
+
+    $request = $this->getRequest();
+    $session = $request->getSession();
+
+    // On vérifie s'il y a des erreurs d'une précédente soumission du formulaire
+    if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+      $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+    } else {
+      $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+      $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+    }
+
+    return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig', array(
+      // Valeur du précédent nom d'utilisateur entré par l'internaute
+      'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+      'error'         => $error,
+    ));
+  }
 }

@@ -1,0 +1,24 @@
+{# src/Sdz/UserBundle/Resources/views/Security/login.html.twig #}
+
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+
+{% block body %}
+  
+    {% if error is defined %}
+    <div class="alert alert-error"><B>PATATES<B/></div>
+  {% endif %}
+
+  {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
+  <form action="{{ path('login_check') }}" method="post">
+    <div class="login">
+      <label for="username">Login :</label>
+      <input type="text" id="username" name="_username"  />
+
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="_password" width="200"/>
+      <br />
+      <button value="Connexion">Connexion</button>
+    </div>
+  </form>
+
+{% endblock %}

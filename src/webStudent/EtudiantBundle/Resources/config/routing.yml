@@ -50,3 +50,11 @@ AjouterEntreprise:
 ModifierEntreprise:
     path: /Etudiant/modifEntreprise/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEntreprise}
+#Connexion
+login:
+    pattern:   /login
+    defaults:  { _controller: webStudentEtudiantBundle:Etudiant:login }
+login_check:
+    pattern:   /login_check
+logout:
+    pattern:   /logout
