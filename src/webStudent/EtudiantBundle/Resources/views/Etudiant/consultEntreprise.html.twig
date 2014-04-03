@@ -21,6 +21,10 @@
  		<th>Code Postal </th>
  		<td> {{entreprise.cp}}</td>
  	</tr>
+	<tr>
+				<th>Activite</th>
+				<td>{{entreprise.activite.libelle}}</td>
+			</tr> 	
  	<tr>
  		<th>Modification</th>
  		<td><a href="{{ path('ModifierEntreprise', {'id': entreprise.id}) }}">Modification</a></td>

@@ -263,6 +263,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // ListeActivite
+        if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'ListeActivite');
+            }
+
+            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeActiviteAction',  '_route' => 'ListeActivite',);
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

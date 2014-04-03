@@ -58,3 +58,6 @@ login_check:
     pattern:   /login_check
 logout:
     pattern:   /logout
+ListeActivite:
+    path: /Activite/consulterListeActivite/
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeActivite}

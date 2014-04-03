@@ -1,0 +1,28 @@
+{% extends "webStudentEtudiantBundle:Etudiant:layout.html.twig" %}
+
+{% block body %}
+	<h1>Activite</h1>
+	<table >
+		<thead>
+			<tr>
+				<th width="200">Id</th>
+				<th width="200">Libelle</th>
+				<th width="200">Code</th>
+				
+			</tr>
+		</thead>
+		{% for activite in listeActivite %}
+		<tbody>
+			<tr>
+			
+				<td>{{ activite.id }} </td>
+				<td>{{ activite.libelle }}</td>
+				<td>{{ activite.code }}</td>
+				
+			</tr>
+		</tbody>
+	{% endfor %}
+	</table>
+	
+	
+{% endblock %}
