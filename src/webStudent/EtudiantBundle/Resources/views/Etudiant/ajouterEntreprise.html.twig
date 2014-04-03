@@ -32,6 +32,11 @@
 				<td>{{ form_widget(form.cp, {'attr': {'placeholder': 'Code Postal'} }) }}</td>
 			</tr>
 			<tr>
+				<th>Activite</th>
+				{{ form_errors(form.activite) }}
+				<td>{{ form_widget(form.activite) }}</td>
+		</tr>
+			<tr>
 			<td align="center"><button type="reset">Effacer</button>
 			<td align="center"><button type="submit">Valider</button>
 		</tr>

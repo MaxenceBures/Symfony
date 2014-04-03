@@ -24,6 +24,7 @@ class EntrepriseModifType extends EntrepriseType
         $builder->add('rue', 'text', array('read_only' => false));
         $builder->add('ville', 'text', array('read_only' => false));
         $builder->add('cp', 'text', array('read_only' => false));
+        
 	}
     
     /**

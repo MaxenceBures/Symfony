@@ -20,6 +20,11 @@ class EntrepriseType extends AbstractType
             ->add('rue','text')
             ->add('ville','text')
             ->add('cp','text')
+            ->add('activite','entity', array(
+                                        'class'    => 'webStudentEtudiantBundle:Activite',
+                                        'property' => 'libelle',
+                                        'multiple' => false,
+                                        'expanded' => false))
         ;
     }
     

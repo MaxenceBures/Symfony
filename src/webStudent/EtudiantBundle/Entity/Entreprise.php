@@ -21,7 +21,11 @@ class Entreprise
      */
     private $id;
 
-  
+      /**
+* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Activite")
+*  @ORM\JoinColumn(nullable=false)
+*/
+      private $activite;
 
     /**
      * @var string
@@ -173,5 +177,28 @@ class Entreprise
     public function getCp()
     {
         return $this->cp;
+    }
+
+    /**
+     * Set activite
+     *
+     * @param \webStudent\EtudiantBundle\Entity\Activite $activite
+     * @return Entreprise
+     */
+    public function setActivite(\webStudent\EtudiantBundle\Entity\Activite $activite)
+    {
+        $this->activite = $activite;
+    
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return \webStudent\EtudiantBundle\Entity\Activite 
+     */
+    public function getActivite()
+    {
+        return $this->activite;
     }
 }
