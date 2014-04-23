@@ -13,16 +13,16 @@ layoutAction:
 
 #Stage
 AjouterStage:
-    path: /Etudiant/ajouterStage
+    path: /Stage/ajouterStage
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterStage}
 ModifierStage:
-    path: /Etudiant/modifStage/{id}
+    path: /Stage/modifStage/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierStage}
 ConsulterStage:
-    path: /Etudiant/consulterStage/{id}
+    path: /Stage/consulterStage/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterStage}
 ListeStage:
-    path: /Etudiant/consulterListeStage/
+    path: /Stage/consulterListeStage/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
 #Etudiant
 ListeEtudiant:
@@ -39,16 +39,16 @@ AjouterEtudiant:
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEtudiant}
 #Entreprise
 ListeEntreprise:
-    path: /Etudiant/consulterListeEntreprise/
+    path: /Entreprise/consulterListeEntreprise/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEntreprise}
 ConsulterEntreprise:
-    path: /Etudiant/consulterEntreprise/{id}
+    path: /Entreprise/consulterEntreprise/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEntreprise}
 AjouterEntreprise:
-    path: /Etudiant/ajouterEntreprise
+    path: /Entreprise/ajouterEntreprise
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEntreprise}
 ModifierEntreprise:
-    path: /Etudiant/modifEntreprise/{id}
+    path: /Entreprise/modifEntreprise/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEntreprise}
 #Connexion
 login:
@@ -60,10 +60,10 @@ logout:
     pattern:   /logout
 #Compte
 ConsulterCompte:
-    path: /Etudiant/consulterCompte/{id}
+    path: /Compte/consulterCompte/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterCompte }
 ModifierCompte:
-    path: /Etudiant/modifierCompte/{id}
+    path: /Compte/modifierCompte/{id}
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierCompte }
 #Activite
 ListeActivite:
