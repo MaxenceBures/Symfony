@@ -268,6 +268,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/Etudiant')) {
+            // ConsulterCompte
+            if (0 === strpos($pathinfo, '/Etudiant/consulterCompte') && preg_match('#^/Etudiant/consulterCompte/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterCompte')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterCompteAction',));
+            }
+
+            // ModifierCompte
+            if (0 === strpos($pathinfo, '/Etudiant/modifierCompte') && preg_match('#^/Etudiant/modifierCompte/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierCompte')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierCompteAction',));
+            }
+
+        }
+
         // ListeActivite
         if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
             if (substr($pathinfo, -1) !== '/') {

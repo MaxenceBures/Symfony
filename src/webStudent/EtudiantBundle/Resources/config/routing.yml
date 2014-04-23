@@ -58,6 +58,14 @@ login_check:
     pattern:   /login_check
 logout:
     pattern:   /logout
+#Compte
+ConsulterCompte:
+    path: /Etudiant/consulterCompte/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterCompte }
+ModifierCompte:
+    path: /Etudiant/modifierCompte/{id}
+    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierCompte }
+#Activite
 ListeActivite:
     path: /Activite/consulterListeActivite/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeActivite}

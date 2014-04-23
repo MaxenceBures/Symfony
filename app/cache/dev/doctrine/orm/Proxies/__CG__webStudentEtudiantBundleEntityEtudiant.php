@@ -123,10 +123,22 @@ class Etudiant extends \webStudent\EtudiantBundle\Entity\Etudiant implements \Do
         return parent::getSection();
     }
 
+    public function setUser(\webStudent\UserBundle\Entity\User $user)
+    {
+        $this->__load();
+        return parent::setUser($user);
+    }
+
+    public function getUser()
+    {
+        $this->__load();
+        return parent::getUser();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nom', 'prenom', 'adressemail', 'telephone', 'section', 'date');
+        return array('__isInitialized__', 'id', 'nom', 'prenom', 'adressemail', 'telephone', 'section', 'user', 'date');
     }
 
     public function __clone()

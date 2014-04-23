@@ -48,6 +48,14 @@ class User implements UserInterface, \Serializable
         $this->salt = md5(uniqid(null, true));
     }
 
+
+    /**
+     * @inheritDoc
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @inheritDoc
      */

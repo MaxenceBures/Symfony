@@ -1,0 +1,45 @@
+{% extends "::layout.html.twig" %}
+	{% block body %}
+
+
+<h2>Modifier un Etudiant</h2>
+
+<form class="form-inline" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }}
+	<table class="table table-striped">
+	
+		<tr>
+			<th>Nom</th>
+			<td>{{ form_widget(form.nom) }}</td>
+		</tr>	
+		<tr>
+			<th>Prénom</th>
+			<td>{{ form_widget(form.prenom) }}</td>
+		</tr>
+		<tr>
+			<th>Adresse mail</th>
+			<td>{{ form_widget(form.adressemail) }}</td>
+		</tr>
+		<tr>
+			<th>Téléphone</th>
+			<td>{{ form_widget(form.telephone) }}</td>
+		</tr>
+
+		<tr>
+			<th>Date inscription</th>
+			<td>{{ form_widget(form.date) }}</td>
+		</tr>
+
+		<tr>
+			<th>Section</th>
+			<td>{{ form_widget(form.section) }}</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" style="text-align:center;"><input type="submit"  value="Valider"/></td>
+		</tr>
+	</table>
+	{{ form_rest(form) }}			 
+</form>
+{% endblock %}
+
