@@ -41,7 +41,10 @@ class Utilisateur
 */
       private $section;
 
-
+/**
+* @ORM\OneToOne(targetEntity="webStudent\UserBundle\Entity\User", cascade={"persist"}) */
+    
+        private $user;
     
 
    
@@ -222,5 +225,27 @@ class Utilisateur
     public function getSection()
     {
         return $this->section;
+    }
+     /**
+     * Set user
+     *
+     * @param \webStudent\UserBundle\Entity\User $user
+     * @return Utilisateur
+     */
+    public function setUser(\webStudent\UserBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \webStudent\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

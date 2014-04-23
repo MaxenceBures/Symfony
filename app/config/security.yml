@@ -10,6 +10,10 @@ security:
         ROLE_SUPER_ADMIN: [ ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
 
     providers:
+        in_memory:
+            memory:
+                users:
+                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
         main:
             entity: { class: webStudent\UserBundle\Entity\User, property: username }
 
@@ -21,7 +25,7 @@ security:
         main:
             pattern:   ^/
             anonymous: true
-            provider:  in_memory
+            provider:  main
             form_login:
                 login_path: login
                 check_path: login_check
@@ -30,6 +34,5 @@ security:
             logout:
                 path:   logout
                 target: /login
-                
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
