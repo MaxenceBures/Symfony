@@ -1,3 +1,7 @@
+web_student_user:
+    resource: "@webStudentUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 web_student_etudiant:
     resource: "@webStudentEtudiantBundle/Resources/config/routing.yml"
     prefix:   /
