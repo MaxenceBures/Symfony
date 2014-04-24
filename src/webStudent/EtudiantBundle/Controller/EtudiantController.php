@@ -491,8 +491,8 @@ class EtudiantController extends Controller
         //throw new AccessDeniedHttpException('Accès limité aux enseignants');
       }
         $repository = $this->getDoctrine()->getManager()->getRepository('webStudentUserBundle:User');
-        $etudiant = $repository->find($id);
-        $form = $this->createForm(new UserModifType, $etudiant);
+        $compte = $repository->find($id);
+        $form = $this->createForm(new UserModifType, $compte);
       
           // On récupère la requête
         $request = $this->get('request');
@@ -506,17 +506,17 @@ class EtudiantController extends Controller
             if ($form->isValid()) {
                   // On l'enregistre notre objet $organisation dans la base de données
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($etudiant);
+                $em->persist($compte);
                 $em->flush();
    
                   // On redirige vers la page de visualisation de l'organisation modifié
-            return $this->render('webStudentEtudiantBundle:Etudiant:modifierCompte.html.twig', array('etudiant' => $etudiant));
+            return $this->render('webStudentEtudiantBundle:Etudiant:consulterCompte.html.twig', array('compte' => $compte));
             }
         }
           // À ce stade :
           // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
           // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
-        return $this->render('webStudentEtudiantBundle:Etudiant:modifierEtudiant.html.twig', array(
+        return $this->render('webStudentEtudiantBundle:Etudiant:modifierCompte.html.twig', array(
         'form' => $form->createView(),
         ));
     }      

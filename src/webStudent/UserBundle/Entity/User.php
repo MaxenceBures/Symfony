@@ -65,6 +65,32 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * Set username
+     *
+     * @param string $username
+     * @return Activite
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    
+        return $this;
+    }
+
+        /**
+     * Set password
+     *
+     * @param string $password
+     * @return Activite
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    
+        return $this;
+    }
+
+    /**
      * @inheritDoc
      */
     public function getSalt()

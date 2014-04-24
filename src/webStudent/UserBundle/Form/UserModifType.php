@@ -1,11 +1,11 @@
 <?php
 
-namespace webStudent\EtudiantBundle\Form;
+namespace webStudent\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use webStudent\EtudiantBundle\Form\EtudiantType;
+use webStudent\UserBundle\Form\UserType;
 
 class UserModifType extends UserType
 {
