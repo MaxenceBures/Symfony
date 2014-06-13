@@ -14,6 +14,7 @@ security:
             memory:
                 users:
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    user: { password: userpass, roles: [ 'ROLE_ADMIN' ] }
         main:
             entity: { class: webStudent\UserBundle\Entity\User, property: username }
 
