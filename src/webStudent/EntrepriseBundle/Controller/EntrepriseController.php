@@ -160,5 +160,45 @@ class EntrepriseController extends Controller
          //var_dump($listeEtudiant) ;
          return $this->render('webStudentEntrepriseBundle:Entreprise:consulterListeActivite.html.twig', array('listeActivite' => $listeActivite));
    }
+public function modifierActiviteAction($id)
+  {
 
+
+          if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+      // Sinon on déclenche une exception « Accès interdit »
+      return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+      //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+    }
+
+        $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEntrepriseBundle:Activite');
+        $activite = $repository->find($id);
+        $form = $this->createForm(new ActiviteModifType, $activite);
+
+        // On récupère la requête
+        $request = $this->get('request');
+
+        // On vérifie qu'elle est de type POST
+        if ($request->getMethod() == 'POST') {
+            // On fait le lien Requête <-> Formulaire
+            // À partir de maintenant, la variable $organisation contient les valeurs entrées dans le formulaire par le visiteur
+            $form->bind($request);
+
+            // On vérifie que les valeurs entrées sont correctes
+            if ($form->isValid()) {
+                // On l'enregistre notre objet $organisation dans la base de données
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($activite);
+                $em->flush();
+
+                // On redirige vers la page de visualisation de l'organisation modifié
+            return $this->render('webStudentEntrepriseBundle:Entreprise:consultActivite.html.twig', array('activite' => $activite));
+            }
+        }
+        // À ce stade :
+        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+        // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+        return $this->render('webStudentEntrepriseBundle:Entreprise:modifierActivite.html.twig', array(
+        'form' => $form->createView(),
+        ));
+  }
 }

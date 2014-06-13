@@ -1,0 +1,27 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+
+
+		<h2>Modifier une Activte</h2>
+
+		<form method="post" {{ form_enctype(form) }}>
+		{{ form_errors(form) }}
+			<table>
+
+				<tr>
+					<th>Raison Sociale</th>
+					<td>{{ form_widget(form.libelle, {'attr': {'placeholder': 'Libelle'} }) }}</td>
+				</tr>
+				
+
+				<tr>
+					<td colspan="2" style="text-align:center;"><button type="submit">Modifier</button></td>
+				</tr>
+			</table>
+			{{ form_rest(form) }}
+		</form>
+
+
+
+
+{% endblock %}

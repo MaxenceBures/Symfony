@@ -203,13 +203,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // ListeActivite
-        if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'ListeActivite');
+        if (0 === strpos($pathinfo, '/Activite')) {
+            // ListeActivite
+            if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'ListeActivite');
+                }
+
+                return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeActiviteAction',  '_route' => 'ListeActivite',);
             }
 
-            return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeActiviteAction',  '_route' => 'ListeActivite',);
+            // ModifierActivite
+            if (0 === strpos($pathinfo, '/Activite/modifActivite') && preg_match('#^/Activite/modifActivite/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierActivite')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::modifierActiviteAction',));
+            }
+
         }
 
         // web_student_user_homepage

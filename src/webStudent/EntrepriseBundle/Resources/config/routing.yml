@@ -20,3 +20,6 @@ ModifierEntreprise:
 ListeActivite:
     path: /Activite/consulterListeActivite/
     defaults: { _controller: webStudentEntrepriseBundle:Entreprise:listeActivite}
+ModifierActivite:
+    path: /Activite/modifActivite/{id}
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:modifierActivite}
