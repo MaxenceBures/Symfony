@@ -1,6 +1,6 @@
 <?php
 
-namespace webStudent\EtudiantBundle\Entity;
+namespace webStudent\EntrepriseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Activite
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="webStudent\EtudiantBundle\Entity\ActiviteRepository")
+ * @ORM\Entity(repositoryClass="webStudent\EntrepriseBundle\Entity\ActiviteRepository")
  */
 class Activite
 {
@@ -39,7 +39,7 @@ class Activite
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -55,14 +55,14 @@ class Activite
     public function setLibelle($libelle)
     {
         $this->libelle = $libelle;
-    
+
         return $this;
     }
 
     /**
      * Get libelle
      *
-     * @return string 
+     * @return string
      */
     public function getLibelle()
     {
@@ -77,14 +77,14 @@ class Activite
     public function setCode($code)
     {
         $this->code = $code;
-    
+
         return $this;
     }
 
     /**
      * Get code
      *
-     * @return string 
+     * @return string
      */
     public function getCode()
     {

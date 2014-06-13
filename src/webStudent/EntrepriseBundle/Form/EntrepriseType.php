@@ -21,7 +21,7 @@ class EntrepriseType extends AbstractType
             ->add('ville','text')
             ->add('cp','text')
             ->add('activite','entity', array(
-                                        'class'    => 'webStudentEtudiantBundle:Activite',
+                                        'class'    => 'webStudentEntrepriseBundle:Activite',
                                         'property' => 'libelle',
                                         'multiple' => false,
                                         'expanded' => false))

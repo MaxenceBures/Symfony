@@ -23,7 +23,7 @@ class Entreprise
     private $id;
 
       /**
-* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Activite")
+* @ORM\ManyToOne(targetEntity="webStudent\EntrepriseBundle\Entity\Activite")
 *  @ORM\JoinColumn(nullable=false)
 */
       private $activite;
@@ -183,10 +183,10 @@ class Entreprise
     /**
      * Set activite
      *
-     * @param \webStudent\EtudiantBundle\Entity\Activite $activite
+     * @param \webStudent\EntrepriseBundle\Entity\Activite $activite
      * @return Entreprise
      */
-    public function setActivite(\webStudent\EtudiantBundle\Entity\Activite $activite)
+    public function setActivite(\webStudent\EntrepriseBundle\Entity\Activite $activite)
     {
         $this->activite = $activite;
 
@@ -196,11 +196,11 @@ class Entreprise
     /**
      * Get activite
      *
-     * @return \webStudent\EtudiantBundle\Entity\Activite
+     * @return \webStudent\EntrepriseBundle\Entity\Activite
      */
     public function getActivite()
     {
         return $this->activite;
     }
-      
+
 }

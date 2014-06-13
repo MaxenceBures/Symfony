@@ -1,6 +1,6 @@
 <?php
 
-namespace webStudent\EtudiantBundle\Form;
+namespace webStudent\EntrepriseBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,14 +20,14 @@ class ActiviteType extends AbstractType
 
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'webStudent\EtudiantBundle\Entity\Activite'
+            'data_class' => 'webStudent\EntrepriseBundle\Entity\Activite'
         ));
     }
 
@@ -36,6 +36,6 @@ class ActiviteType extends AbstractType
      */
     public function getName()
     {
-        return 'webstudent_etudiantbundle_activite';
+        return 'webstudent_entreprisebundle_activite';
     }
 }

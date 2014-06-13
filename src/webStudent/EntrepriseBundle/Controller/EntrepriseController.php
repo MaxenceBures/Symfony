@@ -4,7 +4,9 @@ namespace webStudent\EntrepriseBundle\Controller;
 
 use webStudent\EntrepriseBundle\Form\EntrepriseType;
 use webStudent\EntrepriseBundle\Form\EntrepriseModifType;
+use webStudent\EntrepriseBundle\Form\ActiviteType;
 use webStudent\EntrepriseBundle\Entity\Entreprise;
+use webStudent\EntrepriseBundle\Entity\Activite;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -141,6 +143,22 @@ class EntrepriseController extends Controller
           'form' => $form->createView(),
           ));
     }
-  
+  public function listeActiviteAction()
+   {
+
+           if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+       // Sinon on déclenche une exception « Accès interdit »
+       return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+       //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+     }
+         $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEntrepriseBundle:Activite');
+         $listeActivite=$repository->findAll();
+         foreach ($listeActivite as $activite) {
+             $activite->getCode();
+             // $etudiant->getId();
+         }
+         //var_dump($listeEtudiant) ;
+         return $this->render('webStudentEntrepriseBundle:Entreprise:consulterListeActivite.html.twig', array('listeActivite' => $listeActivite));
+   }
 
 }

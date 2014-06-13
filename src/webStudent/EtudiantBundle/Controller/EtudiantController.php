@@ -52,7 +52,7 @@ class EtudiantController extends Controller
     }
 
 
-    
+
 
       //Etudiant
   public function ajouterEtudiantAction()
@@ -204,23 +204,7 @@ class EtudiantController extends Controller
       'error'         => $error,
     ));
   }
-   public function listeActiviteAction()
-    {
-
-            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
-        // Sinon on déclenche une exception « Accès interdit »
-        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
-        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
-      }
-          $repository=$this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Activite');
-          $listeActivite=$repository->findAll();
-          foreach ($listeActivite as $activite) {
-              $activite->getCode();
-              // $etudiant->getId();
-          }
-          //var_dump($listeEtudiant) ;
-          return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeActivite.html.twig', array('listeActivite' => $listeActivite));
-    }
+   
   public function consulterCompteAction ($id)
       {
            if (!$this->get('security.context')->isGranted('ROLE_USER')) {

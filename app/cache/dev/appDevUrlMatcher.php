@@ -203,6 +203,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // ListeActivite
+        if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'ListeActivite');
+            }
+
+            return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeActiviteAction',  '_route' => 'ListeActivite',);
+        }
+
         // web_student_user_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_student_user_homepage')), array (  '_controller' => 'webStudent\\UserBundle\\Controller\\DefaultController::indexAction',));
@@ -295,15 +304,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierCompte')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierCompteAction',));
             }
 
-        }
-
-        // ListeActivite
-        if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'ListeActivite');
-            }
-
-            return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeActiviteAction',  '_route' => 'ListeActivite',);
         }
 
         // _welcome
