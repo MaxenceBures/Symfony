@@ -18,6 +18,7 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="webStudentEtudiantBundle">webStudent\EtudiantBundle\webStudentEtudiantBundle</parameter>
       <parameter key="webStudentUserBundle">webStudent\UserBundle\webStudentUserBundle</parameter>
+      <parameter key="webStudentEntrepriseBundle">webStudent\EntrepriseBundle\webStudentEntrepriseBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -1548,7 +1549,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>539b20abe6bae</argument>
+            <argument>539b4dc0d6027</argument>
           </service>
         </argument>
       </argument>
@@ -1823,7 +1824,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>539b20abe6bae</argument>
+            <argument>539b4dc0d6027</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2224,6 +2225,7 @@
             <argument type="collection">
               <argument key="webStudentEtudiantBundle">webStudent\EtudiantBundle\Entity</argument>
               <argument key="webStudentUserBundle">webStudent\UserBundle\Entity</argument>
+              <argument key="webStudentEntrepriseBundle">webStudent\EntrepriseBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2263,6 +2265,7 @@
                       <argument type="collection">
                         <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Entity</argument>
                         <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Entity</argument>
+                        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EntrepriseBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -2275,10 +2278,24 @@
                       <argument type="collection">
                         <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Entity</argument>
                         <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Entity</argument>
+                        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EntrepriseBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>webStudent\UserBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Entity</argument>
+                        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Entity</argument>
+                        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EntrepriseBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>webStudent\EntrepriseBundle\Entity</argument>
                 </call>
               </service>
             </argument>
@@ -2678,6 +2695,10 @@
       <call method="addPath">
         <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Resources/views</argument>
         <argument>webStudentUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Applications/MAMP/htdocs/symfony/src/webStudent/EntrepriseBundle/Resources/views</argument>
+        <argument>webStudentEntreprise</argument>
       </call>
       <call method="addPath">
         <argument>/Applications/MAMP/htdocs/symfony/src/Acme/DemoBundle/Resources/views</argument>

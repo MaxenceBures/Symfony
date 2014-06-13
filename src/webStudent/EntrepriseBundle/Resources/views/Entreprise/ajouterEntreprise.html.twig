@@ -1,0 +1,49 @@
+{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/ajouterEntreprise.html.twig #}
+{% extends "::layout.html.twig" %}
+	
+{% block body %}
+
+
+	<h2>Ajouter une Entreprise</h2>
+	
+	</br>
+
+	<form method="post" {{ form_enctype(form) }}>
+	<!-- {{ form_errors(form) }} -->
+		<table>
+			<tr>
+				<th width="300">Raison Sociale</th>
+				{{ form_errors(form.raisonSociale) }}
+				<td width="300">{{ form_widget(form.raisonSociale, {'attr': {'placeholder': 'Raison Sociale'} }) }}</td>
+			</tr>
+			<tr>
+				<th>Rue</th>
+				{{ form_errors(form.rue) }}
+				<td>{{ form_widget(form.rue, {'attr': {'placeholder': 'Rue'} }) }}</td>
+			</tr>
+			<tr>
+				<th>Ville</th>
+				{{ form_errors(form.ville) }}
+				<td>{{ form_widget(form.ville, {'attr': {'placeholder': 'Ville'} }) }}</td>
+			</tr>
+			<tr>
+				<th>Code Postal</th>
+				{{ form_errors(form.cp) }}
+				<td>{{ form_widget(form.cp, {'attr': {'placeholder': 'Code Postal'} }) }}</td>
+			</tr>
+			<tr>
+				<th>Activite</th>
+				{{ form_errors(form.activite) }}
+				<td>{{ form_widget(form.activite) }}</td>
+			</tr>
+			<tr>
+			<td align="center"><button type="reset">Effacer</button>
+			<td align="center"><button type="submit">Valider</button>
+		</tr>
+		</table>
+		{{ form_rest(form) }}			 
+	</form>
+
+
+
+{% endblock %}

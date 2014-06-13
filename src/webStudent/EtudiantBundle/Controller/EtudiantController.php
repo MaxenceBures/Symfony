@@ -2,8 +2,8 @@
 
 namespace webStudent\EtudiantBundle\Controller;
 
-use webStudent\EtudiantBundle\Form\EntrepriseType;
-use webStudent\EtudiantBundle\Form\EntrepriseModifType;
+//use webStudent\EtudiantBundle\Form\EntrepriseType;
+//use webStudent\EtudiantBundle\Form\EntrepriseModifType;
 use webStudent\EtudiantBundle\Form\EtudiantType;
 use webStudent\EtudiantBundle\Form\EtudiantModifType;
 use webStudent\UserBundle\Form\UserType;
@@ -29,7 +29,7 @@ class EtudiantController extends Controller
     {
       //return new Response("Salut tout le monde; test") ;
           return $this->render('webStudentEtudiantBundle:Etudiant:index.html.twig');
-          
+
     }
   public function accueilAction()
     {
@@ -41,20 +41,20 @@ class EtudiantController extends Controller
       }
           //return new Response("Salut tout le monde; test") ;
           return $this->render('webStudentEtudiantBundle:Etudiant:accueil.html.twig');
-          
+
     }
   public function layoutAction()
     {
               //return new Response("TT") ;
           return $this->render('webStudentEtudiantBundle:Etudiant:layout.html.twig');
-          
 
-    }       
-    
+
+    }
+
 
       //Stage
   public function consulterStageAction($id)
-    { 
+    {
         if (!$this->get('security.context')->isGranted('ROLE_USER')) {
         // Sinon on déclenche une exception « Accès interdit »
         return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
@@ -71,9 +71,9 @@ class EtudiantController extends Controller
        throw $this->createNotFoundException('Stage[id='.$id.'] inexistant.');
       }
       return $this->render('webStudentEtudiantBundle:Etudiant:consultStage.html.twig', array('stage' =>$stage
-              
+
       ));
-    }    
+    }
   public function listeStageAction()
     {
         if (!$this->get('security.context')->isGranted('ROLE_USER')) {
@@ -98,28 +98,28 @@ class EtudiantController extends Controller
         //throw new AccessDeniedHttpException('Accès limité aux enseignants');
       }
       // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
-        
+
 
       //var_dump($section);
         $stage = new Stage ();
         $form = $this->createForm(new StageType, $stage);
-      
+
         // On récupère la requête
         $request = $this->get('request');
-       
+
         // On vérifie qu'elle est de type POST
         if ($request->getMethod() == 'POST') {
           // On fait le lien Requête <-> Formulaire
           // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
           $form->bind($request);
-     
+
           // On vérifie que les valeurs entrées sont correctes
           if ($form->isValid()) {
             // On l'enregistre notre objet $etudiant dans la base de données
             $em = $this->getDoctrine()->getManager();
             $em->persist($stage);
             $em->flush();
-     
+
             // On redirige vers la page de visualisation de l'etudiant nouvellement créé
           return $this->render('webStudentEtudiantBundle:Etudiant:consultStage.html.twig', array('stage' =>$stage));
           }
@@ -130,7 +130,7 @@ class EtudiantController extends Controller
         return $this->render('webStudentEtudiantBundle:Etudiant:ajouterStage.html.twig', array(
         'form' => $form->createView(),
         ));
-      
+
     }
   public function modifierStageAction($id)
     {
@@ -144,22 +144,22 @@ class EtudiantController extends Controller
           $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Stage');
           $stage = $repository->find($id);
           $form = $this->createForm(new StageModifType, $stage);
-      
+
           // On récupère la requête
           $request = $this->get('request');
-     
+
           // On vérifie qu'elle est de type POST
           if ($request->getMethod() == 'POST') {
               // On fait le lien Requête <-> Formulaire
               $form->bind($request);
-   
+
               // On vérifie que les valeurs entrées sont correctes
               if ($form->isValid()) {
                   // On l'enregistre notre objet $organisation dans la base de données
                   $em = $this->getDoctrine()->getManager();
                   $em->persist($stage);
                   $em->flush();
-   
+
                   // On redirige vers la page de visualisation de l'organisation modifié
               return $this->render('webStudentEtudiantBundle:Etudiant:consultStage.html.twig', array('stage' => $stage));
               }
@@ -168,133 +168,6 @@ class EtudiantController extends Controller
           // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
           // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
           return $this->render('webStudentEtudiantBundle:Etudiant:modifierStage.html.twig', array(
-          'form' => $form->createView(),
-          ));
-    }    
-      //Entreprise
-  public function listeEntrepriseAction()
-    {
-
-            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
-        // Sinon on déclenche une exception « Accès interdit »
-        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
-        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
-      }
-          $repository=$this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('webStudentEtudiantBundle:Entreprise');
-          $listeStage=$repository->findAll();
-          foreach ($listeStage as $stage) {
-              $stage->getId()
-              ;
-          }
-          //var_dump($listeEtudiant) ;
-          return $this->render('webStudentEtudiantBundle:Etudiant:consulterListeEntreprise.html.twig', array('listeEntreprise' => $listeStage));
-    }    
-  public function consulterEntrepriseAction($id)
-    {
-
-            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
-        // Sinon on déclenche une exception « Accès interdit »
-        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
-        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
-      }
-      $repository = $this->getDoctrine()
-                  ->getManager()
-                  ->getRepository('webStudentEtudiantBundle:Entreprise');
-      // On récupère l'entité correspondant à l'id $id
-      $entreprise = $repository->find($id);
-      // Ou null si aucune section n'a été trouvé avec l'id $id
-       if($entreprise === null)
-          {
-       throw $this->createNotFoundException('Entreprise[id='.$id.'] inexistant.');
-      }
-      return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array('entreprise' =>$entreprise
-             
-      ));
-    }    
-  public function ajouterEntrepriseAction()
-    {
-
-            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
-        // Sinon on déclenche une exception « Accès interdit »
-        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
-        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
-      }
-
-      // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
-        
-
-      //var_dump($section);
-        $entreprise = new Entreprise();
-        $form = $this->createForm(new EntrepriseType, $entreprise);
-      
-        // On récupère la requête
-        $request = $this->get('request');
-       
-        // On vérifie qu'elle est de type POST
-        if ($request->getMethod() == 'POST') {
-          // On fait le lien Requête <-> Formulaire
-          // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
-          $form->bind($request);
-     
-          // On vérifie que les valeurs entrées sont correctes
-          if ($form->isValid()) {
-            // On l'enregistre notre objet $etudiant dans la base de données
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entreprise);
-            $em->flush();
-     
-            // On redirige vers la page de visualisation de l'etudiant nouvellement créé
-          return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array('entreprise' =>$entreprise));
-          }
-        }
-        // À ce stade :
-        // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
-        // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
-        return $this->render('webStudentEtudiantBundle:Etudiant:ajouterEntreprise.html.twig', array(
-        'form' => $form->createView(),
-        ));
-      
-    }
-  public function modifierEntrepriseAction($id)
-    {
-
-          
-            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
-        // Sinon on déclenche une exception « Accès interdit »
-        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
-        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
-      }
-
-          $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Entreprise');
-          $entreprise = $repository->find($id);
-          $form = $this->createForm(new EntrepriseModifType, $entreprise);
-      
-          // On récupère la requête
-          $request = $this->get('request');
-     
-          // On vérifie qu'elle est de type POST
-          if ($request->getMethod() == 'POST') {
-              // On fait le lien Requête <-> Formulaire
-              // À partir de maintenant, la variable $organisation contient les valeurs entrées dans le formulaire par le visiteur
-              $form->bind($request);
-   
-              // On vérifie que les valeurs entrées sont correctes
-              if ($form->isValid()) {
-                  // On l'enregistre notre objet $organisation dans la base de données
-                  $em = $this->getDoctrine()->getManager();
-                  $em->persist($entreprise);
-                  $em->flush();
-   
-                  // On redirige vers la page de visualisation de l'organisation modifié
-              return $this->render('webStudentEtudiantBundle:Etudiant:consultEntreprise.html.twig', array('entreprise' => $entreprise));
-              }
-          }
-          // À ce stade :
-          // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
-          // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
-          return $this->render('webStudentEtudiantBundle:Etudiant:modifierEntreprise.html.twig', array(
           'form' => $form->createView(),
           ));
     }
@@ -312,23 +185,23 @@ class EtudiantController extends Controller
       //var_dump($section);
         $etudiant = new Etudiant();
         $form = $this->createForm(new EtudiantType, $etudiant);
-      
+
         // On récupère la requête
         $request = $this->get('request');
-       
+
         // On vérifie qu'elle est de type POST
         if ($request->getMethod() == 'POST') {
           // On fait le lien Requête <-> Formulaire
           // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
           $form->bind($request);
-     
+
           // On vérifie que les valeurs entrées sont correctes
           if ($form->isValid()) {
             // On l'enregistre notre objet $etudiant dans la base de données
             $em = $this->getDoctrine()->getManager();
             $em->persist($etudiant);
             $em->flush();
-     
+
             // On redirige vers la page de visualisation de l'etudiant nouvellement créé
           return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array('etudiant' =>$etudiant));
           }
@@ -339,7 +212,7 @@ class EtudiantController extends Controller
         return $this->render('webStudentEtudiantBundle:Etudiant:ajouterEtudiant.html.twig', array(
         'form' => $form->createView(),
         ));
-      
+
     }
   public function modifierEtudiantAction($id)
     {
@@ -352,22 +225,22 @@ class EtudiantController extends Controller
         $repository = $this->getDoctrine()->getManager()->getRepository('webStudentEtudiantBundle:Etudiant');
         $etudiant = $repository->find($id);
         $form = $this->createForm(new EtudiantModifType, $etudiant);
-      
+
           // On récupère la requête
         $request = $this->get('request');
-     
+
           // On vérifie qu'elle est de type POST
         if ($request->getMethod() == 'POST') {
               // On fait le lien Requête <-> Formulaire
             $form->bind($request);
-   
+
               // On vérifie que les valeurs entrées sont correctes
             if ($form->isValid()) {
                   // On l'enregistre notre objet $organisation dans la base de données
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($etudiant);
                 $em->flush();
-   
+
                   // On redirige vers la page de visualisation de l'organisation modifié
             return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array('etudiant' => $etudiant));
             }
@@ -416,17 +289,17 @@ class EtudiantController extends Controller
            {
            throw $this->createNotFoundException('Etudiant[id='.$id.'] inexistant.');
           }
-           
+
           return $this->render('webStudentEtudiantBundle:Etudiant:consultEUtil.html.twig', array('etudiant' =>$etudiant
-            
-              
+
+
 
 
               ));
     }
     public function loginAction()
   {
-    
+
     // Si le visiteur est déjà identifié, on le redirige vers l'accueil
     if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
       //return $this->redirect($this->generateUrl('accueilAction'));
@@ -493,22 +366,22 @@ class EtudiantController extends Controller
         $repository = $this->getDoctrine()->getManager()->getRepository('webStudentUserBundle:User');
         $compte = $repository->find($id);
         $form = $this->createForm(new UserModifType, $compte);
-      
+
           // On récupère la requête
         $request = $this->get('request');
-     
+
           // On vérifie qu'elle est de type POST
         if ($request->getMethod() == 'POST') {
               // On fait le lien Requête <-> Formulaire
             $form->bind($request);
-   
+
               // On vérifie que les valeurs entrées sont correctes
             if ($form->isValid()) {
                   // On l'enregistre notre objet $organisation dans la base de données
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($compte);
                 $em->flush();
-   
+
                   // On redirige vers la page de visualisation de l'organisation modifié
             return $this->render('webStudentEtudiantBundle:Etudiant:consulterCompte.html.twig', array('compte' => $compte));
             }
@@ -519,5 +392,5 @@ class EtudiantController extends Controller
         return $this->render('webStudentEtudiantBundle:Etudiant:modifierCompte.html.twig', array(
         'form' => $form->createView(),
         ));
-    }      
+    }
 }

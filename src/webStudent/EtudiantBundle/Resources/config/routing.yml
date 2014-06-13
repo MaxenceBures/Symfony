@@ -37,19 +37,7 @@ ModifierEtudiant:
 AjouterEtudiant:
     path: /Etudiant/ajouterEtudiant
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEtudiant}
-#Entreprise
-ListeEntreprise:
-    path: /Entreprise/consulterListeEntreprise/
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeEntreprise}
-ConsulterEntreprise:
-    path: /Entreprise/consulterEntreprise/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterEntreprise}
-AjouterEntreprise:
-    path: /Entreprise/ajouterEntreprise
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterEntreprise}
-ModifierEntreprise:
-    path: /Entreprise/modifEntreprise/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierEntreprise}
+
 #Connexion
 login:
     pattern:   /login

@@ -1,0 +1,29 @@
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+
+	<h1>Entreprises</h1>
+
+	<table cellspacing='0'>
+		<thead>
+			<tr>
+				<th width="200">Raison Sociale</th>
+				<th width="200">Ville</th>
+				<th width="200">Activite</th>
+				<th width="200">Plus de détails</th>
+			</tr>
+		</thead>
+		{% for entreprise in listeEntreprise %}
+		<tbody>
+			<tr>
+				<td>{{entreprise.raisonsociale}}</td>
+				<td>{{entreprise.ville}}</td>
+				<td>{{entreprise.activite.libelle}}</td>
+				<td><a href="{{ path('ConsulterEntreprise', {'id': entreprise.id})}}"> En voir plus</a></td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+	<button onclick="self.location.href='{{ path('AjouterEntreprise')}}'">Ajouter Stage</button>	
+ {% endblock %}

@@ -555,14 +555,15 @@ class appDevDebugProjectContainer extends Container
         $d = new \Doctrine\Common\Cache\ArrayCache();
         $d->setNamespace('sf2orm_default_74e177d276eb44fe5320b4545828e4d7');
 
-        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Entity', 1 => '/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Entity'));
+        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => '/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Entity', 1 => '/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Entity', 2 => '/Applications/MAMP/htdocs/symfony/src/webStudent/EntrepriseBundle/Entity'));
 
         $f = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $f->addDriver($e, 'webStudent\\EtudiantBundle\\Entity');
         $f->addDriver($e, 'webStudent\\UserBundle\\Entity');
+        $f->addDriver($e, 'webStudent\\EntrepriseBundle\\Entity');
 
         $g = new \Doctrine\ORM\Configuration();
-        $g->setEntityNamespaces(array('webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\Entity', 'webStudentUserBundle' => 'webStudent\\UserBundle\\Entity'));
+        $g->setEntityNamespaces(array('webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\Entity', 'webStudentUserBundle' => 'webStudent\\UserBundle\\Entity', 'webStudentEntrepriseBundle' => 'webStudent\\EntrepriseBundle\\Entity'));
         $g->setMetadataCacheImpl($b);
         $g->setQueryCacheImpl($c);
         $g->setResultCacheImpl($d);
@@ -1831,7 +1832,7 @@ class appDevDebugProjectContainer extends Container
         $l = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($j, array('always_use_default_target_path' => true, 'default_target_path' => '/Accueil', 'login_path' => 'login', 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $l->setProviderKey('main');
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $i, 1 => $this->get('security.user.provider.concrete.main')), 'main', $a, $c), 2 => $k, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $j, 'main', $l, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $j, array('login_path' => 'login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '539b20abe6bae', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $j, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $j, 'login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $i, 1 => $this->get('security.user.provider.concrete.main')), 'main', $a, $c), 2 => $k, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $j, 'main', $l, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $j, array('login_path' => 'login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '539b4dc0d6027', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $j, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $j, 'login', false), NULL, NULL, $a));
     }
 
     /**
@@ -2861,6 +2862,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/src/webStudent/EtudiantBundle/Resources/views', 'webStudentEtudiant');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/src/webStudent/UserBundle/Resources/views', 'webStudentUser');
+        $instance->addPath('/Applications/MAMP/htdocs/symfony/src/webStudent/EntrepriseBundle/Resources/views', 'webStudentEntreprise');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/src/Acme/DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/Applications/MAMP/htdocs/symfony/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
@@ -3114,7 +3116,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('539b20abe6bae')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('539b4dc0d6027')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -3308,6 +3310,7 @@ class appDevDebugProjectContainer extends Container
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'webStudentEtudiantBundle' => 'webStudent\\EtudiantBundle\\webStudentEtudiantBundle',
                 'webStudentUserBundle' => 'webStudent\\UserBundle\\webStudentUserBundle',
+                'webStudentEntrepriseBundle' => 'webStudent\\EntrepriseBundle\\webStudentEntrepriseBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',

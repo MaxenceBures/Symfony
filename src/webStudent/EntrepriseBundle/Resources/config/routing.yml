@@ -1,0 +1,16 @@
+web_student_entreprise_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: webStudentEntrepriseBundle:Default:index }
+#Entreprise
+ListeEntreprise:
+    path: /Entreprise/consulterListeEntreprise/
+    defaults: { _controller: webStudentEntrepiseBundle:Entreprise:listeEntreprise}
+ConsulterEntreprise:
+    path: /Entreprise/consulterEntreprise/{id}
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:consulterEntreprise}
+AjouterEntreprise:
+    path: /Entreprise/ajouterEntreprise
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:ajouterEntreprise}
+ModifierEntreprise:
+    path: /Entreprise/modifEntreprise/{id}
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:modifierEntreprise}

@@ -23,7 +23,7 @@ class Stage
     private $id;
 
     /**
-* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Entreprise", inversedBy="utilisateurs")
+* @ORM\ManyToOne(targetEntity="webStudent\EntrepriseBundle\Entity\Entreprise", inversedBy="utilisateurs")
 *  @ORM\JoinColumn(nullable=false)
 */
       private $entreprise;
@@ -70,7 +70,7 @@ class Stage
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -86,14 +86,14 @@ class Stage
     public function setIntitule($intitule)
     {
         $this->intitule = $intitule;
-    
+
         return $this;
     }
 
     /**
      * Get intitule
      *
-     * @return string 
+     * @return string
      */
     public function getIntitule()
     {
@@ -109,14 +109,14 @@ class Stage
     public function setDateDebut($dateDebut)
     {
         $this->dateDebut = $dateDebut;
-    
+
         return $this;
     }
 
     /**
      * Get dateDebut
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateDebut()
     {
@@ -132,14 +132,14 @@ class Stage
     public function setDateFin($dateFin)
     {
         $this->dateFin = $dateFin;
-    
+
         return $this;
     }
 
     /**
      * Get dateFin
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateFin()
     {
@@ -155,14 +155,14 @@ class Stage
     public function setActivite($activite)
     {
         $this->activite = $activite;
-    
+
         return $this;
     }
 
     /**
      * Get activite
      *
-     * @return string 
+     * @return string
      */
     public function getActivite()
     {
@@ -178,31 +178,31 @@ class Stage
     public function setEntreprise($entreprise)
     {
         $this->entreprise = $entreprise;
-    
+
         return $this;
     }
 
     /**
      * Get entreprise
      *
-     * @return string 
+     * @return string
      */
    /* public function getEntreprise()
     {
         return $this->entreprise;
     }
 */
-     public function setEntreprise(\webStudent\EtudiantBundle\Entity\Entreprise $entreprise)
+     public function setEntreprise(\webStudent\EntrepriseBundle\Entity\Entreprise $entreprise)
     {
         $this->entreprise = $entreprise;
-    
+
         return $this;
     }
 
     /**
-     * Get section
+     * Get entreprise
      *
-     * @return \webStudent\EtudiantBundle\Entity\Section 
+     * @return \webStudent\EtudiantBundle\Entity\Section
      */
     public function getEntreprise()
     {
@@ -218,14 +218,14 @@ class Stage
     public function setEtudiant(\webStudent\EtudiantBundle\Entity\Etudiant $etudiant)
     {
         $this->etudiant = $etudiant;
-    
+
         return $this;
     }
 
     /**
      * Get etudiant
      *
-     * @return \webStudent\EtudiantBundle\Entity\Etudiant 
+     * @return \webStudent\EtudiantBundle\Entity\Etudiant
      */
     public function getEtudiant()
     {
