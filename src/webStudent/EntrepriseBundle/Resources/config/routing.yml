@@ -1,25 +1,27 @@
-web_student_entreprise_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: webStudentEntrepriseBundle:Default:index }
-
 #Entreprise
-ListeEntreprise:
-    path: /Entreprise/consulterListeEntreprise/
-    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:listeEntreprise}
-ConsulterEntreprise:
-    path: /Entreprise/consulterEntreprise/{id}
-    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:consulterEntreprise}
 AjouterEntreprise:
     path: /Entreprise/ajouterEntreprise
     defaults: { _controller: webStudentEntrepriseBundle:Entreprise:ajouterEntreprise}
 ModifierEntreprise:
     path: /Entreprise/modifEntreprise/{id}
     defaults: { _controller: webStudentEntrepriseBundle:Entreprise:modifierEntreprise}
+ConsulterEntreprise:
+    path: /Entreprise/consulterEntreprise/{id}
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:consulterEntreprise}
+ListeEntreprise:
+    path: /Entreprise/consulterListeEntreprise/
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:listeEntreprise}
 
 #Activite
-ListeActivite:
-    path: /Activite/consulterListeActivite/
-    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:listeActivite}
+AjouterActivite:
+    path: /Entreprise/ajouterActivite
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:ajouterActivite}
 ModifierActivite:
     path: /Activite/modifActivite/{id}
     defaults: { _controller: webStudentEntrepriseBundle:Entreprise:modifierActivite}
+ConsulterActivite:
+    path: /Entreprise/consulterActivite/{id}
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:consulterActivite}
+ListeActivite:
+    path: /Activite/consulterListeActivite/
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:listeActivite}

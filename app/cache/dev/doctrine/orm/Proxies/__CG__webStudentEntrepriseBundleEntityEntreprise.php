@@ -99,7 +99,7 @@ class Entreprise extends \webStudent\EntrepriseBundle\Entity\Entreprise implemen
         return parent::getCp();
     }
 
-    public function setActivite(\webStudent\EtudiantBundle\Entity\Activite $activite)
+    public function setActivite(\webStudent\EntrepriseBundle\Entity\Activite $activite)
     {
         $this->__load();
         return parent::setActivite($activite);

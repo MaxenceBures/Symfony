@@ -168,29 +168,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // web_student_entreprise_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_student_entreprise_homepage')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\DefaultController::indexAction',));
-        }
-
         if (0 === strpos($pathinfo, '/Entreprise')) {
-            if (0 === strpos($pathinfo, '/Entreprise/consulter')) {
-                // ListeEntreprise
-                if (rtrim($pathinfo, '/') === '/Entreprise/consulterListeEntreprise') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'ListeEntreprise');
-                    }
-
-                    return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeEntrepriseAction',  '_route' => 'ListeEntreprise',);
-                }
-
-                // ConsulterEntreprise
-                if (0 === strpos($pathinfo, '/Entreprise/consulterEntreprise') && preg_match('#^/Entreprise/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEntreprise')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::consulterEntrepriseAction',));
-                }
-
-            }
-
             // AjouterEntreprise
             if ($pathinfo === '/Entreprise/ajouterEntreprise') {
                 return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::ajouterEntrepriseAction',  '_route' => 'AjouterEntreprise',);
@@ -201,23 +179,47 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierEntreprise')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::modifierEntrepriseAction',));
             }
 
-        }
-
-        if (0 === strpos($pathinfo, '/Activite')) {
-            // ListeActivite
-            if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'ListeActivite');
+            if (0 === strpos($pathinfo, '/Entreprise/consulter')) {
+                // ConsulterEntreprise
+                if (0 === strpos($pathinfo, '/Entreprise/consulterEntreprise') && preg_match('#^/Entreprise/consulterEntreprise/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterEntreprise')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::consulterEntrepriseAction',));
                 }
 
-                return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeActiviteAction',  '_route' => 'ListeActivite',);
+                // ListeEntreprise
+                if (rtrim($pathinfo, '/') === '/Entreprise/consulterListeEntreprise') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'ListeEntreprise');
+                    }
+
+                    return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeEntrepriseAction',  '_route' => 'ListeEntreprise',);
+                }
+
             }
 
-            // ModifierActivite
-            if (0 === strpos($pathinfo, '/Activite/modifActivite') && preg_match('#^/Activite/modifActivite/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierActivite')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::modifierActiviteAction',));
+            // AjouterActivite
+            if ($pathinfo === '/Entreprise/ajouterActivite') {
+                return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::ajouterActiviteAction',  '_route' => 'AjouterActivite',);
             }
 
+        }
+
+        // ModifierActivite
+        if (0 === strpos($pathinfo, '/Activite/modifActivite') && preg_match('#^/Activite/modifActivite/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierActivite')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::modifierActiviteAction',));
+        }
+
+        // ConsulterActivite
+        if (0 === strpos($pathinfo, '/Entreprise/consulterActivite') && preg_match('#^/Entreprise/consulterActivite/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterActivite')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::consulterActiviteAction',));
+        }
+
+        // ListeActivite
+        if (rtrim($pathinfo, '/') === '/Activite/consulterListeActivite') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'ListeActivite');
+            }
+
+            return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeActiviteAction',  '_route' => 'ListeActivite',);
         }
 
         // web_student_user_homepage

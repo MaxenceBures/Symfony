@@ -1,0 +1,34 @@
+{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/ajouterEntreprise.html.twig #}
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+
+	<h2>Ajouter une Activite</h2>
+
+	</br>
+
+	<form method="post" {{ form_enctype(form) }}>
+	<!-- {{ form_errors(form) }} -->
+		<table>
+			<tr>
+				<th width="300">Code</th>
+				{{ form_errors(form.code) }}
+				<td width="300">{{ form_widget(form.code, {'attr': {'placeholder': 'Code'} }) }}</td>
+			</tr>
+			<tr>
+				<th>Libelle</th>
+				{{ form_errors(form.libelle) }}
+				<td>{{ form_widget(form.libelle, {'attr': {'placeholder': 'Libelle'} }) }}</td>
+			</tr>
+			<tr>
+			<td align="center"><button type="reset">Effacer</button>
+			<td align="center"><button type="submit">Valider</button>
+		</tr>
+		</table>
+		{{ form_rest(form) }}
+	</form>
+
+
+
+{% endblock %}

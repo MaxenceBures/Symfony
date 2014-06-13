@@ -5,6 +5,7 @@ namespace webStudent\EntrepriseBundle\Controller;
 use webStudent\EntrepriseBundle\Form\EntrepriseType;
 use webStudent\EntrepriseBundle\Form\EntrepriseModifType;
 use webStudent\EntrepriseBundle\Form\ActiviteType;
+use webStudent\EntrepriseBundle\Form\ActiviteModifType;
 use webStudent\EntrepriseBundle\Entity\Entreprise;
 use webStudent\EntrepriseBundle\Entity\Activite;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -143,6 +144,7 @@ class EntrepriseController extends Controller
           'form' => $form->createView(),
           ));
     }
+      //Activité
   public function listeActiviteAction()
    {
 
@@ -160,7 +162,7 @@ class EntrepriseController extends Controller
          //var_dump($listeEtudiant) ;
          return $this->render('webStudentEntrepriseBundle:Entreprise:consulterListeActivite.html.twig', array('listeActivite' => $listeActivite));
    }
-public function modifierActiviteAction($id)
+ public function modifierActiviteAction($id)
   {
 
 
@@ -201,4 +203,71 @@ public function modifierActiviteAction($id)
         'form' => $form->createView(),
         ));
   }
+  public function consulterActiviteAction($id)
+    {
+
+            if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+        // Sinon on déclenche une exception « Accès interdit »
+        return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+        //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+      }
+      $repository = $this->getDoctrine()
+                  ->getManager()
+                  ->getRepository('webStudentEntrepriseBundle:Activite');
+      // On récupère l'entité correspondant à l'id $id
+      $activite = $repository->find($id);
+      // Ou null si aucune section n'a été trouvé avec l'id $id
+       if($activite === null)
+          {
+       throw $this->createNotFoundException('Activite[id='.$id.'] inexistant.');
+      }
+      return $this->render('webStudentEntrepriseBundle:Entreprise:consultActivite.html.twig', array('activite' =>$activite
+
+      ));
+    }
+
+    public function ajouterActiviteAction()
+      {
+
+              if (!$this->get('security.context')->isGranted('ROLE_USER')) {
+          // Sinon on déclenche une exception « Accès interdit »
+          return $this->render('webStudentEtudiantBundle:Etudiant:login.html.twig');
+          //throw new AccessDeniedHttpException('Accès limité aux enseignants');
+        }
+
+        // On teste que l'utilisateur dispose bien du rôle ROLE_ENSEIGNANT
+
+
+        //var_dump($section);
+          $activite = new Activite();
+          $form = $this->createForm(new ActiviteType, $activite);
+
+          // On récupère la requête
+          $request = $this->get('request');
+
+          // On vérifie qu'elle est de type POST
+          if ($request->getMethod() == 'POST') {
+            // On fait le lien Requête <-> Formulaire
+            // À partir de maintenant, la variable $etudiant contient les valeurs entrées dans le formulaire par le visiteur
+            $form->bind($request);
+
+            // On vérifie que les valeurs entrées sont correctes
+            if ($form->isValid()) {
+              // On l'enregistre notre objet $etudiant dans la base de données
+              $em = $this->getDoctrine()->getManager();
+              $em->persist($activite);
+              $em->flush();
+
+              // On redirige vers la page de visualisation de l'etudiant nouvellement créé
+            return $this->render('webStudentEntrepriseBundle:Entreprise:consultActivite.html.twig', array('activite' =>$activite));
+            }
+          }
+          // À ce stade :
+          // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
+          // - Soit la requête est de type POST, mais le formulaire n'est pas valide, donc on l'affiche de nouveau
+          return $this->render('webStudentEntrepriseBundle:Entreprise:ajouterActivite.html.twig', array(
+          'form' => $form->createView(),
+          ));
+
+      }
 }

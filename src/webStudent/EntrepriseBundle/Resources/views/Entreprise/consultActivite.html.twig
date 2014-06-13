@@ -1,0 +1,25 @@
+{% extends "::layout.html.twig" %}
+
+	{% block body %}
+
+ <h1 >Activite  </h1>
+  <table cellspacing="0" >
+ 	<tr>
+			<th>Id </th>
+			<td> {{activite.id}}</td>
+		</tr>
+ 	<tr>
+ 		<th>Code </th>
+ 		<td> {{activite.code}}</td>
+ 	</tr>
+ 	<tr>
+ 		<th>Libelle </th>
+ 		<td> {{activite.libelle}}</td>
+ 	</tr>
+
+	<th>Modification</th>
+ 		<td><a href="{{ path('ModifierActivite', {'id': activite.id}) }}">Modification</a></td>
+ 	</tr>
+
+ </table>
+ {% endblock %}

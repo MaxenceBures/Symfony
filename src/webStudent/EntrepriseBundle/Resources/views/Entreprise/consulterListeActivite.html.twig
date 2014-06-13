@@ -8,7 +8,7 @@
 				<th width="200">Id</th>
 				<th width="200">Libelle</th>
 				<th width="200">Code</th>
-				<th width="200">Modifier</th>
+				<th width="200"></th>
 
 			</tr>
 		</thead>
@@ -19,13 +19,12 @@
 				<td>{{ activite.id }} </td>
 				<td>{{ activite.libelle }}</td>
 				<td>{{ activite.code }}</td>
-
-	<td><a href="{{ path('ModifierActivite', {'id': activite.id}) }}">Modification</a></td>
+				<td><a href="{{ path('ConsulterActivite', {'id': activite.id}) }}">Plus d'infos</a></td>
 
 			</tr>
 		</tbody>
 	{% endfor %}
 	</table>
-
+<button onclick="self.location.href='{{ path('AjouterActivite')}}'">Ajouter Activité</button>	
 
 {% endblock %}

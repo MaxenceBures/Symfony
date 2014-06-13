@@ -20,7 +20,7 @@ class ActiviteModifType extends ActiviteType
     //$etudiant = $options['data'];
 
 
-    $builder->add('libelle', 'text', array('read_only' => true));
+    $builder->add('libelle', 'text', array('read_only' => false));
     $builder->add('code', 'text', array('read_only' => false));
 
 
@@ -42,3 +42,5 @@ class ActiviteModifType extends ActiviteType
     public function getName()
     {
         return 'webstudent_entreprisebundle_activiteModif';
+      }
+    }

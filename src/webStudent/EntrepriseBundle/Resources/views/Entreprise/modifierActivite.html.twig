@@ -7,13 +7,14 @@
 		<form method="post" {{ form_enctype(form) }}>
 		{{ form_errors(form) }}
 			<table>
-
+				<tr>
+					<th>Code</th>
+					<td>{{ form_widget(form.code, {'attr': {'placeholder': 'Code'} }) }}</td>
+				</tr>
 				<tr>
 					<th>Raison Sociale</th>
 					<td>{{ form_widget(form.libelle, {'attr': {'placeholder': 'Libelle'} }) }}</td>
 				</tr>
-				
-
 				<tr>
 					<td colspan="2" style="text-align:center;"><button type="submit">Modifier</button></td>
 				</tr>
