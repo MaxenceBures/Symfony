@@ -1,7 +1,0 @@
-4a5044,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1402686568,
-98947f,::1,POST,http://localhost:8888/symfony/web/app_dev.php/login_check,1402686577,
-d82151,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil,1402686577,
-f9614a,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Accueil/,1402686578,
-c8aee5,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Entreprise/consulterListeEntreprise/,1402686580,
-c90066,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Entreprise/consulterListeEntreprise/,1402686580,
-461ec2,::1,GET,http://localhost:8888/symfony/web/app_dev.php/Etudiant/listeEtudiant/,1402686914,

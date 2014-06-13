@@ -4,7 +4,7 @@ web_student_entreprise_homepage:
 #Entreprise
 ListeEntreprise:
     path: /Entreprise/consulterListeEntreprise/
-    defaults: { _controller: webStudentEntrepiseBundle:Entreprise:listeEntreprise}
+    defaults: { _controller: webStudentEntrepriseBundle:Entreprise:listeEntreprise}
 ConsulterEntreprise:
     path: /Entreprise/consulterEntreprise/{id}
     defaults: { _controller: webStudentEntrepriseBundle:Entreprise:consulterEntreprise}

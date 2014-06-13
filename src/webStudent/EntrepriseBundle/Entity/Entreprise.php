@@ -3,7 +3,7 @@
 namespace webStudent\EntrepriseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use webStudent\EtudiantseBundle\Entity\Activite;
+
 use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Entreprise
@@ -23,7 +23,7 @@ class Entreprise
     private $id;
 
       /**
-* @ORM\ManyToOne(targetEntity="webStudent\EtudiantseBundle\Entity\Activite")
+* @ORM\ManyToOne(targetEntity="webStudent\EtudiantBundle\Entity\Activite")
 *  @ORM\JoinColumn(nullable=false)
 */
       private $activite;
@@ -202,4 +202,5 @@ class Entreprise
     {
         return $this->activite;
     }
+      
 }

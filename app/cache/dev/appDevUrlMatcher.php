@@ -146,7 +146,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         return $this->redirect($pathinfo.'/', 'ListeEntreprise');
                     }
 
-                    return array (  '_controller' => 'webStudentEntrepiseBundle:Entreprise:listeEntreprise',  '_route' => 'ListeEntreprise',);
+                    return array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\EntrepriseController::listeEntrepriseAction',  '_route' => 'ListeEntreprise',);
                 }
 
                 // ConsulterEntreprise
