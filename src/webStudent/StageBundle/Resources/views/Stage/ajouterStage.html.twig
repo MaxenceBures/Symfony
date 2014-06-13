@@ -1,12 +1,12 @@
-{# src/webStudent/EtudiantBundle/Resources/views/Etudiant/ajouterStage.html.twig #}
+{# src/webStudent/StageBundle/Resources/views/Stage/ajouterStage.html.twig #}
 {% extends "::layout.html.twig" %}
-	
+
 {% block body %}
 
 
 
 	<h2>Ajouter un Stage</h2>
-	
+
 	</br>
 
 	<form  method="post" {{ form_enctype(form) }}>
@@ -42,13 +42,13 @@
 				{{ form_errors(form.etudiant) }}
 				<td>{{ form_widget(form.etudiant) }}</td>
 			</tr>
-			
+
 			<tr>
 		<td align="center"><button type="reset">Effacer</button>
 		<td align="center"><button type="submit">Valider</button>
 	</tr>
 		</table>
-		{{ form_rest(form) }}			 
+		{{ form_rest(form) }}
 	</form>
 
 

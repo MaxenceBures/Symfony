@@ -133,6 +133,41 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // web_student_stage_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_student_stage_homepage')), array (  '_controller' => 'webStudent\\StageBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/Stage')) {
+            // AjouterStage
+            if ($pathinfo === '/Stage/ajouterStage') {
+                return array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::ajouterStageAction',  '_route' => 'AjouterStage',);
+            }
+
+            // ModifierStage
+            if (0 === strpos($pathinfo, '/Stage/modifStage') && preg_match('#^/Stage/modifStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierStage')), array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::modifierStageAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/Stage/consulter')) {
+                // ConsulterStage
+                if (0 === strpos($pathinfo, '/Stage/consulterStage') && preg_match('#^/Stage/consulterStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterStage')), array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::consulterStageAction',));
+                }
+
+                // ListeStage
+                if (rtrim($pathinfo, '/') === '/Stage/consulterListeStage') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'ListeStage');
+                    }
+
+                    return array (  '_controller' => 'webStudent\\StageBundle\\Controller\\StageController::listeStageAction',  '_route' => 'ListeStage',);
+                }
+
+            }
+
+        }
+
         // web_student_entreprise_homepage
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'web_student_entreprise_homepage')), array (  '_controller' => 'webStudent\\EntrepriseBundle\\Controller\\DefaultController::indexAction',));
@@ -199,36 +234,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::layoutAction',  '_route' => 'layoutAction',);
-        }
-
-        if (0 === strpos($pathinfo, '/Stage')) {
-            // AjouterStage
-            if ($pathinfo === '/Stage/ajouterStage') {
-                return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::ajouterStageAction',  '_route' => 'AjouterStage',);
-            }
-
-            // ModifierStage
-            if (0 === strpos($pathinfo, '/Stage/modifStage') && preg_match('#^/Stage/modifStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ModifierStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::modifierStageAction',));
-            }
-
-            if (0 === strpos($pathinfo, '/Stage/consulter')) {
-                // ConsulterStage
-                if (0 === strpos($pathinfo, '/Stage/consulterStage') && preg_match('#^/Stage/consulterStage/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ConsulterStage')), array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::consulterStageAction',));
-                }
-
-                // ListeStage
-                if (rtrim($pathinfo, '/') === '/Stage/consulterListeStage') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'ListeStage');
-                    }
-
-                    return array (  '_controller' => 'webStudent\\EtudiantBundle\\Controller\\EtudiantController::listeStageAction',  '_route' => 'ListeStage',);
-                }
-
-            }
-
         }
 
         if (0 === strpos($pathinfo, '/Etudiant')) {

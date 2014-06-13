@@ -1,6 +1,6 @@
 <?php
 
-namespace webStudent\EtudiantBundle\Entity;
+namespace webStudent\StageBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

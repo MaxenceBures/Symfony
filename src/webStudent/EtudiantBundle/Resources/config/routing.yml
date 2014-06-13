@@ -11,19 +11,6 @@ layoutAction:
     path: /layout/
     defaults: { _controller: webStudentEtudiantBundle:Etudiant:layout}
 
-#Stage
-AjouterStage:
-    path: /Stage/ajouterStage
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:ajouterStage}
-ModifierStage:
-    path: /Stage/modifStage/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:modifierStage}
-ConsulterStage:
-    path: /Stage/consulterStage/{id}
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:consulterStage}
-ListeStage:
-    path: /Stage/consulterListeStage/
-    defaults: { _controller: webStudentEtudiantBundle:Etudiant:listeStage}
 #Etudiant
 ListeEtudiant:
     path: /Etudiant/listeEtudiant/

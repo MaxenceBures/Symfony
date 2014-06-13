@@ -1,6 +1,6 @@
 <?php
 
-namespace webStudent\EtudiantBundle\Form;
+namespace webStudent\StageBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,7 +20,7 @@ class StageType extends AbstractType
             ->add('dateFin','date')
             ->add('activite','text')
             ->add('entreprise','entity', array(
-                                        'class'    => 'webStudentEtudiantBundle:Entreprise',
+                                        'class'    => 'webStudentEntrepriseBundle:Entreprise',
                                         'property' => 'raisonSociale',
                                         'multiple' => false,
                                         'expanded' => false))
@@ -31,14 +31,14 @@ class StageType extends AbstractType
                                         'expanded' => false))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'webStudent\EtudiantBundle\Entity\Stage'
+            'data_class' => 'webStudent\StageBundle\Entity\Stage'
         ));
     }
 
@@ -47,6 +47,6 @@ class StageType extends AbstractType
      */
     public function getName()
     {
-        return 'webstudent_etudiantbundle_stage';
+        return 'webstudent_stagebundle_stage';
     }
 }

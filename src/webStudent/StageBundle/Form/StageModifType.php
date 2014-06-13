@@ -1,6 +1,6 @@
 <?php
 
-namespace webStudent\EtudiantBundle\Form;
+namespace webStudent\StageBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,20 +19,20 @@ class StageModifType extends StageType
 		parent::buildForm($builder, $options);
 		//$etudiant = $options['data'];
 
-        
+
 		$builder->add('intitule', 'text', array('read_only' => false));
         $builder->add('dateDebut', 'date', array('read_only' => false));
         $builder->add('dateFin', 'date', array('read_only' => false));
         $builder->add('activite', 'text', array('read_only' => false));
 	}
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'webStudent\EtudiantBundle\Entity\Stage'
+            'data_class' => 'webStudent\StageBundle\Entity\Stage'
         ));
     }
 
@@ -41,6 +41,6 @@ class StageModifType extends StageType
      */
     public function getName()
     {
-        return 'webstudent_etudiantbundle_stageModif';
+        return 'webstudent_stagebundle_stageModif';
     }
 }
