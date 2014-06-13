@@ -73,7 +73,7 @@ class User implements UserInterface, \Serializable
     public function setUsername($username)
     {
         $this->username = $username;
-    
+
         return $this;
     }
 
@@ -85,8 +85,8 @@ class User implements UserInterface, \Serializable
      */
     public function setPassword($password)
     {
-        $this->password = $password;
-    
+        $this->password = sha1($password);
+
         return $this;
     }
 

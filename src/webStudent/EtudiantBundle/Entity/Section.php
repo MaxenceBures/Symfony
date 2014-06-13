@@ -47,7 +47,7 @@ class Section
     /**
     * @var integer
      *
-     * @ORM\Column(name="nb", type="integer", length=10) 
+     * @ORM\Column(name="nb", type="integer", length=10)
      */
 
      private $nb;
@@ -56,7 +56,7 @@ class Section
     /**
      * Get nb
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -72,14 +72,14 @@ class Section
     public function setCode($code)
     {
         $this->code = $code;
-    
+
         return $this;
     }
 
     /**
      * Get code
      *
-     * @return string 
+     * @return string
      */
     public function getCode()
     {
@@ -95,14 +95,14 @@ class Section
     public function setNom($nom)
     {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
     /**
      * Get nom
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -149,14 +149,14 @@ class Section
     public function setNb($nb)
     {
         $this->nb = $nb;
-    
+
         return $this;
     }
 
     /**
      * Get nb
      *
-     * @return integer 
+     * @return integer
      */
     public function getNb()
     {
@@ -169,7 +169,7 @@ class Section
     {
         $this->utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add utilisateurs
      *
@@ -179,7 +179,7 @@ class Section
     public function addUtilisateur(\webStudent\EtudiantBundle\Entity\Utilisateur $utilisateurs)
     {
         $this->utilisateurs[] = $utilisateurs;
-    
+
         return $this;
     }
 
@@ -196,10 +196,16 @@ class Section
     /**
      * Get utilisateurs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUtilisateurs()
     {
         return $this->utilisateurs;
+    }
+
+    public function getDescSection()
+    {
+      return sprintf('%s - %s', $this->code, $this->nom);
+
     }
 }

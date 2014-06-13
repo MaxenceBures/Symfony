@@ -7,11 +7,11 @@
 <form  method="post" {{ form_enctype(form) }}>
 {{ form_errors(form) }}
 	<table >
-	
+
 		<tr>
 			<th>Nom</th>
 			<td>{{ form_widget(form.nom) }}</td>
-		</tr>	
+		</tr>
 		<tr>
 			<th>Prénom</th>
 			<td>{{ form_widget(form.prenom) }}</td>
@@ -34,12 +34,11 @@
 			<th>Section</th>
 			<td>{{ form_widget(form.section) }}</td>
 		</tr>
-		
+
 		<tr>
-			<td colspan="2" style="text-align:center;"><input type="submit"  value="Valider"/></td>
+			<td colspan="2" style="text-align:center;"><button type="submit"  value="Modifier"/>Modifier</td>
 		</tr>
 	</table>
-	{{ form_rest(form) }}			 
+	{{ form_rest(form) }}
 </form>
 {% endblock %}
-

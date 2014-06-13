@@ -1,38 +1,27 @@
 {# src/tapa2stage/EtudiantBundle/Resources/views/Etudiant/consulterEtudiant.html.twig #}
 {% extends "::layout.html.twig" %}
-	
+
 	{% block body %}
 
 
-		<h3>Détail compte <b>{{compte.user.username}} - {{compte.user.id}}</b></h3> 
+		<h3>Détail compte <b>{{app.user.username}} - {{app.user.id}}</b></h3>
 
 		<table>
 
 			<tr>
 				<th>Nom</th>
-				<td>{{compte.nom}}</td>
+				<td>{{app.user.username}}</td>
 			</tr>
 			<tr>
-				<th>Prénom</th>
-				<td>{{compte.prenom}}</td>
+				<th>Id</th>
+				<td>{{app.user.id}}</td>
 			</tr>
 			<tr>
-				<th>Téléphone</th>
-				<td>{{compte.telephone}}</td>
+				<th>Pwd</th>
+				<td>{{app.user.password}}</td>
 			</tr>
-			<tr>
-				<th>Section</th>
-				<td>{{compte.section.nom}}</td>
-			</tr>
-			<tr>
-				<th>Login</th>
-				<td>{{compte.user.username}}</td>
-			</tr>
-			<tr>
-				<th>Mot de passe</th>
-				<td>{{compte.user.password}}</td>
-			</tr>
+
 		</table>
 
-<button onclick="self.location.href='{{ path('ModifierCompte', {'id': compte.user.id})}}'">Modifier votre compte</button>	
+<button onclick="self.location.href='{{ path('ModifierCompte', {'id': app.user.id})}}'">Modifier votre compte</button>
 {% endblock %}

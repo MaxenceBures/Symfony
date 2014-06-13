@@ -117,6 +117,12 @@ class Section extends \webStudent\EtudiantBundle\Entity\Section implements \Doct
         return parent::getUtilisateurs();
     }
 
+    public function getDescSection()
+    {
+        $this->__load();
+        return parent::getDescSection();
+    }
+
 
     public function __sleep()
     {

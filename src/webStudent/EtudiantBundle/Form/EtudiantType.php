@@ -22,12 +22,12 @@ class EtudiantType extends AbstractType
             ->add('date','date')
             ->add('section','entity', array(
                                         'class'    => 'webStudentEtudiantBundle:Section',
-                                        'property' => 'nom',
+                                        'property' => 'DescSection',
                                         'multiple' => false,
                                         'expanded' => false))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
