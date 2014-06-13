@@ -7,11 +7,11 @@
 <form method="post" {{ form_enctype(form) }}>
 {{ form_errors(form) }}
 	<table >
-	
+
 		<tr>
 			<th>Intitulé</th>
 			<td>{{ form_widget(form.intitule, {'attr': {'placeholder': 'Intitulé'} }) }}</td>
-		</tr>	
+		</tr>
 		<tr>
 			<th>Date début de stage</th>
 			<td>{{ form_widget(form.dateDebut, {'attr': {'placeholder': 'Date début de stage'} }) }}</td>
@@ -34,9 +34,9 @@
 			<td>{{ form_widget(form.etudiant) }}</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align:center;"><input type="submit"  value="Valider"/></td>
+			<td colspan="2" style="text-align:center;"><button type="submit"  value="Modifier"/>Modifier</button></td>
 		</tr>
 	</table>
-	{{ form_rest(form) }}			 
+	{{ form_rest(form) }}
 </form>
 {% endblock %}
