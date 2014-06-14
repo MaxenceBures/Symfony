@@ -2,17 +2,11 @@
 
 namespace webStudent\EtudiantBundle\Controller;
 
-//use webStudent\EtudiantBundle\Form\EntrepriseType;
-//use webStudent\EtudiantBundle\Form\EntrepriseModifType;
 use webStudent\EtudiantBundle\Form\EtudiantType;
 use webStudent\EtudiantBundle\Form\EtudiantModifType;
 use webStudent\UserBundle\Form\UserType;
 use webStudent\UserBundle\Form\UserModifType;
-//use webStudent\EtudiantBundle\Form\StageType;
-//use webStudent\EtudiantBundle\Form\StageModifType;
 use webStudent\EtudiantBundle\Entity\Etudiant;
-//use webStudent\EtudiantBundle\Entity\Stage;
-//use webStudent\EtudiantBundle\Entity\Entreprise;
 use webStudent\EtudiantBundle\Entity\Enseignant;
 use webStudent\EtudiantBundle\Entity\Section;
 use webStudent\EtudiantBundle\Entity\Utilisateur;
@@ -204,7 +198,7 @@ class EtudiantController extends Controller
       'error'         => $error,
     ));
   }
-   
+
   public function consulterCompteAction ($id)
       {
            if (!$this->get('security.context')->isGranted('ROLE_USER')) {

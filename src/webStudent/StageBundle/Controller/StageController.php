@@ -2,20 +2,9 @@
 
 namespace webStudent\StageBundle\Controller;
 
-//use webStudent\EtudiantBundle\Form\EntrepriseType;
-//use webStudent\EtudiantBundle\Form\EntrepriseModifType;
-//use webStudent\EtudiantBundle\Form\EtudiantType;
-//use webStudent\EtudiantBundle\Form\EtudiantModifType;
-//use webStudent\UserBundle\Form\UserType;
-//use webStudent\UserBundle\Form\UserModifType;
 use webStudent\StageBundle\Form\StageType;
 use webStudent\StageBundle\Form\StageModifType;
-//use webStudent\EtudiantBundle\Entity\Etudiant;
 use webStudent\StageBundle\Entity\Stage;
-//use webStudent\EtudiantBundle\Entity\Entreprise;
-//use webStudent\EtudiantBundle\Entity\Enseignant;
-//use webStudent\EtudiantBundle\Entity\Section;
-//use webStudent\EtudiantBundle\Entity\Utilisateur;
 use webStudent\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -147,6 +136,5 @@ class StageController extends Controller
           'form' => $form->createView(),
           ));
     }
-
 
 }
